@@ -1,6 +1,6 @@
 [package]
 name = "ElasticEmail"
-version = "4.0.0"
+version = "4.0.11"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 

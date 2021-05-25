@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **attachments** | Option<[**Vec<crate::models::MessageAttachment>**](MessageAttachment.md)> | Attachments provided by sending binary data | [optional]
 **headers** | Option<**::std::collections::HashMap<String, String>**> | A key-value collection of custom e-mail headers. | [optional]
 **postback** | Option<**String**> | Postback header. | [optional]
+**envelope_from** | Option<**String**> | E-mail with an optional name to be used as the envelope from address (e.g.: John Doe <email@domain.com>) | [optional]
 **from** | Option<**String**> | Your e-mail with an optional name (e.g.: John Doe <email@domain.com>) | [optional]
 **reply_to** | Option<**String**> | To what address should the recipients reply to (e.g. John Doe <email@domain.com>) | [optional]
 **subject** | Option<**String**> | Default subject of email. | [optional]

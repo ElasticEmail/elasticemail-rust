@@ -115,7 +115,7 @@ Returns a list of templates for the specified type. Required Access Level: ViewT
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**scope_type** | [**Vec<crate::models::TemplateScopeType>**](crate::models::TemplateScopeType.md) | Return templates with specified scope only | [required] |
+**scope_type** | [**Vec<crate::models::TemplateScope>**](crate::models::TemplateScope.md) | Return templates with specified scope only | [required] |
 **template_types** | Option<[**Vec<crate::models::TemplateType>**](crate::models::TemplateType.md)> | Return templates with specified type only |  |
 **limit** | Option<**i32**> | Maximum number of returned items. |  |
 **offset** | Option<**i32**> | How many items should be returned ahead. |  |
