@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**verifications_files_by_id_delete**](VerificationsApi.md#verifications_files_by_id_delete) | **delete** /verifications/files/{id} | Delete File Verification Result
 [**verifications_files_by_id_result_download_get**](VerificationsApi.md#verifications_files_by_id_result_download_get) | **get** /verifications/files/{id}/result/download | Download File Verification Result
 [**verifications_files_by_id_result_get**](VerificationsApi.md#verifications_files_by_id_result_get) | **get** /verifications/files/{id}/result | Get Detailed File Verification Result
-[**verifications_files_post**](VerificationsApi.md#verifications_files_post) | **post** /verifications/files | Verify From File
-[**verifications_files_result_get**](VerificationsApi.md#verifications_files_result_get) | **get** /verifications/files/result | Get Simple Files Verification Results
+[**verifications_files_by_id_verification_post**](VerificationsApi.md#verifications_files_by_id_verification_post) | **post** /verifications/files/{id}/verification | Start verification
+[**verifications_files_post**](VerificationsApi.md#verifications_files_post) | **post** /verifications/files | Upload File with Emails
+[**verifications_files_result_get**](VerificationsApi.md#verifications_files_result_get) | **get** /verifications/files/result | Get Files Verification Results
 [**verifications_get**](VerificationsApi.md#verifications_get) | **get** /verifications | Get Emails Verification Results
 
 
@@ -198,12 +199,42 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## verifications_files_by_id_verification_post
+
+> verifications_files_by_id_verification_post(id)
+Start verification
+
+Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** | File ID to start verification | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## verifications_files_post
 
 > crate::models::VerificationFileResult verifications_files_post(file)
-Verify From File
+Upload File with Emails
 
-Uploads a CSV file with list of emails to verify. An 'email' column is required. Required Access Level: VerifyEmails
+Uploads a CSV file with list of emails that can then be triggered for verification. An 'email' column is required. Required Access Level: VerifyEmails
 
 ### Parameters
 
@@ -231,7 +262,7 @@ Name | Type | Description  | Required | Notes
 ## verifications_files_result_get
 
 > Vec<crate::models::VerificationFileResult> verifications_files_result_get()
-Get Simple Files Verification Results
+Get Files Verification Results
 
 Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
 

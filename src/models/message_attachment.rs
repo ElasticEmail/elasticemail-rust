@@ -13,11 +13,13 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MessageAttachment {
+    /// File's content as byte array (or a Base64 string)
     #[serde(rename = "BinaryContent", skip_serializing_if = "Option::is_none")]
     pub binary_content: Option<String>,
-    /// Filename
+    /// Display name of the file
     #[serde(rename = "Name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
+    /// MIME content type
     #[serde(rename = "ContentType", skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
 }
