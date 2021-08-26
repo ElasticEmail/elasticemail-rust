@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**binary_content** | Option<**String**> | File's content as byte array (or a Base64 string) | [optional]
+**binary_content** | **String** | File's content as byte array (or a Base64 string) | 
 **name** | Option<**String**> | Display name of the file | [optional]
 **content_type** | Option<**String**> | MIME content type | [optional]
 

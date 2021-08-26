@@ -4,12 +4,12 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**subaccounts_by_email_credits_patch**](SubAccountsApi.md#subaccounts_by_email_credits_patch) | **patch** /subaccounts/{email}/credits | Add, Subtract Email Credits
-[**subaccounts_by_email_delete**](SubAccountsApi.md#subaccounts_by_email_delete) | **delete** /subaccounts/{email} | Delete SubAccount
-[**subaccounts_by_email_get**](SubAccountsApi.md#subaccounts_by_email_get) | **get** /subaccounts/{email} | Load SubAccount
-[**subaccounts_by_email_settings_email_put**](SubAccountsApi.md#subaccounts_by_email_settings_email_put) | **put** /subaccounts/{email}/settings/email | Update SubAccount Email Settings
-[**subaccounts_get**](SubAccountsApi.md#subaccounts_get) | **get** /subaccounts | Load SubAccounts
-[**subaccounts_post**](SubAccountsApi.md#subaccounts_post) | **post** /subaccounts | Add SubAccount
+[**subaccounts_by_email_credits_patch**](SubAccountsApi.md#subaccounts_by_email_credits_patch) | **PATCH** /subaccounts/{email}/credits | Add, Subtract Email Credits
+[**subaccounts_by_email_delete**](SubAccountsApi.md#subaccounts_by_email_delete) | **DELETE** /subaccounts/{email} | Delete SubAccount
+[**subaccounts_by_email_get**](SubAccountsApi.md#subaccounts_by_email_get) | **GET** /subaccounts/{email} | Load SubAccount
+[**subaccounts_by_email_settings_email_put**](SubAccountsApi.md#subaccounts_by_email_settings_email_put) | **PUT** /subaccounts/{email}/settings/email | Update SubAccount Email Settings
+[**subaccounts_get**](SubAccountsApi.md#subaccounts_get) | **GET** /subaccounts | Load SubAccounts
+[**subaccounts_post**](SubAccountsApi.md#subaccounts_post) | **POST** /subaccounts | Add SubAccount
 
 
 

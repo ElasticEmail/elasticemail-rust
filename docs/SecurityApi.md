@@ -4,16 +4,16 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**security_apikeys_by_name_delete**](SecurityApi.md#security_apikeys_by_name_delete) | **delete** /security/apikeys/{name} | Delete ApiKey
-[**security_apikeys_by_name_get**](SecurityApi.md#security_apikeys_by_name_get) | **get** /security/apikeys/{name} | Load ApiKey
-[**security_apikeys_by_name_put**](SecurityApi.md#security_apikeys_by_name_put) | **put** /security/apikeys/{name} | Update ApiKey
-[**security_apikeys_get**](SecurityApi.md#security_apikeys_get) | **get** /security/apikeys | List ApiKeys
-[**security_apikeys_post**](SecurityApi.md#security_apikeys_post) | **post** /security/apikeys | Add ApiKey
-[**security_smtp_by_name_delete**](SecurityApi.md#security_smtp_by_name_delete) | **delete** /security/smtp/{name} | Delete SMTP Credential
-[**security_smtp_by_name_get**](SecurityApi.md#security_smtp_by_name_get) | **get** /security/smtp/{name} | Load SMTP Credential
-[**security_smtp_by_name_put**](SecurityApi.md#security_smtp_by_name_put) | **put** /security/smtp/{name} | Update SMTP Credential
-[**security_smtp_get**](SecurityApi.md#security_smtp_get) | **get** /security/smtp | List SMTP Credentials
-[**security_smtp_post**](SecurityApi.md#security_smtp_post) | **post** /security/smtp | Add SMTP Credential
+[**security_apikeys_by_name_delete**](SecurityApi.md#security_apikeys_by_name_delete) | **DELETE** /security/apikeys/{name} | Delete ApiKey
+[**security_apikeys_by_name_get**](SecurityApi.md#security_apikeys_by_name_get) | **GET** /security/apikeys/{name} | Load ApiKey
+[**security_apikeys_by_name_put**](SecurityApi.md#security_apikeys_by_name_put) | **PUT** /security/apikeys/{name} | Update ApiKey
+[**security_apikeys_get**](SecurityApi.md#security_apikeys_get) | **GET** /security/apikeys | List ApiKeys
+[**security_apikeys_post**](SecurityApi.md#security_apikeys_post) | **POST** /security/apikeys | Add ApiKey
+[**security_smtp_by_name_delete**](SecurityApi.md#security_smtp_by_name_delete) | **DELETE** /security/smtp/{name} | Delete SMTP Credential
+[**security_smtp_by_name_get**](SecurityApi.md#security_smtp_by_name_get) | **GET** /security/smtp/{name} | Load SMTP Credential
+[**security_smtp_by_name_put**](SecurityApi.md#security_smtp_by_name_put) | **PUT** /security/smtp/{name} | Update SMTP Credential
+[**security_smtp_get**](SecurityApi.md#security_smtp_get) | **GET** /security/smtp | List SMTP Credentials
+[**security_smtp_post**](SecurityApi.md#security_smtp_post) | **POST** /security/smtp | Add SMTP Credential
 
 
 

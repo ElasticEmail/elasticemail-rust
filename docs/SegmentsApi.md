@@ -4,11 +4,11 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**segments_by_name_delete**](SegmentsApi.md#segments_by_name_delete) | **delete** /segments/{name} | Delete Segment
-[**segments_by_name_get**](SegmentsApi.md#segments_by_name_get) | **get** /segments/{name} | Load Segment
-[**segments_by_name_put**](SegmentsApi.md#segments_by_name_put) | **put** /segments/{name} | Update Segment
-[**segments_get**](SegmentsApi.md#segments_get) | **get** /segments | Load Segments
-[**segments_post**](SegmentsApi.md#segments_post) | **post** /segments | Add Segment
+[**segments_by_name_delete**](SegmentsApi.md#segments_by_name_delete) | **DELETE** /segments/{name} | Delete Segment
+[**segments_by_name_get**](SegmentsApi.md#segments_by_name_get) | **GET** /segments/{name} | Load Segment
+[**segments_by_name_put**](SegmentsApi.md#segments_by_name_put) | **PUT** /segments/{name} | Update Segment
+[**segments_get**](SegmentsApi.md#segments_get) | **GET** /segments | Load Segments
+[**segments_post**](SegmentsApi.md#segments_post) | **POST** /segments | Add Segment
 
 
 

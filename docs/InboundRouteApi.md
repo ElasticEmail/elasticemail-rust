@@ -4,12 +4,12 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inboundroute_by_id_delete**](InboundRouteApi.md#inboundroute_by_id_delete) | **delete** /inboundroute/{id} | Delete Route
-[**inboundroute_by_id_get**](InboundRouteApi.md#inboundroute_by_id_get) | **get** /inboundroute/{id} | Get Route
-[**inboundroute_by_id_put**](InboundRouteApi.md#inboundroute_by_id_put) | **put** /inboundroute/{id} | Update Route
-[**inboundroute_get**](InboundRouteApi.md#inboundroute_get) | **get** /inboundroute | Get Routes
-[**inboundroute_order_put**](InboundRouteApi.md#inboundroute_order_put) | **put** /inboundroute/order | Update Sorting
-[**inboundroute_post**](InboundRouteApi.md#inboundroute_post) | **post** /inboundroute | Create Route
+[**inboundroute_by_id_delete**](InboundRouteApi.md#inboundroute_by_id_delete) | **DELETE** /inboundroute/{id} | Delete Route
+[**inboundroute_by_id_get**](InboundRouteApi.md#inboundroute_by_id_get) | **GET** /inboundroute/{id} | Get Route
+[**inboundroute_by_id_put**](InboundRouteApi.md#inboundroute_by_id_put) | **PUT** /inboundroute/{id} | Update Route
+[**inboundroute_get**](InboundRouteApi.md#inboundroute_get) | **GET** /inboundroute | Get Routes
+[**inboundroute_order_put**](InboundRouteApi.md#inboundroute_order_put) | **PUT** /inboundroute/order | Update Sorting
+[**inboundroute_post**](InboundRouteApi.md#inboundroute_post) | **POST** /inboundroute | Create Route
 
 
 

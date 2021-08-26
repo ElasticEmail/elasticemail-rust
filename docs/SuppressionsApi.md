@@ -4,18 +4,18 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**suppressions_bounces_get**](SuppressionsApi.md#suppressions_bounces_get) | **get** /suppressions/bounces | Get Bounce List
-[**suppressions_bounces_import_post**](SuppressionsApi.md#suppressions_bounces_import_post) | **post** /suppressions/bounces/import | Add Bounces Async
-[**suppressions_bounces_post**](SuppressionsApi.md#suppressions_bounces_post) | **post** /suppressions/bounces | Add Bounces
-[**suppressions_by_email_delete**](SuppressionsApi.md#suppressions_by_email_delete) | **delete** /suppressions/{email} | Delete Suppression
-[**suppressions_by_email_get**](SuppressionsApi.md#suppressions_by_email_get) | **get** /suppressions/{email} | Get Suppression
-[**suppressions_complaints_get**](SuppressionsApi.md#suppressions_complaints_get) | **get** /suppressions/complaints | Get Complaints List
-[**suppressions_complaints_import_post**](SuppressionsApi.md#suppressions_complaints_import_post) | **post** /suppressions/complaints/import | Add Complaints Async
-[**suppressions_complaints_post**](SuppressionsApi.md#suppressions_complaints_post) | **post** /suppressions/complaints | Add Complaints
-[**suppressions_get**](SuppressionsApi.md#suppressions_get) | **get** /suppressions | Get Suppressions
-[**suppressions_unsubscribes_get**](SuppressionsApi.md#suppressions_unsubscribes_get) | **get** /suppressions/unsubscribes | Get Unsubscribes List
-[**suppressions_unsubscribes_import_post**](SuppressionsApi.md#suppressions_unsubscribes_import_post) | **post** /suppressions/unsubscribes/import | Add Unsubscribes Async
-[**suppressions_unsubscribes_post**](SuppressionsApi.md#suppressions_unsubscribes_post) | **post** /suppressions/unsubscribes | Add Unsubscribes
+[**suppressions_bounces_get**](SuppressionsApi.md#suppressions_bounces_get) | **GET** /suppressions/bounces | Get Bounce List
+[**suppressions_bounces_import_post**](SuppressionsApi.md#suppressions_bounces_import_post) | **POST** /suppressions/bounces/import | Add Bounces Async
+[**suppressions_bounces_post**](SuppressionsApi.md#suppressions_bounces_post) | **POST** /suppressions/bounces | Add Bounces
+[**suppressions_by_email_delete**](SuppressionsApi.md#suppressions_by_email_delete) | **DELETE** /suppressions/{email} | Delete Suppression
+[**suppressions_by_email_get**](SuppressionsApi.md#suppressions_by_email_get) | **GET** /suppressions/{email} | Get Suppression
+[**suppressions_complaints_get**](SuppressionsApi.md#suppressions_complaints_get) | **GET** /suppressions/complaints | Get Complaints List
+[**suppressions_complaints_import_post**](SuppressionsApi.md#suppressions_complaints_import_post) | **POST** /suppressions/complaints/import | Add Complaints Async
+[**suppressions_complaints_post**](SuppressionsApi.md#suppressions_complaints_post) | **POST** /suppressions/complaints | Add Complaints
+[**suppressions_get**](SuppressionsApi.md#suppressions_get) | **GET** /suppressions | Get Suppressions
+[**suppressions_unsubscribes_get**](SuppressionsApi.md#suppressions_unsubscribes_get) | **GET** /suppressions/unsubscribes | Get Unsubscribes List
+[**suppressions_unsubscribes_import_post**](SuppressionsApi.md#suppressions_unsubscribes_import_post) | **POST** /suppressions/unsubscribes/import | Add Unsubscribes Async
+[**suppressions_unsubscribes_post**](SuppressionsApi.md#suppressions_unsubscribes_post) | **POST** /suppressions/unsubscribes | Add Unsubscribes
 
 
 

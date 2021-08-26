@@ -4,11 +4,11 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**files_by_name_delete**](FilesApi.md#files_by_name_delete) | **delete** /files/{name} | Delete File
-[**files_by_name_get**](FilesApi.md#files_by_name_get) | **get** /files/{name} | Download File
-[**files_by_name_info_get**](FilesApi.md#files_by_name_info_get) | **get** /files/{name}/info | Load File Details
-[**files_get**](FilesApi.md#files_get) | **get** /files | List Files
-[**files_post**](FilesApi.md#files_post) | **post** /files | Upload File
+[**files_by_name_delete**](FilesApi.md#files_by_name_delete) | **DELETE** /files/{name} | Delete File
+[**files_by_name_get**](FilesApi.md#files_by_name_get) | **GET** /files/{name} | Download File
+[**files_by_name_info_get**](FilesApi.md#files_by_name_info_get) | **GET** /files/{name}/info | Load File Details
+[**files_get**](FilesApi.md#files_get) | **GET** /files | List Files
+[**files_post**](FilesApi.md#files_post) | **POST** /files | Upload File
 
 
 

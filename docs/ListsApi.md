@@ -4,13 +4,13 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**lists_by_name_contacts_post**](ListsApi.md#lists_by_name_contacts_post) | **post** /lists/{name}/contacts | Add Contacts to List
-[**lists_by_name_contacts_remove_post**](ListsApi.md#lists_by_name_contacts_remove_post) | **post** /lists/{name}/contacts/remove | Remove Contacts from List
-[**lists_by_name_delete**](ListsApi.md#lists_by_name_delete) | **delete** /lists/{name} | Delete List
-[**lists_by_name_get**](ListsApi.md#lists_by_name_get) | **get** /lists/{name} | Load List
-[**lists_by_name_put**](ListsApi.md#lists_by_name_put) | **put** /lists/{name} | Update List
-[**lists_get**](ListsApi.md#lists_get) | **get** /lists | Load Lists
-[**lists_post**](ListsApi.md#lists_post) | **post** /lists | Add List
+[**lists_by_name_contacts_post**](ListsApi.md#lists_by_name_contacts_post) | **POST** /lists/{name}/contacts | Add Contacts to List
+[**lists_by_name_contacts_remove_post**](ListsApi.md#lists_by_name_contacts_remove_post) | **POST** /lists/{name}/contacts/remove | Remove Contacts from List
+[**lists_by_name_delete**](ListsApi.md#lists_by_name_delete) | **DELETE** /lists/{name} | Delete List
+[**lists_by_name_get**](ListsApi.md#lists_by_name_get) | **GET** /lists/{name} | Load List
+[**lists_by_name_put**](ListsApi.md#lists_by_name_put) | **PUT** /lists/{name} | Update List
+[**lists_get**](ListsApi.md#lists_get) | **GET** /lists | Load Lists
+[**lists_post**](ListsApi.md#lists_post) | **POST** /lists | Add List
 
 
 

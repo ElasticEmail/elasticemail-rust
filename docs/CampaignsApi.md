@@ -4,11 +4,11 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**campaigns_by_name_delete**](CampaignsApi.md#campaigns_by_name_delete) | **delete** /campaigns/{name} | Delete Campaign
-[**campaigns_by_name_get**](CampaignsApi.md#campaigns_by_name_get) | **get** /campaigns/{name} | Load Campaign
-[**campaigns_by_name_put**](CampaignsApi.md#campaigns_by_name_put) | **put** /campaigns/{name} | Update Campaign
-[**campaigns_get**](CampaignsApi.md#campaigns_get) | **get** /campaigns | Load Campaigns
-[**campaigns_post**](CampaignsApi.md#campaigns_post) | **post** /campaigns | Add Campaign
+[**campaigns_by_name_delete**](CampaignsApi.md#campaigns_by_name_delete) | **DELETE** /campaigns/{name} | Delete Campaign
+[**campaigns_by_name_get**](CampaignsApi.md#campaigns_by_name_get) | **GET** /campaigns/{name} | Load Campaign
+[**campaigns_by_name_put**](CampaignsApi.md#campaigns_by_name_put) | **PUT** /campaigns/{name} | Update Campaign
+[**campaigns_get**](CampaignsApi.md#campaigns_get) | **GET** /campaigns | Load Campaigns
+[**campaigns_post**](CampaignsApi.md#campaigns_post) | **POST** /campaigns | Add Campaign
 
 
 

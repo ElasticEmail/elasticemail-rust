@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**binary_content** | Option<**String**> | Content of the file sent as binary data | [optional]
+**binary_content** | **String** | Content of the file sent as binary data | 
 **name** | Option<**String**> | Filename | [optional]
 **content_type** | Option<**String**> | Type of file's content (e.g. image/jpeg) | [optional]
 

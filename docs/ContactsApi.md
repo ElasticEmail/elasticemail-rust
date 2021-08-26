@@ -4,16 +4,16 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**contacts_by_email_delete**](ContactsApi.md#contacts_by_email_delete) | **delete** /contacts/{email} | Delete Contact
-[**contacts_by_email_get**](ContactsApi.md#contacts_by_email_get) | **get** /contacts/{email} | Load Contact
-[**contacts_by_email_history_get**](ContactsApi.md#contacts_by_email_history_get) | **get** /contacts/{email}/history | Load History
-[**contacts_by_email_put**](ContactsApi.md#contacts_by_email_put) | **put** /contacts/{email} | Update Contact
-[**contacts_delete_post**](ContactsApi.md#contacts_delete_post) | **post** /contacts/delete | Delete Contacts Bulk
-[**contacts_export_by_id_status_get**](ContactsApi.md#contacts_export_by_id_status_get) | **get** /contacts/export/{id}/status | Check Export Status
-[**contacts_export_post**](ContactsApi.md#contacts_export_post) | **post** /contacts/export | Export Contacts
-[**contacts_get**](ContactsApi.md#contacts_get) | **get** /contacts | Load Contacts
-[**contacts_import_post**](ContactsApi.md#contacts_import_post) | **post** /contacts/import | Upload Contacts
-[**contacts_post**](ContactsApi.md#contacts_post) | **post** /contacts | Add Contact
+[**contacts_by_email_delete**](ContactsApi.md#contacts_by_email_delete) | **DELETE** /contacts/{email} | Delete Contact
+[**contacts_by_email_get**](ContactsApi.md#contacts_by_email_get) | **GET** /contacts/{email} | Load Contact
+[**contacts_by_email_history_get**](ContactsApi.md#contacts_by_email_history_get) | **GET** /contacts/{email}/history | Load History
+[**contacts_by_email_put**](ContactsApi.md#contacts_by_email_put) | **PUT** /contacts/{email} | Update Contact
+[**contacts_delete_post**](ContactsApi.md#contacts_delete_post) | **POST** /contacts/delete | Delete Contacts Bulk
+[**contacts_export_by_id_status_get**](ContactsApi.md#contacts_export_by_id_status_get) | **GET** /contacts/export/{id}/status | Check Export Status
+[**contacts_export_post**](ContactsApi.md#contacts_export_post) | **POST** /contacts/export | Export Contacts
+[**contacts_get**](ContactsApi.md#contacts_get) | **GET** /contacts | Load Contacts
+[**contacts_import_post**](ContactsApi.md#contacts_import_post) | **POST** /contacts/import | Upload Contacts
+[**contacts_post**](ContactsApi.md#contacts_post) | **POST** /contacts | Add Contact
 
 
 

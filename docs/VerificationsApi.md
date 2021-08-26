@@ -4,16 +4,16 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**verifications_by_email_delete**](VerificationsApi.md#verifications_by_email_delete) | **delete** /verifications/{email} | Delete Email Verification Result
-[**verifications_by_email_get**](VerificationsApi.md#verifications_by_email_get) | **get** /verifications/{email} | Get Email Verification Result
-[**verifications_by_email_post**](VerificationsApi.md#verifications_by_email_post) | **post** /verifications/{email} | Verify Email
-[**verifications_files_by_id_delete**](VerificationsApi.md#verifications_files_by_id_delete) | **delete** /verifications/files/{id} | Delete File Verification Result
-[**verifications_files_by_id_result_download_get**](VerificationsApi.md#verifications_files_by_id_result_download_get) | **get** /verifications/files/{id}/result/download | Download File Verification Result
-[**verifications_files_by_id_result_get**](VerificationsApi.md#verifications_files_by_id_result_get) | **get** /verifications/files/{id}/result | Get Detailed File Verification Result
-[**verifications_files_by_id_verification_post**](VerificationsApi.md#verifications_files_by_id_verification_post) | **post** /verifications/files/{id}/verification | Start verification
-[**verifications_files_post**](VerificationsApi.md#verifications_files_post) | **post** /verifications/files | Upload File with Emails
-[**verifications_files_result_get**](VerificationsApi.md#verifications_files_result_get) | **get** /verifications/files/result | Get Files Verification Results
-[**verifications_get**](VerificationsApi.md#verifications_get) | **get** /verifications | Get Emails Verification Results
+[**verifications_by_email_delete**](VerificationsApi.md#verifications_by_email_delete) | **DELETE** /verifications/{email} | Delete Email Verification Result
+[**verifications_by_email_get**](VerificationsApi.md#verifications_by_email_get) | **GET** /verifications/{email} | Get Email Verification Result
+[**verifications_by_email_post**](VerificationsApi.md#verifications_by_email_post) | **POST** /verifications/{email} | Verify Email
+[**verifications_files_by_id_delete**](VerificationsApi.md#verifications_files_by_id_delete) | **DELETE** /verifications/files/{id} | Delete File Verification Result
+[**verifications_files_by_id_result_download_get**](VerificationsApi.md#verifications_files_by_id_result_download_get) | **GET** /verifications/files/{id}/result/download | Download File Verification Result
+[**verifications_files_by_id_result_get**](VerificationsApi.md#verifications_files_by_id_result_get) | **GET** /verifications/files/{id}/result | Get Detailed File Verification Result
+[**verifications_files_by_id_verification_post**](VerificationsApi.md#verifications_files_by_id_verification_post) | **POST** /verifications/files/{id}/verification | Start verification
+[**verifications_files_post**](VerificationsApi.md#verifications_files_post) | **POST** /verifications/files | Upload File with Emails
+[**verifications_files_result_get**](VerificationsApi.md#verifications_files_result_get) | **GET** /verifications/files/result | Get Files Verification Results
+[**verifications_get**](VerificationsApi.md#verifications_get) | **GET** /verifications | Get Emails Verification Results
 
 
 

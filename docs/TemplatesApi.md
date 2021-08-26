@@ -4,11 +4,11 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**templates_by_name_delete**](TemplatesApi.md#templates_by_name_delete) | **delete** /templates/{name} | Delete Template
-[**templates_by_name_get**](TemplatesApi.md#templates_by_name_get) | **get** /templates/{name} | Load Template
-[**templates_by_name_put**](TemplatesApi.md#templates_by_name_put) | **put** /templates/{name} | Update Template
-[**templates_get**](TemplatesApi.md#templates_get) | **get** /templates | Load Templates
-[**templates_post**](TemplatesApi.md#templates_post) | **post** /templates | Add Template
+[**templates_by_name_delete**](TemplatesApi.md#templates_by_name_delete) | **DELETE** /templates/{name} | Delete Template
+[**templates_by_name_get**](TemplatesApi.md#templates_by_name_get) | **GET** /templates/{name} | Load Template
+[**templates_by_name_put**](TemplatesApi.md#templates_by_name_put) | **PUT** /templates/{name} | Update Template
+[**templates_get**](TemplatesApi.md#templates_get) | **GET** /templates | Load Templates
+[**templates_post**](TemplatesApi.md#templates_post) | **POST** /templates | Add Template
 
 
 

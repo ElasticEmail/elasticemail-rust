@@ -4,10 +4,10 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**emails_by_msgid_view_get**](EmailsApi.md#emails_by_msgid_view_get) | **get** /emails/{msgid}/view | View Email
-[**emails_mergefile_post**](EmailsApi.md#emails_mergefile_post) | **post** /emails/mergefile | Send Bulk Emails CSV
-[**emails_post**](EmailsApi.md#emails_post) | **post** /emails | Send Bulk Emails
-[**emails_transactional_post**](EmailsApi.md#emails_transactional_post) | **post** /emails/transactional | Send Transactional Email
+[**emails_by_msgid_view_get**](EmailsApi.md#emails_by_msgid_view_get) | **GET** /emails/{msgid}/view | View Email
+[**emails_mergefile_post**](EmailsApi.md#emails_mergefile_post) | **POST** /emails/mergefile | Send Bulk Emails CSV
+[**emails_post**](EmailsApi.md#emails_post) | **POST** /emails | Send Bulk Emails
+[**emails_transactional_post**](EmailsApi.md#emails_transactional_post) | **POST** /emails/transactional | Send Transactional Email
 
 
 

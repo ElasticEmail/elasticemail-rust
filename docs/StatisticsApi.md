@@ -4,11 +4,11 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**statistics_campaigns_by_name_get**](StatisticsApi.md#statistics_campaigns_by_name_get) | **get** /statistics/campaigns/{name} | Load Campaign Stats
-[**statistics_campaigns_get**](StatisticsApi.md#statistics_campaigns_get) | **get** /statistics/campaigns | Load Campaigns Stats
-[**statistics_channels_by_name_get**](StatisticsApi.md#statistics_channels_by_name_get) | **get** /statistics/channels/{name} | Load Channel Stats
-[**statistics_channels_get**](StatisticsApi.md#statistics_channels_get) | **get** /statistics/channels | Load Channels Stats
-[**statistics_get**](StatisticsApi.md#statistics_get) | **get** /statistics | Load Statistics
+[**statistics_campaigns_by_name_get**](StatisticsApi.md#statistics_campaigns_by_name_get) | **GET** /statistics/campaigns/{name} | Load Campaign Stats
+[**statistics_campaigns_get**](StatisticsApi.md#statistics_campaigns_get) | **GET** /statistics/campaigns | Load Campaigns Stats
+[**statistics_channels_by_name_get**](StatisticsApi.md#statistics_channels_by_name_get) | **GET** /statistics/channels/{name} | Load Channel Stats
+[**statistics_channels_get**](StatisticsApi.md#statistics_channels_get) | **GET** /statistics/channels | Load Channels Stats
+[**statistics_get**](StatisticsApi.md#statistics_get) | **GET** /statistics | Load Statistics
 
 
 

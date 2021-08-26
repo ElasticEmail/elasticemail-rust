@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | Option<**String**> | Proper email address. | [optional]
+**email** | **String** | Proper email address. | 
 **status** | Option<[**crate::models::ContactStatus**](ContactStatus.md)> | Status of the given resource | [optional]
 **first_name** | Option<**String**> | First name. | [optional]
 **last_name** | Option<**String**> | Last name. | [optional]

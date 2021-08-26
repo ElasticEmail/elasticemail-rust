@@ -4,13 +4,13 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**events_by_transactionid_get**](EventsApi.md#events_by_transactionid_get) | **get** /events/{transactionid} | Load Email Events
-[**events_channels_by_name_export_post**](EventsApi.md#events_channels_by_name_export_post) | **post** /events/channels/{name}/export | Export Channel Events
-[**events_channels_by_name_get**](EventsApi.md#events_channels_by_name_get) | **get** /events/channels/{name} | Load Channel Events
-[**events_channels_export_by_id_status_get**](EventsApi.md#events_channels_export_by_id_status_get) | **get** /events/channels/export/{id}/status | Check Channel Export Status
-[**events_export_by_id_status_get**](EventsApi.md#events_export_by_id_status_get) | **get** /events/export/{id}/status | Check Export Status
-[**events_export_post**](EventsApi.md#events_export_post) | **post** /events/export | Export Events
-[**events_get**](EventsApi.md#events_get) | **get** /events | Load Events
+[**events_by_transactionid_get**](EventsApi.md#events_by_transactionid_get) | **GET** /events/{transactionid} | Load Email Events
+[**events_channels_by_name_export_post**](EventsApi.md#events_channels_by_name_export_post) | **POST** /events/channels/{name}/export | Export Channel Events
+[**events_channels_by_name_get**](EventsApi.md#events_channels_by_name_get) | **GET** /events/channels/{name} | Load Channel Events
+[**events_channels_export_by_id_status_get**](EventsApi.md#events_channels_export_by_id_status_get) | **GET** /events/channels/export/{id}/status | Check Channel Export Status
+[**events_export_by_id_status_get**](EventsApi.md#events_export_by_id_status_get) | **GET** /events/export/{id}/status | Check Export Status
+[**events_export_post**](EventsApi.md#events_export_post) | **POST** /events/export | Export Events
+[**events_get**](EventsApi.md#events_get) | **GET** /events | Load Events
 
 
 
