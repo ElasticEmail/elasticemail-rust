@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FileInfo {
     /// Name of your file including extension.
     #[serde(rename = "FileName", skip_serializing_if = "Option::is_none")]

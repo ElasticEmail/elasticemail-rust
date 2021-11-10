@@ -15,84 +15,84 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `suppressions_bounces_get`
+/// struct for typed errors of method [`suppressions_bounces_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsBouncesGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_bounces_import_post`
+/// struct for typed errors of method [`suppressions_bounces_import_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsBouncesImportPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_bounces_post`
+/// struct for typed errors of method [`suppressions_bounces_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsBouncesPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_by_email_delete`
+/// struct for typed errors of method [`suppressions_by_email_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsByEmailDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_by_email_get`
+/// struct for typed errors of method [`suppressions_by_email_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsByEmailGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_complaints_get`
+/// struct for typed errors of method [`suppressions_complaints_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsComplaintsGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_complaints_import_post`
+/// struct for typed errors of method [`suppressions_complaints_import_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsComplaintsImportPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_complaints_post`
+/// struct for typed errors of method [`suppressions_complaints_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsComplaintsPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_get`
+/// struct for typed errors of method [`suppressions_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_unsubscribes_get`
+/// struct for typed errors of method [`suppressions_unsubscribes_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsUnsubscribesGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_unsubscribes_import_post`
+/// struct for typed errors of method [`suppressions_unsubscribes_import_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsUnsubscribesImportPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `suppressions_unsubscribes_post`
+/// struct for typed errors of method [`suppressions_unsubscribes_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SuppressionsUnsubscribesPostError {
@@ -102,10 +102,11 @@ pub enum SuppressionsUnsubscribesPostError {
 
 /// Retrieve your list of bounced emails. Required Access Level: ViewContacts
 pub async fn suppressions_bounces_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsBouncesGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/bounces", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/bounces", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = search {
@@ -117,10 +118,10 @@ pub async fn suppressions_bounces_get(configuration: &configuration::Configurati
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -146,16 +147,17 @@ pub async fn suppressions_bounces_get(configuration: &configuration::Configurati
 
 /// Add Bounced. Required Access Level: ModifyContacts
 pub async fn suppressions_bounces_import_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<(), Error<SuppressionsBouncesImportPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/bounces/import", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/bounces/import", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -184,16 +186,17 @@ pub async fn suppressions_bounces_import_post(configuration: &configuration::Con
 
 /// Add Bounced. Required Access Level: ModifyContacts
 pub async fn suppressions_bounces_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsBouncesPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/bounces", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/bounces", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -220,16 +223,17 @@ pub async fn suppressions_bounces_post(configuration: &configuration::Configurat
 
 /// Delete Suppression. Required Access Level: ViewContacts
 pub async fn suppressions_by_email_delete(configuration: &configuration::Configuration, email: &str) -> Result<(), Error<SuppressionsByEmailDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/suppressions/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -255,16 +259,17 @@ pub async fn suppressions_by_email_delete(configuration: &configuration::Configu
 
 /// Retrieve your suppression. Required Access Level: ViewContacts
 pub async fn suppressions_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::Suppression, Error<SuppressionsByEmailGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/suppressions/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -290,10 +295,11 @@ pub async fn suppressions_by_email_get(configuration: &configuration::Configurat
 
 /// Retrieve your list of complaints. Required Access Level: ViewContacts
 pub async fn suppressions_complaints_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsComplaintsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/complaints", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/complaints", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = search {
@@ -305,10 +311,10 @@ pub async fn suppressions_complaints_get(configuration: &configuration::Configur
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -334,16 +340,17 @@ pub async fn suppressions_complaints_get(configuration: &configuration::Configur
 
 /// Add Complaints. Required Access Level: ModifyContacts
 pub async fn suppressions_complaints_import_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<(), Error<SuppressionsComplaintsImportPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/complaints/import", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/complaints/import", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -372,16 +379,17 @@ pub async fn suppressions_complaints_import_post(configuration: &configuration::
 
 /// Add Complaints. Required Access Level: ModifyContacts
 pub async fn suppressions_complaints_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsComplaintsPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/complaints", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/complaints", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -408,10 +416,11 @@ pub async fn suppressions_complaints_post(configuration: &configuration::Configu
 
 /// Retrieve your suppressions. Required Access Level: ViewContacts
 pub async fn suppressions_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -420,10 +429,10 @@ pub async fn suppressions_get(configuration: &configuration::Configuration, limi
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -449,10 +458,11 @@ pub async fn suppressions_get(configuration: &configuration::Configuration, limi
 
 /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts
 pub async fn suppressions_unsubscribes_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsUnsubscribesGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/unsubscribes", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/unsubscribes", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = search {
@@ -464,10 +474,10 @@ pub async fn suppressions_unsubscribes_get(configuration: &configuration::Config
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -493,16 +503,17 @@ pub async fn suppressions_unsubscribes_get(configuration: &configuration::Config
 
 /// Add Unsubscribes. Required Access Level: ModifyContacts
 pub async fn suppressions_unsubscribes_import_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<(), Error<SuppressionsUnsubscribesImportPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/unsubscribes/import", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/unsubscribes/import", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -531,16 +542,17 @@ pub async fn suppressions_unsubscribes_import_post(configuration: &configuration
 
 /// Add Unsubscribes. Required Access Level: ModifyContacts
 pub async fn suppressions_unsubscribes_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsUnsubscribesPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/suppressions/unsubscribes", configuration.base_path);
+    let local_var_uri_str = format!("{}/suppressions/unsubscribes", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

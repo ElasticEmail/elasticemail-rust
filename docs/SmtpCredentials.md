@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_level** | Option<[**crate::models::AccessLevel**](AccessLevel.md)> | Access level of this Smtp Credential. | [optional]
+**access_level** | Option<[**crate::models::AccessLevel**](AccessLevel.md)> |  | [optional]
 **name** | Option<**String**> | Name of the key. | [optional]
 **date_created** | Option<**String**> | Date this SmtpCredential was created. | [optional]
 **last_use** | Option<**String**> | Date this SmtpCredential was last used. | [optional]

@@ -12,11 +12,10 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SplitOptions {
-    /// Type of results by which to determine the winner template (content)
     #[serde(rename = "OptimizeFor", skip_serializing_if = "Option::is_none")]
-    pub optimize_for: Option<Box<crate::models::SplitOptimizationType>>,
+    pub optimize_for: Option<crate::models::SplitOptimizationType>,
     /// For how long should the results be measured until determining the winner template (content)
     #[serde(rename = "OptimizePeriodMinutes", skip_serializing_if = "Option::is_none")]
     pub optimize_period_minutes: Option<i32>,

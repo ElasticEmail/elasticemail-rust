@@ -15,35 +15,35 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `files_by_name_delete`
+/// struct for typed errors of method [`files_by_name_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FilesByNameDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `files_by_name_get`
+/// struct for typed errors of method [`files_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FilesByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `files_by_name_info_get`
+/// struct for typed errors of method [`files_by_name_info_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FilesByNameInfoGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `files_get`
+/// struct for typed errors of method [`files_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FilesGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `files_post`
+/// struct for typed errors of method [`files_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FilesPostError {
@@ -53,16 +53,17 @@ pub enum FilesPostError {
 
 /// Permanently deletes the file from your Account. Required Access Level: ModifyFiles
 pub async fn files_by_name_delete(configuration: &configuration::Configuration, name: &str) -> Result<(), Error<FilesByNameDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/files/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/files/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -88,16 +89,17 @@ pub async fn files_by_name_delete(configuration: &configuration::Configuration, 
 
 /// Gets content of the specified File. Required Access Level: ViewFiles
 pub async fn files_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<std::path::PathBuf, Error<FilesByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/files/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/files/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -123,16 +125,17 @@ pub async fn files_by_name_get(configuration: &configuration::Configuration, nam
 
 /// Returns the specified File's details. Required Access Level: ViewFiles
 pub async fn files_by_name_info_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::FileInfo, Error<FilesByNameInfoGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/files/{name}/info", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/files/{name}/info", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -158,10 +161,11 @@ pub async fn files_by_name_info_get(configuration: &configuration::Configuration
 
 /// Returns a list of all your available files. Required Access Level: ViewFiles
 pub async fn files_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::FileInfo>, Error<FilesGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/files", configuration.base_path);
+    let local_var_uri_str = format!("{}/files", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -170,10 +174,10 @@ pub async fn files_get(configuration: &configuration::Configuration, limit: Opti
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -199,19 +203,20 @@ pub async fn files_get(configuration: &configuration::Configuration, limit: Opti
 
 /// Uploads selected file to the server. Required Access Level: ModifyFiles
 pub async fn files_post(configuration: &configuration::Configuration, file_payload: crate::models::FilePayload, expires_after_days: Option<i32>) -> Result<crate::models::FileInfo, Error<FilesPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/files", configuration.base_path);
+    let local_var_uri_str = format!("{}/files", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = expires_after_days {
         local_var_req_builder = local_var_req_builder.query(&[("expiresAfterDays", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

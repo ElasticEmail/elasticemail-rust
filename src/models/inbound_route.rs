@@ -11,22 +11,20 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct InboundRoute {
     #[serde(rename = "PublicId", skip_serializing_if = "Option::is_none")]
     pub public_id: Option<String>,
     /// Name of this route
     #[serde(rename = "Name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// Type of the filter
     #[serde(rename = "FilterType", skip_serializing_if = "Option::is_none")]
-    pub filter_type: Option<Box<crate::models::InboundRouteFilterType>>,
+    pub filter_type: Option<crate::models::InboundRouteFilterType>,
     /// Filter of the inbound data
     #[serde(rename = "Filter", skip_serializing_if = "Option::is_none")]
     pub filter: Option<String>,
-    /// Type of action to take
     #[serde(rename = "ActionType", skip_serializing_if = "Option::is_none")]
-    pub action_type: Option<Box<crate::models::InboundRouteActionType>>,
+    pub action_type: Option<crate::models::InboundRouteActionType>,
     /// URL address or Email to notify about the inbound
     #[serde(rename = "ActionParameter", skip_serializing_if = "Option::is_none")]
     pub action_parameter: Option<String>,

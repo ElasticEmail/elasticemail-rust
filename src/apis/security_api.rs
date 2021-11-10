@@ -15,70 +15,70 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `security_apikeys_by_name_delete`
+/// struct for typed errors of method [`security_apikeys_by_name_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecurityApikeysByNameDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_apikeys_by_name_get`
+/// struct for typed errors of method [`security_apikeys_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecurityApikeysByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_apikeys_by_name_put`
+/// struct for typed errors of method [`security_apikeys_by_name_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecurityApikeysByNamePutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_apikeys_get`
+/// struct for typed errors of method [`security_apikeys_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecurityApikeysGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_apikeys_post`
+/// struct for typed errors of method [`security_apikeys_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecurityApikeysPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_smtp_by_name_delete`
+/// struct for typed errors of method [`security_smtp_by_name_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecuritySmtpByNameDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_smtp_by_name_get`
+/// struct for typed errors of method [`security_smtp_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecuritySmtpByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_smtp_by_name_put`
+/// struct for typed errors of method [`security_smtp_by_name_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecuritySmtpByNamePutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_smtp_get`
+/// struct for typed errors of method [`security_smtp_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecuritySmtpGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `security_smtp_post`
+/// struct for typed errors of method [`security_smtp_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SecuritySmtpPostError {
@@ -88,19 +88,20 @@ pub enum SecuritySmtpPostError {
 
 /// Delete your existing ApiKey. Required Access Level: Security
 pub async fn security_apikeys_by_name_delete(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<(), Error<SecurityApikeysByNameDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/apikeys/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/security/apikeys/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = subaccount {
         local_var_req_builder = local_var_req_builder.query(&[("subaccount", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -126,19 +127,20 @@ pub async fn security_apikeys_by_name_delete(configuration: &configuration::Conf
 
 /// Load your existing ApiKey info. Required Access Level: Security
 pub async fn security_apikeys_by_name_get(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<crate::models::ApiKey, Error<SecurityApikeysByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/apikeys/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/security/apikeys/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = subaccount {
         local_var_req_builder = local_var_req_builder.query(&[("subaccount", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -164,16 +166,17 @@ pub async fn security_apikeys_by_name_get(configuration: &configuration::Configu
 
 /// Update your existing ApiKey. Required Access Level: Security
 pub async fn security_apikeys_by_name_put(configuration: &configuration::Configuration, name: &str, api_key_payload: crate::models::ApiKeyPayload) -> Result<crate::models::ApiKey, Error<SecurityApikeysByNamePutError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/apikeys/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/security/apikeys/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -200,19 +203,20 @@ pub async fn security_apikeys_by_name_put(configuration: &configuration::Configu
 
 /// List all your existing ApiKeys. Required Access Level: Security
 pub async fn security_apikeys_get(configuration: &configuration::Configuration, subaccount: Option<&str>) -> Result<Vec<crate::models::ApiKey>, Error<SecurityApikeysGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/apikeys", configuration.base_path);
+    let local_var_uri_str = format!("{}/security/apikeys", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = subaccount {
         local_var_req_builder = local_var_req_builder.query(&[("subaccount", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -238,16 +242,17 @@ pub async fn security_apikeys_get(configuration: &configuration::Configuration, 
 
 /// Add a new ApiKey. Required Access Level: Security
 pub async fn security_apikeys_post(configuration: &configuration::Configuration, api_key_payload: crate::models::ApiKeyPayload) -> Result<crate::models::NewApiKey, Error<SecurityApikeysPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/apikeys", configuration.base_path);
+    let local_var_uri_str = format!("{}/security/apikeys", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -274,19 +279,20 @@ pub async fn security_apikeys_post(configuration: &configuration::Configuration,
 
 /// Delete your existing SMTP Credentials. Required Access Level: Security
 pub async fn security_smtp_by_name_delete(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<(), Error<SecuritySmtpByNameDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/smtp/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/security/smtp/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = subaccount {
         local_var_req_builder = local_var_req_builder.query(&[("subaccount", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -312,19 +318,20 @@ pub async fn security_smtp_by_name_delete(configuration: &configuration::Configu
 
 /// Load your existing SMTP Credential info. Required Access Level: Security
 pub async fn security_smtp_by_name_get(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<crate::models::SmtpCredentials, Error<SecuritySmtpByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/smtp/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/security/smtp/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = subaccount {
         local_var_req_builder = local_var_req_builder.query(&[("subaccount", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -350,16 +357,17 @@ pub async fn security_smtp_by_name_get(configuration: &configuration::Configurat
 
 /// Update your existing SMTP Credentials. Required Access Level: Security
 pub async fn security_smtp_by_name_put(configuration: &configuration::Configuration, name: &str, smtp_credentials_payload: crate::models::SmtpCredentialsPayload) -> Result<crate::models::SmtpCredentials, Error<SecuritySmtpByNamePutError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/smtp/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/security/smtp/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -386,19 +394,20 @@ pub async fn security_smtp_by_name_put(configuration: &configuration::Configurat
 
 /// List all your existing SMTP Credentials. Required Access Level: Security
 pub async fn security_smtp_get(configuration: &configuration::Configuration, subaccount: Option<&str>) -> Result<Vec<crate::models::SmtpCredentials>, Error<SecuritySmtpGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/smtp", configuration.base_path);
+    let local_var_uri_str = format!("{}/security/smtp", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = subaccount {
         local_var_req_builder = local_var_req_builder.query(&[("subaccount", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -424,16 +433,17 @@ pub async fn security_smtp_get(configuration: &configuration::Configuration, sub
 
 /// Add new SMTP Credential. Required Access Level: Security
 pub async fn security_smtp_post(configuration: &configuration::Configuration, smtp_credentials_payload: crate::models::SmtpCredentialsPayload) -> Result<crate::models::NewSmtpCredentials, Error<SecuritySmtpPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/security/smtp", configuration.base_path);
+    let local_var_uri_str = format!("{}/security/smtp", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

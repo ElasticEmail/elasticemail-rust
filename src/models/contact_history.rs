@@ -11,11 +11,10 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ContactHistory {
-    /// Type of event occured on this Contact.
     #[serde(rename = "EventType", skip_serializing_if = "Option::is_none")]
-    pub event_type: Option<Box<crate::models::ContactHistEventType>>,
+    pub event_type: Option<crate::models::ContactHistEventType>,
     /// Formatted date of event.
     #[serde(rename = "EventDate", skip_serializing_if = "Option::is_none")]
     pub event_date: Option<String>,

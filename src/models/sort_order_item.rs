@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SortOrderItem {
     /// ID of the route to change the order of
     #[serde(rename = "PublicInboundId")]

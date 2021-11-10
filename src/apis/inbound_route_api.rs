@@ -15,42 +15,42 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `inboundroute_by_id_delete`
+/// struct for typed errors of method [`inboundroute_by_id_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InboundrouteByIdDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `inboundroute_by_id_get`
+/// struct for typed errors of method [`inboundroute_by_id_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InboundrouteByIdGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `inboundroute_by_id_put`
+/// struct for typed errors of method [`inboundroute_by_id_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InboundrouteByIdPutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `inboundroute_get`
+/// struct for typed errors of method [`inboundroute_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InboundrouteGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `inboundroute_order_put`
+/// struct for typed errors of method [`inboundroute_order_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InboundrouteOrderPutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `inboundroute_post`
+/// struct for typed errors of method [`inboundroute_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InboundroutePostError {
@@ -60,16 +60,17 @@ pub enum InboundroutePostError {
 
 /// Deletes the Inbound Route. Required Access Level: ModifySettings
 pub async fn inboundroute_by_id_delete(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<InboundrouteByIdDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/inboundroute/{id}", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/inboundroute/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -95,16 +96,17 @@ pub async fn inboundroute_by_id_delete(configuration: &configuration::Configurat
 
 /// Load an Inbound Route. Required Access Level: ViewSettings
 pub async fn inboundroute_by_id_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::InboundRoute, Error<InboundrouteByIdGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/inboundroute/{id}", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/inboundroute/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -130,16 +132,17 @@ pub async fn inboundroute_by_id_get(configuration: &configuration::Configuration
 
 /// Update the Inbound Route. Required Access Level: ModifySettings
 pub async fn inboundroute_by_id_put(configuration: &configuration::Configuration, id: &str, inbound_payload: crate::models::InboundPayload) -> Result<crate::models::InboundRoute, Error<InboundrouteByIdPutError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/inboundroute/{id}", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/inboundroute/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -166,16 +169,17 @@ pub async fn inboundroute_by_id_put(configuration: &configuration::Configuration
 
 /// Get all your Inbound Routes. Required Access Level: ViewSettings
 pub async fn inboundroute_get(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::InboundRoute>, Error<InboundrouteGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/inboundroute", configuration.base_path);
+    let local_var_uri_str = format!("{}/inboundroute", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -201,16 +205,17 @@ pub async fn inboundroute_get(configuration: &configuration::Configuration, ) ->
 
 /// Required Access Level: ViewSettings
 pub async fn inboundroute_order_put(configuration: &configuration::Configuration, sort_order_item: Vec<crate::models::SortOrderItem>) -> Result<Vec<crate::models::InboundRoute>, Error<InboundrouteOrderPutError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/inboundroute/order", configuration.base_path);
+    let local_var_uri_str = format!("{}/inboundroute/order", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -237,16 +242,17 @@ pub async fn inboundroute_order_put(configuration: &configuration::Configuration
 
 /// Create new Inbound Route. Required Access Level: ModifySettings
 pub async fn inboundroute_post(configuration: &configuration::Configuration, inbound_payload: crate::models::InboundPayload) -> Result<crate::models::InboundRoute, Error<InboundroutePostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/inboundroute", configuration.base_path);
+    let local_var_uri_str = format!("{}/inboundroute", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FileUploadResult {
     /// How many unique emails were detected the file
     #[serde(rename = "EmailsCount", skip_serializing_if = "Option::is_none")]

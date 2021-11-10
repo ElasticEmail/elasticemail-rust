@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListUpdatePayload {
     /// Name of your list if you want to change it.
     #[serde(rename = "NewListName", skip_serializing_if = "Option::is_none")]

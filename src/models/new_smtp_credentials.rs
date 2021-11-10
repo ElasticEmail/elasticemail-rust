@@ -12,14 +12,13 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct NewSmtpCredentials {
     /// Unique token to be used in the system
     #[serde(rename = "Token", skip_serializing_if = "Option::is_none")]
     pub token: Option<String>,
-    /// Access level of this Smtp Credential.
     #[serde(rename = "AccessLevel", skip_serializing_if = "Option::is_none")]
-    pub access_level: Option<Box<crate::models::AccessLevel>>,
+    pub access_level: Option<crate::models::AccessLevel>,
     /// Name of the key.
     #[serde(rename = "Name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,

@@ -15,35 +15,35 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `statistics_campaigns_by_name_get`
+/// struct for typed errors of method [`statistics_campaigns_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StatisticsCampaignsByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `statistics_campaigns_get`
+/// struct for typed errors of method [`statistics_campaigns_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StatisticsCampaignsGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `statistics_channels_by_name_get`
+/// struct for typed errors of method [`statistics_channels_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StatisticsChannelsByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `statistics_channels_get`
+/// struct for typed errors of method [`statistics_channels_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StatisticsChannelsGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `statistics_get`
+/// struct for typed errors of method [`statistics_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StatisticsGetError {
@@ -53,16 +53,17 @@ pub enum StatisticsGetError {
 
 /// Retrieve stats of an existing campaign. Required Access Level: ViewChannels
 pub async fn statistics_campaigns_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::ChannelLogStatusSummary, Error<StatisticsCampaignsByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/statistics/campaigns/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/statistics/campaigns/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -88,10 +89,11 @@ pub async fn statistics_campaigns_by_name_get(configuration: &configuration::Con
 
 /// Returns a list of your Campaigns' stats. Required Access Level: ViewChannels
 pub async fn statistics_campaigns_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::ChannelLogStatusSummary>, Error<StatisticsCampaignsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/statistics/campaigns", configuration.base_path);
+    let local_var_uri_str = format!("{}/statistics/campaigns", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -100,10 +102,10 @@ pub async fn statistics_campaigns_get(configuration: &configuration::Configurati
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -129,16 +131,17 @@ pub async fn statistics_campaigns_get(configuration: &configuration::Configurati
 
 /// Retrieve an existing channel stats. Required Access Level: ViewChannels
 pub async fn statistics_channels_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::ChannelLogStatusSummary, Error<StatisticsChannelsByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/statistics/channels/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/statistics/channels/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -164,10 +167,11 @@ pub async fn statistics_channels_by_name_get(configuration: &configuration::Conf
 
 /// Returns a list of your Channels' stats. Required Access Level: ViewChannels
 pub async fn statistics_channels_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::ChannelLogStatusSummary>, Error<StatisticsChannelsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/statistics/channels", configuration.base_path);
+    let local_var_uri_str = format!("{}/statistics/channels", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -176,10 +180,10 @@ pub async fn statistics_channels_get(configuration: &configuration::Configuratio
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -205,20 +209,21 @@ pub async fn statistics_channels_get(configuration: &configuration::Configuratio
 
 /// Returns basic statistics. Required Access Level: ViewReports
 pub async fn statistics_get(configuration: &configuration::Configuration, from: String, to: Option<String>) -> Result<crate::models::LogStatusSummary, Error<StatisticsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/statistics", configuration.base_path);
+    let local_var_uri_str = format!("{}/statistics", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("from", &from.to_string())]);
     if let Some(ref local_var_str) = to {
         local_var_req_builder = local_var_req_builder.query(&[("to", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

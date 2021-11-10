@@ -11,15 +11,13 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EmailData {
-    /// Email details
     #[serde(rename = "Preview", skip_serializing_if = "Option::is_none")]
     pub preview: Option<Box<crate::models::EmailView>>,
     /// Attachments sent with the email
     #[serde(rename = "Attachments", skip_serializing_if = "Option::is_none")]
     pub attachments: Option<Vec<crate::models::FileInfo>>,
-    /// Status of the given resource
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
     pub status: Option<Box<crate::models::EmailStatus>>,
 }

@@ -15,49 +15,49 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `events_by_transactionid_get`
+/// struct for typed errors of method [`events_by_transactionid_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsByTransactionidGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `events_channels_by_name_export_post`
+/// struct for typed errors of method [`events_channels_by_name_export_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsChannelsByNameExportPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `events_channels_by_name_get`
+/// struct for typed errors of method [`events_channels_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsChannelsByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `events_channels_export_by_id_status_get`
+/// struct for typed errors of method [`events_channels_export_by_id_status_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsChannelsExportByIdStatusGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `events_export_by_id_status_get`
+/// struct for typed errors of method [`events_export_by_id_status_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsExportByIdStatusGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `events_export_post`
+/// struct for typed errors of method [`events_export_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsExportPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `events_get`
+/// struct for typed errors of method [`events_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EventsGetError {
@@ -67,10 +67,11 @@ pub enum EventsGetError {
 
 /// Returns a log of delivery events for the specific transaction ID. Required Access Level: ViewReports
 pub async fn events_by_transactionid_get(configuration: &configuration::Configuration, transactionid: &str, from: Option<String>, to: Option<String>, order_by: Option<crate::models::EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::RecipientEvent>, Error<EventsByTransactionidGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events/{transactionid}", configuration.base_path, transactionid=crate::apis::urlencode(transactionid));
+    let local_var_uri_str = format!("{}/events/{transactionid}", local_var_configuration.base_path, transactionid=crate::apis::urlencode(transactionid));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = from {
@@ -88,10 +89,10 @@ pub async fn events_by_transactionid_get(configuration: &configuration::Configur
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -117,10 +118,11 @@ pub async fn events_by_transactionid_get(configuration: &configuration::Configur
 
 /// Export delivery events log information to the specified file format. Required Access Level: Export
 pub async fn events_channels_by_name_export_post(configuration: &configuration::Configuration, name: &str, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, file_format: Option<crate::models::ExportFileFormats>, compression_format: Option<crate::models::CompressionFormat>, file_name: Option<&str>) -> Result<crate::models::ExportLink, Error<EventsChannelsByNameExportPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events/channels/{name}/export", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/events/channels/{name}/export", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
@@ -141,10 +143,10 @@ pub async fn events_channels_by_name_export_post(configuration: &configuration::
     if let Some(ref local_var_str) = file_name {
         local_var_req_builder = local_var_req_builder.query(&[("fileName", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -170,10 +172,11 @@ pub async fn events_channels_by_name_export_post(configuration: &configuration::
 
 /// Returns a log of delivery events filtered by specified parameters. Required Access Level: ViewReports
 pub async fn events_channels_by_name_get(configuration: &configuration::Configuration, name: &str, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, order_by: Option<crate::models::EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::RecipientEvent>, Error<EventsChannelsByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events/channels/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/events/channels/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
@@ -194,10 +197,10 @@ pub async fn events_channels_by_name_get(configuration: &configuration::Configur
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -223,16 +226,17 @@ pub async fn events_channels_by_name_get(configuration: &configuration::Configur
 
 /// Check the current status of the channel export. Required Access Level: Export
 pub async fn events_channels_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ExportStatus, Error<EventsChannelsExportByIdStatusGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events/channels/export/{id}/status", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/events/channels/export/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -258,16 +262,17 @@ pub async fn events_channels_export_by_id_status_get(configuration: &configurati
 
 /// Check the current status of the export. Required Access Level: Export
 pub async fn events_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ExportStatus, Error<EventsExportByIdStatusGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events/export/{id}/status", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/events/export/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -293,10 +298,11 @@ pub async fn events_export_by_id_status_get(configuration: &configuration::Confi
 
 /// Export delivery events log information to the specified file format. Required Access Level: Export
 pub async fn events_export_post(configuration: &configuration::Configuration, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, file_format: Option<crate::models::ExportFileFormats>, compression_format: Option<crate::models::CompressionFormat>, file_name: Option<&str>) -> Result<crate::models::ExportLink, Error<EventsExportPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events/export", configuration.base_path);
+    let local_var_uri_str = format!("{}/events/export", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
@@ -317,10 +323,10 @@ pub async fn events_export_post(configuration: &configuration::Configuration, ev
     if let Some(ref local_var_str) = file_name {
         local_var_req_builder = local_var_req_builder.query(&[("fileName", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -346,10 +352,11 @@ pub async fn events_export_post(configuration: &configuration::Configuration, ev
 
 /// Returns a log of delivery events filtered by specified parameters. Required Access Level: ViewReports
 pub async fn events_get(configuration: &configuration::Configuration, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, order_by: Option<crate::models::EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::RecipientEvent>, Error<EventsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/events", configuration.base_path);
+    let local_var_uri_str = format!("{}/events", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
@@ -370,10 +377,10 @@ pub async fn events_get(configuration: &configuration::Configuration, event_type
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

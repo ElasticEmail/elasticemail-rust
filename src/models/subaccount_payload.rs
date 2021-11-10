@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SubaccountPayload {
     /// Proper email address.
     #[serde(rename = "Email")]
@@ -23,7 +23,6 @@ pub struct SubaccountPayload {
     /// True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active).
     #[serde(rename = "SendActivation", skip_serializing_if = "Option::is_none")]
     pub send_activation: Option<bool>,
-    /// SubAccount settings
     #[serde(rename = "Settings", skip_serializing_if = "Option::is_none")]
     pub settings: Option<Box<crate::models::SubaccountSettingsInfoPayload>>,
 }

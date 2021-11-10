@@ -15,42 +15,42 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `subaccounts_by_email_credits_patch`
+/// struct for typed errors of method [`subaccounts_by_email_credits_patch`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubaccountsByEmailCreditsPatchError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `subaccounts_by_email_delete`
+/// struct for typed errors of method [`subaccounts_by_email_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubaccountsByEmailDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `subaccounts_by_email_get`
+/// struct for typed errors of method [`subaccounts_by_email_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubaccountsByEmailGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `subaccounts_by_email_settings_email_put`
+/// struct for typed errors of method [`subaccounts_by_email_settings_email_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubaccountsByEmailSettingsEmailPutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `subaccounts_get`
+/// struct for typed errors of method [`subaccounts_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubaccountsGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `subaccounts_post`
+/// struct for typed errors of method [`subaccounts_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubaccountsPostError {
@@ -60,16 +60,17 @@ pub enum SubaccountsPostError {
 
 /// Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
 pub async fn subaccounts_by_email_credits_patch(configuration: &configuration::Configuration, email: &str, subaccount_email_credits_payload: crate::models::SubaccountEmailCreditsPayload) -> Result<(), Error<SubaccountsByEmailCreditsPatchError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/subaccounts/{email}/credits", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/subaccounts/{email}/credits", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -96,16 +97,17 @@ pub async fn subaccounts_by_email_credits_patch(configuration: &configuration::C
 
 /// Deletes specified SubAccount. An email will be sent to confirm this change. Required Access Level: ModifySubAccounts
 pub async fn subaccounts_by_email_delete(configuration: &configuration::Configuration, email: &str) -> Result<(), Error<SubaccountsByEmailDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/subaccounts/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/subaccounts/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -131,16 +133,17 @@ pub async fn subaccounts_by_email_delete(configuration: &configuration::Configur
 
 /// Returns details for the specified SubAccount. Required Access Level: ViewSubAccounts
 pub async fn subaccounts_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::SubAccountInfo, Error<SubaccountsByEmailGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/subaccounts/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/subaccounts/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -166,16 +169,17 @@ pub async fn subaccounts_by_email_get(configuration: &configuration::Configurati
 
 /// Update SubAccount email settings. Required Access Level: ModifySubAccounts
 pub async fn subaccounts_by_email_settings_email_put(configuration: &configuration::Configuration, email: &str, subaccount_email_settings: crate::models::SubaccountEmailSettings) -> Result<crate::models::SubaccountEmailSettings, Error<SubaccountsByEmailSettingsEmailPutError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/subaccounts/{email}/settings/email", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/subaccounts/{email}/settings/email", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -202,10 +206,11 @@ pub async fn subaccounts_by_email_settings_email_put(configuration: &configurati
 
 /// Returns a list of all your SubAccounts. Required Access Level: ViewSubAccounts
 pub async fn subaccounts_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::SubAccountInfo>, Error<SubaccountsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/subaccounts", configuration.base_path);
+    let local_var_uri_str = format!("{}/subaccounts", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -214,10 +219,10 @@ pub async fn subaccounts_get(configuration: &configuration::Configuration, limit
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -243,16 +248,17 @@ pub async fn subaccounts_get(configuration: &configuration::Configuration, limit
 
 /// Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
 pub async fn subaccounts_post(configuration: &configuration::Configuration, subaccount_payload: crate::models::SubaccountPayload) -> Result<crate::models::SubAccountInfo, Error<SubaccountsPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/subaccounts", configuration.base_path);
+    let local_var_uri_str = format!("{}/subaccounts", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

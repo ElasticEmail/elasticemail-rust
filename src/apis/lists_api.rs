@@ -15,49 +15,49 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `lists_by_name_contacts_post`
+/// struct for typed errors of method [`lists_by_name_contacts_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsByNameContactsPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `lists_by_name_contacts_remove_post`
+/// struct for typed errors of method [`lists_by_name_contacts_remove_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsByNameContactsRemovePostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `lists_by_name_delete`
+/// struct for typed errors of method [`lists_by_name_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsByNameDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `lists_by_name_get`
+/// struct for typed errors of method [`lists_by_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsByNameGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `lists_by_name_put`
+/// struct for typed errors of method [`lists_by_name_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsByNamePutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `lists_get`
+/// struct for typed errors of method [`lists_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `lists_post`
+/// struct for typed errors of method [`lists_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListsPostError {
@@ -67,16 +67,17 @@ pub enum ListsPostError {
 
 /// Add existing Contacts to specified list. Required Access Level: ModifyContacts
 pub async fn lists_by_name_contacts_post(configuration: &configuration::Configuration, name: &str, emails_payload: crate::models::EmailsPayload) -> Result<crate::models::ContactsList, Error<ListsByNameContactsPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists/{name}/contacts", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/lists/{name}/contacts", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -103,16 +104,17 @@ pub async fn lists_by_name_contacts_post(configuration: &configuration::Configur
 
 /// Remove specified Contacts from your list. Required Access Level: ModifyContacts
 pub async fn lists_by_name_contacts_remove_post(configuration: &configuration::Configuration, name: &str, emails_payload: crate::models::EmailsPayload) -> Result<(), Error<ListsByNameContactsRemovePostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists/{name}/contacts/remove", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/lists/{name}/contacts/remove", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -139,16 +141,17 @@ pub async fn lists_by_name_contacts_remove_post(configuration: &configuration::C
 
 /// Deletes List and removes all the Contacts from it (does not delete Contacts). Required Access Level: ModifyContacts
 pub async fn lists_by_name_delete(configuration: &configuration::Configuration, name: &str) -> Result<(), Error<ListsByNameDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/lists/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -174,16 +177,17 @@ pub async fn lists_by_name_delete(configuration: &configuration::Configuration, 
 
 /// Returns detailed information about specified list. Required Access Level: ViewContacts
 pub async fn lists_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::ContactsList, Error<ListsByNameGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/lists/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -209,16 +213,17 @@ pub async fn lists_by_name_get(configuration: &configuration::Configuration, nam
 
 /// Update existing list. Required Access Level: ModifyContacts
 pub async fn lists_by_name_put(configuration: &configuration::Configuration, name: &str, list_update_payload: crate::models::ListUpdatePayload) -> Result<crate::models::ContactsList, Error<ListsByNamePutError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists/{name}", configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/lists/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -245,10 +250,11 @@ pub async fn lists_by_name_put(configuration: &configuration::Configuration, nam
 
 /// Returns all your existing lists. Required Access Level: ViewContacts
 pub async fn lists_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::ContactsList>, Error<ListsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists", configuration.base_path);
+    let local_var_uri_str = format!("{}/lists", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -257,10 +263,10 @@ pub async fn lists_get(configuration: &configuration::Configuration, limit: Opti
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -286,16 +292,17 @@ pub async fn lists_get(configuration: &configuration::Configuration, limit: Opti
 
 /// Add a new list. Required Access Level: ModifyContacts
 pub async fn lists_post(configuration: &configuration::Configuration, list_payload: crate::models::ListPayload) -> Result<crate::models::ContactsList, Error<ListsPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/lists", configuration.base_path);
+    let local_var_uri_str = format!("{}/lists", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

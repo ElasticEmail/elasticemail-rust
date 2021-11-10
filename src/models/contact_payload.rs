@@ -11,14 +11,13 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ContactPayload {
     /// Proper email address.
     #[serde(rename = "Email")]
     pub email: String,
-    /// Status of the given resource
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Box<crate::models::ContactStatus>>,
+    pub status: Option<crate::models::ContactStatus>,
     /// First name.
     #[serde(rename = "FirstName", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,

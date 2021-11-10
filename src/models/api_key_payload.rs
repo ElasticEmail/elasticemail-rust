@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ApiKeyPayload {
     /// Name of the ApiKey for ease of reference.
     #[serde(rename = "Name")]

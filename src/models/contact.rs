@@ -12,14 +12,13 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct Contact {
     /// Proper email address.
     #[serde(rename = "Email", skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
-    /// Status of the given resource
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Box<crate::models::ContactStatus>>,
+    pub status: Option<crate::models::ContactStatus>,
     /// First name.
     #[serde(rename = "FirstName", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
@@ -31,9 +30,8 @@ pub struct Contact {
     pub custom_fields: Option<::std::collections::HashMap<String, String>>,
     #[serde(rename = "Consent", skip_serializing_if = "Option::is_none")]
     pub consent: Option<Box<crate::models::ConsentData>>,
-    /// From where was this contact added
     #[serde(rename = "Source", skip_serializing_if = "Option::is_none")]
-    pub source: Option<Box<crate::models::ContactSource>>,
+    pub source: Option<crate::models::ContactSource>,
     /// Date of creation in YYYY-MM-DDThh:ii:ss format
     #[serde(rename = "DateAdded", skip_serializing_if = "Option::is_none")]
     pub date_added: Option<String>,
@@ -43,7 +41,6 @@ pub struct Contact {
     /// Date of last status change.
     #[serde(rename = "StatusChangeDate", skip_serializing_if = "Option::is_none")]
     pub status_change_date: Option<String>,
-    /// Contact's email statistics and activity
     #[serde(rename = "Activity", skip_serializing_if = "Option::is_none")]
     pub activity: Option<Box<crate::models::ContactActivity>>,
 }

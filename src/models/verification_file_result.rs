@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct VerificationFileResult {
     /// Identifier of this verification result
     #[serde(rename = "VerificationID", skip_serializing_if = "Option::is_none")]
@@ -20,10 +20,8 @@ pub struct VerificationFileResult {
     /// Origin file name
     #[serde(rename = "Filename", skip_serializing_if = "Option::is_none")]
     pub filename: Option<String>,
-    /// In what state does this verification result currently is
     #[serde(rename = "VerificationStatus", skip_serializing_if = "Option::is_none")]
-    pub verification_status: Option<Box<crate::models::VerificationStatus>>,
-    /// How many emails were detected in the file for verification
+    pub verification_status: Option<crate::models::VerificationStatus>,
     #[serde(rename = "FileUploadResult", skip_serializing_if = "Option::is_none")]
     pub file_upload_result: Option<Box<crate::models::FileUploadResult>>,
     /// Date of creation in YYYY-MM-DDThh:ii:ss format

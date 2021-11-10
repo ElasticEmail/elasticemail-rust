@@ -12,9 +12,8 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SubaccountSettingsInfoPayload {
-    /// Settings related to sending emails
     #[serde(rename = "Email", skip_serializing_if = "Option::is_none")]
     pub email: Option<Box<crate::models::SubaccountEmailSettingsPayload>>,
 }

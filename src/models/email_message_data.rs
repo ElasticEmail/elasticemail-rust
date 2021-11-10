@@ -12,15 +12,13 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EmailMessageData {
-    /// List of recipients (visible to others)
+    /// List of recipients
     #[serde(rename = "Recipients")]
     pub recipients: Vec<crate::models::EmailRecipient>,
-    /// Proper e-mail content
     #[serde(rename = "Content", skip_serializing_if = "Option::is_none")]
     pub content: Option<Box<crate::models::EmailContent>>,
-    /// E-mail configuration
     #[serde(rename = "Options", skip_serializing_if = "Option::is_none")]
     pub options: Option<Box<crate::models::Options>>,
 }

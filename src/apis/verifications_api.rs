@@ -15,70 +15,70 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `verifications_by_email_delete`
+/// struct for typed errors of method [`verifications_by_email_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsByEmailDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_by_email_get`
+/// struct for typed errors of method [`verifications_by_email_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsByEmailGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_by_email_post`
+/// struct for typed errors of method [`verifications_by_email_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsByEmailPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_files_by_id_delete`
+/// struct for typed errors of method [`verifications_files_by_id_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsFilesByIdDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_files_by_id_result_download_get`
+/// struct for typed errors of method [`verifications_files_by_id_result_download_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsFilesByIdResultDownloadGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_files_by_id_result_get`
+/// struct for typed errors of method [`verifications_files_by_id_result_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsFilesByIdResultGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_files_by_id_verification_post`
+/// struct for typed errors of method [`verifications_files_by_id_verification_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsFilesByIdVerificationPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_files_post`
+/// struct for typed errors of method [`verifications_files_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsFilesPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_files_result_get`
+/// struct for typed errors of method [`verifications_files_result_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsFilesResultGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `verifications_get`
+/// struct for typed errors of method [`verifications_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerificationsGetError {
@@ -88,16 +88,17 @@ pub enum VerificationsGetError {
 
 /// Delete a result with given email if exists. Required Access Level: VerifyEmails
 pub async fn verifications_by_email_delete(configuration: &configuration::Configuration, email: &str) -> Result<(), Error<VerificationsByEmailDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/verifications/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -123,16 +124,17 @@ pub async fn verifications_by_email_delete(configuration: &configuration::Config
 
 /// Returns a result of verified email. Required Access Level: ViewEmailVerifications
 pub async fn verifications_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::EmailValidationResult, Error<VerificationsByEmailGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/verifications/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -158,16 +160,17 @@ pub async fn verifications_by_email_get(configuration: &configuration::Configura
 
 /// Verify single email address and returns result of verification. Required Access Level: VerifyEmails
 pub async fn verifications_by_email_post(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::EmailValidationResult, Error<VerificationsByEmailPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/{email}", configuration.base_path, email=crate::apis::urlencode(email));
+    let local_var_uri_str = format!("{}/verifications/{email}", local_var_configuration.base_path, email=crate::apis::urlencode(email));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -193,16 +196,17 @@ pub async fn verifications_by_email_post(configuration: &configuration::Configur
 
 /// Delete Verification Results if they exist. Required Access Level: VerifyEmails
 pub async fn verifications_files_by_id_delete(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<VerificationsFilesByIdDeleteError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/files/{id}", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/verifications/files/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -228,16 +232,17 @@ pub async fn verifications_files_by_id_delete(configuration: &configuration::Con
 
 /// Download verification results as a ZIP file. Required Access Level: VerifyEmails
 pub async fn verifications_files_by_id_result_download_get(configuration: &configuration::Configuration, id: &str) -> Result<std::path::PathBuf, Error<VerificationsFilesByIdResultDownloadGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/files/{id}/result/download", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/verifications/files/{id}/result/download", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -263,10 +268,11 @@ pub async fn verifications_files_by_id_result_download_get(configuration: &confi
 
 /// Returns status and results (if verified) of file with given ID. Required Access Level: ViewEmailVerifications
 pub async fn verifications_files_by_id_result_get(configuration: &configuration::Configuration, id: &str, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::VerificationFileResultDetails, Error<VerificationsFilesByIdResultGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/files/{id}/result", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/verifications/files/{id}/result", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -275,10 +281,10 @@ pub async fn verifications_files_by_id_result_get(configuration: &configuration:
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -304,16 +310,17 @@ pub async fn verifications_files_by_id_result_get(configuration: &configuration:
 
 /// Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
 pub async fn verifications_files_by_id_verification_post(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<VerificationsFilesByIdVerificationPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/files/{id}/verification", configuration.base_path, id=crate::apis::urlencode(id));
+    let local_var_uri_str = format!("{}/verifications/files/{id}/verification", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -339,16 +346,17 @@ pub async fn verifications_files_by_id_verification_post(configuration: &configu
 
 /// Uploads a CSV file with list of emails that can then be triggered for verification. An 'email' column is required. Required Access Level: VerifyEmails
 pub async fn verifications_files_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<crate::models::VerificationFileResult, Error<VerificationsFilesPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/files", configuration.base_path);
+    let local_var_uri_str = format!("{}/verifications/files", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -377,16 +385,17 @@ pub async fn verifications_files_post(configuration: &configuration::Configurati
 
 /// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
 pub async fn verifications_files_result_get(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::VerificationFileResult>, Error<VerificationsFilesResultGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications/files/result", configuration.base_path);
+    let local_var_uri_str = format!("{}/verifications/files/result", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -412,10 +421,11 @@ pub async fn verifications_files_result_get(configuration: &configuration::Confi
 
 /// Returns a results of all verified single emails. Required Access Level: ViewEmailVerifications
 pub async fn verifications_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::EmailValidationResult>, Error<VerificationsGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/verifications", configuration.base_path);
+    let local_var_uri_str = format!("{}/verifications", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
@@ -424,10 +434,10 @@ pub async fn verifications_get(configuration: &configuration::Configuration, lim
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

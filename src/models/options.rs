@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct Options {
     /// By how long should an e-mail be delayed (in minutes). Maximum is 35 days.
     #[serde(rename = "TimeOffset", skip_serializing_if = "Option::is_none")]
@@ -23,9 +23,8 @@ pub struct Options {
     /// Name of selected channel.
     #[serde(rename = "ChannelName", skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
-    /// 0 for None, 1 for Raw7Bit, 2 for Raw8Bit, 3 for QuotedPrintable, 4 for Base64 (Default), 5 for Uue note that you can also provide the text version such as \"Raw7Bit\" for value 1. NOTE: Base64 or QuotedPrintable is recommended if you are validating your domain(s) with DKIM.
     #[serde(rename = "Encoding", skip_serializing_if = "Option::is_none")]
-    pub encoding: Option<Box<crate::models::EncodingType>>,
+    pub encoding: Option<crate::models::EncodingType>,
     /// Should the opens be tracked? If no value has been provided, Account's default setting will be used.
     #[serde(rename = "TrackOpens", skip_serializing_if = "Option::is_none")]
     pub track_opens: Option<bool>,

@@ -12,11 +12,10 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct Template {
-    /// How the template should be edited
     #[serde(rename = "TemplateType", skip_serializing_if = "Option::is_none")]
-    pub template_type: Option<Box<crate::models::TemplateType>>,
+    pub template_type: Option<crate::models::TemplateType>,
     /// Template name
     #[serde(rename = "Name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -29,9 +28,8 @@ pub struct Template {
     /// Email content of this template
     #[serde(rename = "Body", skip_serializing_if = "Option::is_none")]
     pub body: Option<Vec<crate::models::BodyPart>>,
-    /// Visibility of a template
     #[serde(rename = "TemplateScope", skip_serializing_if = "Option::is_none")]
-    pub template_scope: Option<Box<crate::models::TemplateScope>>,
+    pub template_scope: Option<crate::models::TemplateScope>,
 }
 
 impl Template {

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CampaignTemplate {
     /// Name of your custom IP Pool to be used in the sending process
     #[serde(rename = "Poolname", skip_serializing_if = "Option::is_none")]
@@ -32,7 +32,6 @@ pub struct CampaignTemplate {
     /// Names of previously uploaded files that should be sent as downloadable attachments
     #[serde(rename = "AttachFiles", skip_serializing_if = "Option::is_none")]
     pub attach_files: Option<Vec<String>>,
-    /// Utm marketing data to be attached to every link in this e-mail.
     #[serde(rename = "Utm", skip_serializing_if = "Option::is_none")]
     pub utm: Option<Box<crate::models::Utm>>,
 }

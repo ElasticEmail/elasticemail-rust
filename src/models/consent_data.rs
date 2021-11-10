@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ConsentData {
     /// IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
     #[serde(rename = "ConsentIP", skip_serializing_if = "Option::is_none")]
@@ -19,9 +19,8 @@ pub struct ConsentData {
     /// Date of consent to send this contact(s) your email. If not provided current date is used for consent.
     #[serde(rename = "ConsentDate", skip_serializing_if = "Option::is_none")]
     pub consent_date: Option<String>,
-    /// Does the contant consent to have their tracking data stored.
     #[serde(rename = "ConsentTracking", skip_serializing_if = "Option::is_none")]
-    pub consent_tracking: Option<Box<crate::models::ConsentTracking>>,
+    pub consent_tracking: Option<crate::models::ConsentTracking>,
 }
 
 impl ConsentData {

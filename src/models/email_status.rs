@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EmailStatus {
     /// Email address this email was sent from.
     #[serde(rename = "From", skip_serializing_if = "Option::is_none")]
@@ -23,9 +23,8 @@ pub struct EmailStatus {
     /// Date the email was submitted.
     #[serde(rename = "Date", skip_serializing_if = "Option::is_none")]
     pub date: Option<String>,
-    /// Value of email's status
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Box<crate::models::LogJobStatus>>,
+    pub status: Option<crate::models::LogJobStatus>,
     /// Name of email's status
     #[serde(rename = "StatusName", skip_serializing_if = "Option::is_none")]
     pub status_name: Option<String>,

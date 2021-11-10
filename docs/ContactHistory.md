@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_type** | Option<[**crate::models::ContactHistEventType**](ContactHistEventType.md)> | Type of event occured on this Contact. | [optional]
+**event_type** | Option<[**crate::models::ContactHistEventType**](ContactHistEventType.md)> |  | [optional]
 **event_date** | Option<**String**> | Formatted date of event. | [optional]
 **channel_name** | Option<**String**> | Name of channel this event occured on | [optional]
 **template_name** | Option<**String**> | Name of template this event occured on | [optional]

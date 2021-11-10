@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SubaccountEmailCreditsPayload {
     /// Positive or negative value; this will be added or subtracted from Subaccount's current email Credits pool.
     #[serde(rename = "Credits")]

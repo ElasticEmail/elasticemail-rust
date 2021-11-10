@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct NewApiKey {
     /// Unique token to be used in the system
     #[serde(rename = "Token", skip_serializing_if = "Option::is_none")]

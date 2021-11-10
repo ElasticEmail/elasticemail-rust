@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SubAccountInfo {
     /// Public key for limited access to your Account such as contact/add so you can use it safely on public websites.
     #[serde(rename = "PublicAccountID", skip_serializing_if = "Option::is_none")]
@@ -20,7 +20,6 @@ pub struct SubAccountInfo {
     /// Proper email address.
     #[serde(rename = "Email", skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
-    /// SubAccount settings
     #[serde(rename = "Settings", skip_serializing_if = "Option::is_none")]
     pub settings: Option<Box<crate::models::SubaccountSettingsInfo>>,
     /// Date of last activity on Account
@@ -35,9 +34,8 @@ pub struct SubAccountInfo {
     /// Numeric reputation
     #[serde(rename = "Reputation", skip_serializing_if = "Option::is_none")]
     pub reputation: Option<f64>,
-    /// Account's current status.
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Box<crate::models::AccountStatusEnum>>,
+    pub status: Option<crate::models::AccountStatusEnum>,
     /// How many contacts this SubAccount has stored
     #[serde(rename = "ContactsCount", skip_serializing_if = "Option::is_none")]
     pub contacts_count: Option<i32>,

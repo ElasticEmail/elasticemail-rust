@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ContactsList {
     /// Name of your list.
     #[serde(rename = "ListName", skip_serializing_if = "Option::is_none")]

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct Campaign {
     /// Campaign's email content. Provide multiple items to send an A/X Split Campaign
     #[serde(rename = "Content", skip_serializing_if = "Option::is_none")]
@@ -19,13 +19,10 @@ pub struct Campaign {
     /// Campaign name
     #[serde(rename = "Name")]
     pub name: String,
-    /// Campaign status
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Box<crate::models::CampaignStatus>>,
-    /// Recipients this campaign should be sent to
+    pub status: Option<crate::models::CampaignStatus>,
     #[serde(rename = "Recipients")]
     pub recipients: Box<crate::models::CampaignRecipient>,
-    /// Campaign sending options
     #[serde(rename = "Options", skip_serializing_if = "Option::is_none")]
     pub options: Option<Box<crate::models::CampaignOptions>>,
 }

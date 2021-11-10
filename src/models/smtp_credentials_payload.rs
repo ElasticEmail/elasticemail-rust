@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SmtpCredentialsPayload {
     /// Name of the Credential for ease of reference. It must be a valid email address.
     #[serde(rename = "Name")]

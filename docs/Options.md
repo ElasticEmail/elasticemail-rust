@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **time_offset** | Option<**i32**> | By how long should an e-mail be delayed (in minutes). Maximum is 35 days. | [optional]
 **pool_name** | Option<**String**> | Name of your custom IP Pool to be used in the sending process | [optional]
 **channel_name** | Option<**String**> | Name of selected channel. | [optional]
-**encoding** | Option<[**crate::models::EncodingType**](EncodingType.md)> | 0 for None, 1 for Raw7Bit, 2 for Raw8Bit, 3 for QuotedPrintable, 4 for Base64 (Default), 5 for Uue note that you can also provide the text version such as \"Raw7Bit\" for value 1. NOTE: Base64 or QuotedPrintable is recommended if you are validating your domain(s) with DKIM. | [optional]
+**encoding** | Option<[**crate::models::EncodingType**](EncodingType.md)> |  | [optional]
 **track_opens** | Option<**bool**> | Should the opens be tracked? If no value has been provided, Account's default setting will be used. | [optional]
 **track_clicks** | Option<**bool**> | Should the clicks be tracked? If no value has been provided, Account's default setting will be used. | [optional]
 

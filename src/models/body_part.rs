@@ -12,11 +12,10 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct BodyPart {
-    /// Type of the body part
     #[serde(rename = "ContentType")]
-    pub content_type: Box<crate::models::BodyContentType>,
+    pub content_type: crate::models::BodyContentType,
     /// Actual content of the body part
     #[serde(rename = "Content", skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
@@ -29,7 +28,7 @@ impl BodyPart {
     /// Email body part with user-provided MIME type (text/html, text/plain, etc)
     pub fn new(content_type: crate::models::BodyContentType) -> BodyPart {
         BodyPart {
-            content_type: Box::new(content_type),
+            content_type,
             content: None,
             charset: None,
         }

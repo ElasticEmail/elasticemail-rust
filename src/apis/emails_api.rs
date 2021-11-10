@@ -15,28 +15,28 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `emails_by_msgid_view_get`
+/// struct for typed errors of method [`emails_by_msgid_view_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EmailsByMsgidViewGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `emails_mergefile_post`
+/// struct for typed errors of method [`emails_mergefile_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EmailsMergefilePostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `emails_post`
+/// struct for typed errors of method [`emails_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EmailsPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `emails_transactional_post`
+/// struct for typed errors of method [`emails_transactional_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EmailsTransactionalPostError {
@@ -46,16 +46,17 @@ pub enum EmailsTransactionalPostError {
 
 /// Returns email details for viewing or rendering. Required Access Level: None
 pub async fn emails_by_msgid_view_get(configuration: &configuration::Configuration, msgid: &str) -> Result<crate::models::EmailData, Error<EmailsByMsgidViewGetError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/emails/{msgid}/view", configuration.base_path, msgid=crate::apis::urlencode(msgid));
+    let local_var_uri_str = format!("{}/emails/{msgid}/view", local_var_configuration.base_path, msgid=crate::apis::urlencode(msgid));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -81,16 +82,17 @@ pub async fn emails_by_msgid_view_get(configuration: &configuration::Configurati
 
 /// Send bulk merge email. Required Access Level: SendHttp
 pub async fn emails_mergefile_post(configuration: &configuration::Configuration, merge_email_payload: crate::models::MergeEmailPayload) -> Result<crate::models::EmailSend, Error<EmailsMergefilePostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/emails/mergefile", configuration.base_path);
+    let local_var_uri_str = format!("{}/emails/mergefile", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -117,16 +119,17 @@ pub async fn emails_mergefile_post(configuration: &configuration::Configuration,
 
 /// Send bulk merge email. Required Access Level: SendHttp
 pub async fn emails_post(configuration: &configuration::Configuration, email_message_data: crate::models::EmailMessageData) -> Result<crate::models::EmailSend, Error<EmailsPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/emails", configuration.base_path);
+    let local_var_uri_str = format!("{}/emails", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -153,16 +156,17 @@ pub async fn emails_post(configuration: &configuration::Configuration, email_mes
 
 /// Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
 pub async fn emails_transactional_post(configuration: &configuration::Configuration, email_transactional_message_data: crate::models::EmailTransactionalMessageData) -> Result<crate::models::EmailSend, Error<EmailsTransactionalPostError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/emails/transactional", configuration.base_path);
+    let local_var_uri_str = format!("{}/emails/transactional", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RecipientEvent {
     /// ID number of transaction
     #[serde(rename = "TransactionID", skip_serializing_if = "Option::is_none")]
@@ -29,18 +29,16 @@ pub struct RecipientEvent {
     /// Default subject of email.
     #[serde(rename = "Subject", skip_serializing_if = "Option::is_none")]
     pub subject: Option<String>,
-    /// Type of an Event
     #[serde(rename = "EventType", skip_serializing_if = "Option::is_none")]
-    pub event_type: Option<Box<crate::models::EventType>>,
+    pub event_type: Option<crate::models::EventType>,
     /// Creation date
     #[serde(rename = "EventDate", skip_serializing_if = "Option::is_none")]
     pub event_date: Option<String>,
     /// Name of selected channel.
     #[serde(rename = "ChannelName", skip_serializing_if = "Option::is_none")]
     pub channel_name: Option<String>,
-    /// Message category
     #[serde(rename = "MessageCategory", skip_serializing_if = "Option::is_none")]
-    pub message_category: Option<Box<crate::models::MessageCategory>>,
+    pub message_category: Option<crate::models::MessageCategory>,
     /// Date of next try
     #[serde(rename = "NextTryOn", skip_serializing_if = "Option::is_none")]
     pub next_try_on: Option<String>,

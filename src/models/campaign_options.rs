@@ -12,11 +12,10 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CampaignOptions {
-    /// How to order email delivery - by recipients' engagement score or by the time they open the most of the emails that were sent to them
     #[serde(rename = "DeliveryOptimization", skip_serializing_if = "Option::is_none")]
-    pub delivery_optimization: Option<Box<crate::models::DeliveryOptimizationType>>,
+    pub delivery_optimization: Option<crate::models::DeliveryOptimizationType>,
     /// Should the opens be tracked? If no value has been provided, Account's default setting will be used.
     #[serde(rename = "TrackOpens", skip_serializing_if = "Option::is_none")]
     pub track_opens: Option<bool>,
@@ -26,7 +25,6 @@ pub struct CampaignOptions {
     /// Date when this Campaign is scheduled to be sent on
     #[serde(rename = "ScheduleFor", skip_serializing_if = "Option::is_none")]
     pub schedule_for: Option<String>,
-    /// Optional options for A/X split campaigns. Will be ignored if only one template content was provided
     #[serde(rename = "SplitOptions", skip_serializing_if = "Option::is_none")]
     pub split_options: Option<Box<crate::models::SplitOptions>>,
 }

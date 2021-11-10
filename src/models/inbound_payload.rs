@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct InboundPayload {
     /// Filter of the inbound data
     #[serde(rename = "Filter")]
@@ -19,12 +19,10 @@ pub struct InboundPayload {
     /// Name of this route
     #[serde(rename = "Name")]
     pub name: String,
-    /// Type of the filter
     #[serde(rename = "FilterType")]
-    pub filter_type: Box<crate::models::InboundRouteFilterType>,
-    /// Type of action to take
+    pub filter_type: crate::models::InboundRouteFilterType,
     #[serde(rename = "ActionType")]
-    pub action_type: Box<crate::models::InboundRouteActionType>,
+    pub action_type: crate::models::InboundRouteActionType,
     /// Email to forward the inbound to
     #[serde(rename = "EmailAddress", skip_serializing_if = "Option::is_none")]
     pub email_address: Option<String>,
@@ -38,8 +36,8 @@ impl InboundPayload {
         InboundPayload {
             filter,
             name,
-            filter_type: Box::new(filter_type),
-            action_type: Box::new(action_type),
+            filter_type,
+            action_type,
             email_address: None,
             http_address: None,
         }

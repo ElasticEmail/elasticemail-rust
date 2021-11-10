@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **from** | Option<**String**> | Email address this email was sent from. | [optional]
 **to** | Option<**String**> | Email address this email was sent to. | [optional]
 **date** | Option<**String**> | Date the email was submitted. | [optional]
-**status** | Option<[**crate::models::LogJobStatus**](LogJobStatus.md)> | Value of email's status | [optional]
+**status** | Option<[**crate::models::LogJobStatus**](LogJobStatus.md)> |  | [optional]
 **status_name** | Option<**String**> | Name of email's status | [optional]
 **status_change_date** | Option<**String**> | Date of last status change. | [optional]
 **date_sent** | Option<**String**> | Date when the email was sent | [optional]

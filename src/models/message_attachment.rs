@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct MessageAttachment {
     /// File's content as byte array (or a Base64 string)
     #[serde(rename = "BinaryContent")]

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CampaignRecipient {
     /// Names of lists from your Account to read recipients from
     #[serde(rename = "ListNames", skip_serializing_if = "Option::is_none")]
