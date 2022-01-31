@@ -32,6 +32,8 @@ pub struct SubaccountEmailSettingsPayload {
     /// Name of your custom IP Pool to be used in the sending process
     #[serde(rename = "PoolName", skip_serializing_if = "Option::is_none")]
     pub pool_name: Option<String>,
+    #[serde(rename = "ValidSenderDomainOnly", skip_serializing_if = "Option::is_none")]
+    pub valid_sender_domain_only: Option<bool>,
 }
 
 impl SubaccountEmailSettingsPayload {
@@ -44,6 +46,7 @@ impl SubaccountEmailSettingsPayload {
             max_contacts: None,
             enable_private_ip_purchase: None,
             pool_name: None,
+            valid_sender_domain_only: None,
         }
     }
 }

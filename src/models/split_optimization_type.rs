@@ -28,6 +28,12 @@ impl ToString for SplitOptimizationType {
     }
 }
 
+impl Default for SplitOptimizationType {
+    fn default() -> SplitOptimizationType {
+        Self::Opens
+    }
+}
+
 
 
 

@@ -326,7 +326,10 @@ pub async fn contacts_export_post(configuration: &configuration::Configuration, 
         local_var_req_builder = local_var_req_builder.query(&[("rule", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = emails {
-        local_var_req_builder = local_var_req_builder.query(&[("emails", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("emails".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("emails", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_str) = compression_format {
         local_var_req_builder = local_var_req_builder.query(&[("compressionFormat", &local_var_str.to_string())]);
@@ -458,7 +461,10 @@ pub async fn contacts_post(configuration: &configuration::Configuration, contact
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = listnames {
-        local_var_req_builder = local_var_req_builder.query(&[("listnames", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("listnames".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("listnames", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

@@ -35,6 +35,12 @@ impl ToString for BodyContentType {
     }
 }
 
+impl Default for BodyContentType {
+    fn default() -> BodyContentType {
+        Self::HTML
+    }
+}
+
 
 
 

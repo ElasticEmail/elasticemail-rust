@@ -73,6 +73,12 @@ impl ToString for MessageCategory {
     }
 }
 
+impl Default for MessageCategory {
+    fn default() -> MessageCategory {
+        Self::Unknown
+    }
+}
+
 
 
 

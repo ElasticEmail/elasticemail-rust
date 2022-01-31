@@ -37,6 +37,12 @@ impl ToString for AccountStatusEnum {
     }
 }
 
+impl Default for AccountStatusEnum {
+    fn default() -> AccountStatusEnum {
+        Self::Disabled
+    }
+}
+
 
 
 

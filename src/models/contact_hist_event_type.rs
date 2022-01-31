@@ -64,6 +64,12 @@ impl ToString for ContactHistEventType {
     }
 }
 
+impl Default for ContactHistEventType {
+    fn default() -> ContactHistEventType {
+        Self::Opened
+    }
+}
+
 
 
 

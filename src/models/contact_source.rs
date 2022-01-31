@@ -43,6 +43,12 @@ impl ToString for ContactSource {
     }
 }
 
+impl Default for ContactSource {
+    fn default() -> ContactSource {
+        Self::DeliveryApi
+    }
+}
+
 
 
 

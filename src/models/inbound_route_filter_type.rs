@@ -28,6 +28,12 @@ impl ToString for InboundRouteFilterType {
     }
 }
 
+impl Default for InboundRouteFilterType {
+    fn default() -> InboundRouteFilterType {
+        Self::EmailAddress
+    }
+}
+
 
 
 

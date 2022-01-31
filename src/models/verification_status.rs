@@ -37,6 +37,12 @@ impl ToString for VerificationStatus {
     }
 }
 
+impl Default for VerificationStatus {
+    fn default() -> VerificationStatus {
+        Self::Processing
+    }
+}
+
 
 
 

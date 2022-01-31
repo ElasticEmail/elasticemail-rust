@@ -163,6 +163,12 @@ impl ToString for AccessLevel {
     }
 }
 
+impl Default for AccessLevel {
+    fn default() -> AccessLevel {
+        Self::None
+    }
+}
+
 
 
 

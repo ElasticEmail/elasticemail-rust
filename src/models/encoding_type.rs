@@ -44,6 +44,12 @@ impl ToString for EncodingType {
     }
 }
 
+impl Default for EncodingType {
+    fn default() -> EncodingType {
+        Self::UserProvided
+    }
+}
+
 
 
 

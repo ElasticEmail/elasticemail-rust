@@ -31,6 +31,12 @@ impl ToString for TemplateType {
     }
 }
 
+impl Default for TemplateType {
+    fn default() -> TemplateType {
+        Self::RawHTML
+    }
+}
+
 
 
 

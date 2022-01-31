@@ -49,6 +49,12 @@ impl ToString for ContactStatus {
     }
 }
 
+impl Default for ContactStatus {
+    fn default() -> ContactStatus {
+        Self::Transactional
+    }
+}
+
 
 
 

@@ -28,6 +28,12 @@ impl ToString for EventsOrderBy {
     }
 }
 
+impl Default for EventsOrderBy {
+    fn default() -> EventsOrderBy {
+        Self::DateDescending
+    }
+}
+
 
 
 

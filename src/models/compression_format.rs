@@ -29,6 +29,12 @@ impl ToString for CompressionFormat {
     }
 }
 
+impl Default for CompressionFormat {
+    fn default() -> CompressionFormat {
+        Self::None
+    }
+}
+
 
 
 

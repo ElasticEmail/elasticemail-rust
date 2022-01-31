@@ -31,6 +31,12 @@ impl ToString for ConsentTracking {
     }
 }
 
+impl Default for ConsentTracking {
+    fn default() -> ConsentTracking {
+        Self::Unknown
+    }
+}
+
 
 
 

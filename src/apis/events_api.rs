@@ -126,7 +126,10 @@ pub async fn events_channels_by_name_export_post(configuration: &configuration::
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
-        local_var_req_builder = local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("eventTypes".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_str) = from {
         local_var_req_builder = local_var_req_builder.query(&[("from", &local_var_str.to_string())]);
@@ -180,7 +183,10 @@ pub async fn events_channels_by_name_get(configuration: &configuration::Configur
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
-        local_var_req_builder = local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("eventTypes".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_str) = from {
         local_var_req_builder = local_var_req_builder.query(&[("from", &local_var_str.to_string())]);
@@ -306,7 +312,10 @@ pub async fn events_export_post(configuration: &configuration::Configuration, ev
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
-        local_var_req_builder = local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("eventTypes".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_str) = from {
         local_var_req_builder = local_var_req_builder.query(&[("from", &local_var_str.to_string())]);
@@ -360,7 +369,10 @@ pub async fn events_get(configuration: &configuration::Configuration, event_type
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = event_types {
-        local_var_req_builder = local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("eventTypes".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("eventTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_str) = from {
         local_var_req_builder = local_var_req_builder.query(&[("from", &local_var_str.to_string())]);

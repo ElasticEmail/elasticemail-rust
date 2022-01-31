@@ -52,6 +52,12 @@ impl ToString for LogJobStatus {
     }
 }
 
+impl Default for LogJobStatus {
+    fn default() -> LogJobStatus {
+        Self::All
+    }
+}
+
 
 
 

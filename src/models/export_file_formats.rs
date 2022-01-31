@@ -32,6 +32,12 @@ impl ToString for ExportFileFormats {
     }
 }
 
+impl Default for ExportFileFormats {
+    fn default() -> ExportFileFormats {
+        Self::Csv
+    }
+}
+
 
 
 

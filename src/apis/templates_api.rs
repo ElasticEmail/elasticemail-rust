@@ -169,9 +169,15 @@ pub async fn templates_get(configuration: &configuration::Configuration, scope_t
     let local_var_uri_str = format!("{}/templates", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("scopeType", &scope_type.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&scope_type.into_iter().map(|p| ("scopeType".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("scopeType", &scope_type.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_str) = template_types {
-        local_var_req_builder = local_var_req_builder.query(&[("templateTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("templateTypes".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("templateTypes", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref local_var_str) = limit {
         local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);

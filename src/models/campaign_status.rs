@@ -46,6 +46,12 @@ impl ToString for CampaignStatus {
     }
 }
 
+impl Default for CampaignStatus {
+    fn default() -> CampaignStatus {
+        Self::Deleted
+    }
+}
+
 
 
 

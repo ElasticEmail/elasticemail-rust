@@ -31,6 +31,12 @@ impl ToString for DeliveryOptimizationType {
     }
 }
 
+impl Default for DeliveryOptimizationType {
+    fn default() -> DeliveryOptimizationType {
+        Self::None
+    }
+}
+
 
 
 

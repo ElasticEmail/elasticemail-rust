@@ -37,6 +37,12 @@ impl ToString for EmailValidationStatus {
     }
 }
 
+impl Default for EmailValidationStatus {
+    fn default() -> EmailValidationStatus {
+        Self::None
+    }
+}
+
 
 
 

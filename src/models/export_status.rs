@@ -35,6 +35,12 @@ impl ToString for ExportStatus {
     }
 }
 
+impl Default for ExportStatus {
+    fn default() -> ExportStatus {
+        Self::Error
+    }
+}
+
 
 
 

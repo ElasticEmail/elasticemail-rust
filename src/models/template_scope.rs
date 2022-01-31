@@ -29,6 +29,12 @@ impl ToString for TemplateScope {
     }
 }
 
+impl Default for TemplateScope {
+    fn default() -> TemplateScope {
+        Self::Personal
+    }
+}
+
 
 
 

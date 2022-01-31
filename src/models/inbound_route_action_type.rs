@@ -31,6 +31,12 @@ impl ToString for InboundRouteActionType {
     }
 }
 
+impl Default for InboundRouteActionType {
+    fn default() -> InboundRouteActionType {
+        Self::ForwardToEmail
+    }
+}
+
 
 
 
