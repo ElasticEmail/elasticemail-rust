@@ -212,10 +212,10 @@ Request an Export of specified Contacts. Required Access Level: Export
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**file_format** | Option<[**crate::models::ExportFileFormats**](.md)> | Format of the exported file |  |
+**file_format** | Option<[**ExportFileFormats**](.md)> | Format of the exported file |  |
 **rule** | Option<**String**> | Query used for filtering. |  |
 **emails** | Option<[**Vec<String>**](String.md)> | Comma delimited list of contact emails |  |
-**compression_format** | Option<[**crate::models::CompressionFormat**](.md)> | FileResponse compression format. None or Zip. |  |
+**compression_format** | Option<[**CompressionFormat**](.md)> | FileResponse compression format. None or Zip. |  |
 **file_name** | Option<**String**> | Name of your file including extension. |  |
 
 ### Return type

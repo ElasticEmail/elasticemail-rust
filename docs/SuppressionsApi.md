@@ -24,7 +24,7 @@ Method | HTTP request | Description
 > Vec<crate::models::Suppression> suppressions_bounces_get(search, limit, offset)
 Get Bounce List
 
-Retrieve your list of bounced emails. Required Access Level: ViewContacts
+Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
 
 ### Parameters
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Required | Notes
 > suppressions_bounces_import_post(file)
 Add Bounces Async
 
-Add Bounced. Required Access Level: ModifyContacts
+Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
 
 ### Parameters
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::Suppression> suppressions_bounces_post(request_body)
 Add Bounces
 
-Add Bounced. Required Access Level: ModifyContacts
+Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
 
 ### Parameters
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Required | Notes
 > suppressions_by_email_delete(email)
 Delete Suppression
 
-Delete Suppression. Required Access Level: ViewContacts
+Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
 
 ### Parameters
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::Suppression suppressions_by_email_get(email)
 Get Suppression
 
-Retrieve your suppression. Required Access Level: ViewContacts
+Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
 
 ### Parameters
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::Suppression> suppressions_complaints_get(search, limit, offset)
 Get Complaints List
 
-Retrieve your list of complaints. Required Access Level: ViewContacts
+Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
 
 ### Parameters
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Required | Notes
 > suppressions_complaints_import_post(file)
 Add Complaints Async
 
-Add Complaints. Required Access Level: ModifyContacts
+Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
 
 ### Parameters
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::Suppression> suppressions_complaints_post(request_body)
 Add Complaints
 
-Add Complaints. Required Access Level: ModifyContacts
+Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
 
 ### Parameters
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::Suppression> suppressions_get(limit, offset)
 Get Suppressions
 
-Retrieve your suppressions. Required Access Level: ViewContacts
+Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
 
 ### Parameters
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::Suppression> suppressions_unsubscribes_get(search, limit, offset)
 Get Unsubscribes List
 
-Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
 
 ### Parameters
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Required | Notes
 > suppressions_unsubscribes_import_post(file)
 Add Unsubscribes Async
 
-Add Unsubscribes. Required Access Level: ModifyContacts
+Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
 
 ### Parameters
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::Suppression> suppressions_unsubscribes_post(request_body)
 Add Unsubscribes
 
-Add Unsubscribes. Required Access Level: ModifyContacts
+Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
 
 ### Parameters
 

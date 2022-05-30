@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -100,7 +100,7 @@ pub enum SuppressionsUnsubscribesPostError {
 }
 
 
-/// Retrieve your list of bounced emails. Required Access Level: ViewContacts
+/// Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
 pub async fn suppressions_bounces_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsBouncesGetError>> {
     let local_var_configuration = configuration;
 
@@ -145,7 +145,7 @@ pub async fn suppressions_bounces_get(configuration: &configuration::Configurati
     }
 }
 
-/// Add Bounced. Required Access Level: ModifyContacts
+/// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
 pub async fn suppressions_bounces_import_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<(), Error<SuppressionsBouncesImportPostError>> {
     let local_var_configuration = configuration;
 
@@ -184,7 +184,7 @@ pub async fn suppressions_bounces_import_post(configuration: &configuration::Con
     }
 }
 
-/// Add Bounced. Required Access Level: ModifyContacts
+/// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
 pub async fn suppressions_bounces_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsBouncesPostError>> {
     let local_var_configuration = configuration;
 
@@ -221,7 +221,7 @@ pub async fn suppressions_bounces_post(configuration: &configuration::Configurat
     }
 }
 
-/// Delete Suppression. Required Access Level: ViewContacts
+/// Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
 pub async fn suppressions_by_email_delete(configuration: &configuration::Configuration, email: &str) -> Result<(), Error<SuppressionsByEmailDeleteError>> {
     let local_var_configuration = configuration;
 
@@ -257,7 +257,7 @@ pub async fn suppressions_by_email_delete(configuration: &configuration::Configu
     }
 }
 
-/// Retrieve your suppression. Required Access Level: ViewContacts
+/// Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
 pub async fn suppressions_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::Suppression, Error<SuppressionsByEmailGetError>> {
     let local_var_configuration = configuration;
 
@@ -293,7 +293,7 @@ pub async fn suppressions_by_email_get(configuration: &configuration::Configurat
     }
 }
 
-/// Retrieve your list of complaints. Required Access Level: ViewContacts
+/// Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
 pub async fn suppressions_complaints_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsComplaintsGetError>> {
     let local_var_configuration = configuration;
 
@@ -338,7 +338,7 @@ pub async fn suppressions_complaints_get(configuration: &configuration::Configur
     }
 }
 
-/// Add Complaints. Required Access Level: ModifyContacts
+/// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
 pub async fn suppressions_complaints_import_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<(), Error<SuppressionsComplaintsImportPostError>> {
     let local_var_configuration = configuration;
 
@@ -377,7 +377,7 @@ pub async fn suppressions_complaints_import_post(configuration: &configuration::
     }
 }
 
-/// Add Complaints. Required Access Level: ModifyContacts
+/// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
 pub async fn suppressions_complaints_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsComplaintsPostError>> {
     let local_var_configuration = configuration;
 
@@ -414,7 +414,7 @@ pub async fn suppressions_complaints_post(configuration: &configuration::Configu
     }
 }
 
-/// Retrieve your suppressions. Required Access Level: ViewContacts
+/// Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
 pub async fn suppressions_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsGetError>> {
     let local_var_configuration = configuration;
 
@@ -456,7 +456,7 @@ pub async fn suppressions_get(configuration: &configuration::Configuration, limi
     }
 }
 
-/// Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+/// Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
 pub async fn suppressions_unsubscribes_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsUnsubscribesGetError>> {
     let local_var_configuration = configuration;
 
@@ -501,7 +501,7 @@ pub async fn suppressions_unsubscribes_get(configuration: &configuration::Config
     }
 }
 
-/// Add Unsubscribes. Required Access Level: ModifyContacts
+/// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
 pub async fn suppressions_unsubscribes_import_post(configuration: &configuration::Configuration, file: Option<std::path::PathBuf>) -> Result<(), Error<SuppressionsUnsubscribesImportPostError>> {
     let local_var_configuration = configuration;
 
@@ -540,7 +540,7 @@ pub async fn suppressions_unsubscribes_import_post(configuration: &configuration
     }
 }
 
-/// Add Unsubscribes. Required Access Level: ModifyContacts
+/// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
 pub async fn suppressions_unsubscribes_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsUnsubscribesPostError>> {
     let local_var_configuration = configuration;
 

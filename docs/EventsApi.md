@@ -29,7 +29,7 @@ Name | Type | Description  | Required | Notes
 **transactionid** | **String** | ID number of transaction | [required] |
 **from** | Option<**String**> | Starting date for search in YYYY-MM-DDThh:mm:ss format. |  |
 **to** | Option<**String**> | Ending date for search in YYYY-MM-DDThh:mm:ss format. |  |
-**order_by** | Option<[**crate::models::EventsOrderBy**](.md)> |  |  |
+**order_by** | Option<[**EventsOrderBy**](.md)> |  |  |
 **limit** | Option<**i32**> | Maximum number of returned items. |  |
 **offset** | Option<**i32**> | How many items should be returned ahead. |  |
 
@@ -65,8 +65,8 @@ Name | Type | Description  | Required | Notes
 **event_types** | Option<[**Vec<crate::models::EventType>**](crate::models::EventType.md)> | Types of Events to return |  |
 **from** | Option<**String**> | Starting date for search in YYYY-MM-DDThh:mm:ss format. |  |
 **to** | Option<**String**> | Ending date for search in YYYY-MM-DDThh:mm:ss format. |  |
-**file_format** | Option<[**crate::models::ExportFileFormats**](.md)> | Format of the exported file |  |
-**compression_format** | Option<[**crate::models::CompressionFormat**](.md)> | FileResponse compression format. None or Zip. |  |
+**file_format** | Option<[**ExportFileFormats**](.md)> | Format of the exported file |  |
+**compression_format** | Option<[**CompressionFormat**](.md)> | FileResponse compression format. None or Zip. |  |
 **file_name** | Option<**String**> | Name of your file including extension. |  |
 
 ### Return type
@@ -101,7 +101,7 @@ Name | Type | Description  | Required | Notes
 **event_types** | Option<[**Vec<crate::models::EventType>**](crate::models::EventType.md)> | Types of Events to return |  |
 **from** | Option<**String**> | Starting date for search in YYYY-MM-DDThh:mm:ss format. |  |
 **to** | Option<**String**> | Ending date for search in YYYY-MM-DDThh:mm:ss format. |  |
-**order_by** | Option<[**crate::models::EventsOrderBy**](.md)> |  |  |
+**order_by** | Option<[**EventsOrderBy**](.md)> |  |  |
 **limit** | Option<**i32**> | How many items to load. Maximum for this request is 1000 items |  |
 **offset** | Option<**i32**> | How many items should be returned ahead. |  |
 
@@ -196,8 +196,8 @@ Name | Type | Description  | Required | Notes
 **event_types** | Option<[**Vec<crate::models::EventType>**](crate::models::EventType.md)> | Types of Events to return |  |
 **from** | Option<**String**> | Starting date for search in YYYY-MM-DDThh:mm:ss format. |  |
 **to** | Option<**String**> | Ending date for search in YYYY-MM-DDThh:mm:ss format. |  |
-**file_format** | Option<[**crate::models::ExportFileFormats**](.md)> | Format of the exported file |  |
-**compression_format** | Option<[**crate::models::CompressionFormat**](.md)> | FileResponse compression format. None or Zip. |  |
+**file_format** | Option<[**ExportFileFormats**](.md)> | Format of the exported file |  |
+**compression_format** | Option<[**CompressionFormat**](.md)> | FileResponse compression format. None or Zip. |  |
 **file_name** | Option<**String**> | Name of your file including extension. |  |
 
 ### Return type
@@ -231,7 +231,7 @@ Name | Type | Description  | Required | Notes
 **event_types** | Option<[**Vec<crate::models::EventType>**](crate::models::EventType.md)> | Types of Events to return |  |
 **from** | Option<**String**> | Starting date for search in YYYY-MM-DDThh:mm:ss format. |  |
 **to** | Option<**String**> | Ending date for search in YYYY-MM-DDThh:mm:ss format. |  |
-**order_by** | Option<[**crate::models::EventsOrderBy**](.md)> |  |  |
+**order_by** | Option<[**EventsOrderBy**](.md)> |  |  |
 **limit** | Option<**i32**> | How many items to load. Maximum for this request is 1000 items |  |
 **offset** | Option<**i32**> | How many items should be returned ahead. |  |
 
