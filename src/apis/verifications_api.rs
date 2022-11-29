@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -122,7 +122,7 @@ pub async fn verifications_by_email_delete(configuration: &configuration::Config
     }
 }
 
-/// Returns a result of verified email. Required Access Level: ViewEmailVerifications
+/// Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
 pub async fn verifications_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::EmailValidationResult, Error<VerificationsByEmailGetError>> {
     let local_var_configuration = configuration;
 
@@ -266,7 +266,7 @@ pub async fn verifications_files_by_id_result_download_get(configuration: &confi
     }
 }
 
-/// Returns status and results (if verified) of file with given ID. Required Access Level: ViewEmailVerifications
+/// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
 pub async fn verifications_files_by_id_result_get(configuration: &configuration::Configuration, id: &str, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::VerificationFileResultDetails, Error<VerificationsFilesByIdResultGetError>> {
     let local_var_configuration = configuration;
 
@@ -383,7 +383,7 @@ pub async fn verifications_files_post(configuration: &configuration::Configurati
     }
 }
 
-/// Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
+/// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
 pub async fn verifications_files_result_get(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::VerificationFileResult>, Error<VerificationsFilesResultGetError>> {
     let local_var_configuration = configuration;
 
@@ -419,7 +419,7 @@ pub async fn verifications_files_result_get(configuration: &configuration::Confi
     }
 }
 
-/// Returns a results of all verified single emails. Required Access Level: ViewEmailVerifications
+/// Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
 pub async fn verifications_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::EmailValidationResult>, Error<VerificationsGetError>> {
     let local_var_configuration = configuration;
 

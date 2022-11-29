@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**contacts_by_email_delete**](ContactsApi.md#contacts_by_email_delete) | **DELETE** /contacts/{email} | Delete Contact
 [**contacts_by_email_get**](ContactsApi.md#contacts_by_email_get) | **GET** /contacts/{email} | Load Contact
-[**contacts_by_email_history_get**](ContactsApi.md#contacts_by_email_history_get) | **GET** /contacts/{email}/history | Load History
 [**contacts_by_email_put**](ContactsApi.md#contacts_by_email_put) | **PUT** /contacts/{email} | Update Contact
 [**contacts_delete_post**](ContactsApi.md#contacts_delete_post) | **POST** /contacts/delete | Delete Contacts Bulk
 [**contacts_export_by_id_status_get**](ContactsApi.md#contacts_export_by_id_status_get) | **GET** /contacts/export/{id}/status | Check Export Status
@@ -64,38 +63,6 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::Contact**](Contact.md)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contacts_by_email_history_get
-
-> Vec<crate::models::ContactHistory> contacts_by_email_history_get(email, limit, offset)
-Load History
-
-Returns detailed history of specified Contact. Required Access Level: ViewContacts
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**email** | **String** | Proper email address. | [required] |
-**limit** | Option<**i32**> | Maximum number of returned items. |  |
-**offset** | Option<**i32**> | How many items should be returned ahead. |  |
-
-### Return type
-
-[**Vec<crate::models::ContactHistory>**](ContactHistory.md)
 
 ### Authorization
 
@@ -267,7 +234,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_import_post
 
-> contacts_import_post(list_name, encoding_name, file)
+> contacts_import_post(list_name, encoding_name, file_url, file)
 Upload Contacts
 
 Upload contacts from a file. Required Access Level: ModifyContacts
@@ -279,6 +246,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **list_name** | Option<**String**> | Name of an existing list to add these contacts to |  |
 **encoding_name** | Option<**String**> | In what encoding the file is uploaded |  |
+**file_url** | Option<**String**> | Optional url of csv to import |  |
 **file** | Option<**std::path::PathBuf**> |  |  |
 
 ### Return type

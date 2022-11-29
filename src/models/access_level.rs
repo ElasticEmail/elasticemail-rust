@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -65,7 +65,7 @@ pub enum AccessLevel {
     #[serde(rename = "SendSmtp")]
     SendSmtp,
     #[serde(rename = "SendSMS")]
-    SendSMS,
+    SendSms,
     #[serde(rename = "ModifySettings")]
     ModifySettings,
     #[serde(rename = "ModifyBilling")]
@@ -85,7 +85,7 @@ pub enum AccessLevel {
     #[serde(rename = "SendHttp")]
     SendHttp,
     #[serde(rename = "Modify2FA")]
-    Modify2FA,
+    Modify2Fa,
     #[serde(rename = "ModifySupport")]
     ModifySupport,
     #[serde(rename = "ViewCustomFields")]
@@ -100,12 +100,8 @@ pub enum AccessLevel {
     VerifyEmails,
     #[serde(rename = "ViewEmailVerifications")]
     ViewEmailVerifications,
-    #[serde(rename = "ViewMarketing")]
-    ViewMarketing,
-    #[serde(rename = "ViewEmailApi")]
-    ViewEmailApi,
-    #[serde(rename = "ViewInbound")]
-    ViewInbound,
+    #[serde(rename = "DisableContactsStore")]
+    DisableContactsStore,
     #[serde(rename = "ModifyLandingPages")]
     ModifyLandingPages,
     #[serde(rename = "ViewLandingPages")]
@@ -146,7 +142,7 @@ impl ToString for AccessLevel {
             Self::ModifyFiles => String::from("ModifyFiles"),
             Self::Export => String::from("Export"),
             Self::SendSmtp => String::from("SendSmtp"),
-            Self::SendSMS => String::from("SendSMS"),
+            Self::SendSms => String::from("SendSMS"),
             Self::ModifySettings => String::from("ModifySettings"),
             Self::ModifyBilling => String::from("ModifyBilling"),
             Self::ModifyProfile => String::from("ModifyProfile"),
@@ -156,7 +152,7 @@ impl ToString for AccessLevel {
             Self::ModifyLanguage => String::from("ModifyLanguage"),
             Self::ViewSupport => String::from("ViewSupport"),
             Self::SendHttp => String::from("SendHttp"),
-            Self::Modify2FA => String::from("Modify2FA"),
+            Self::Modify2Fa => String::from("Modify2FA"),
             Self::ModifySupport => String::from("ModifySupport"),
             Self::ViewCustomFields => String::from("ViewCustomFields"),
             Self::ModifyCustomFields => String::from("ModifyCustomFields"),
@@ -164,9 +160,7 @@ impl ToString for AccessLevel {
             Self::ExtendedLogs => String::from("ExtendedLogs"),
             Self::VerifyEmails => String::from("VerifyEmails"),
             Self::ViewEmailVerifications => String::from("ViewEmailVerifications"),
-            Self::ViewMarketing => String::from("ViewMarketing"),
-            Self::ViewEmailApi => String::from("ViewEmailApi"),
-            Self::ViewInbound => String::from("ViewInbound"),
+            Self::DisableContactsStore => String::from("DisableContactsStore"),
             Self::ModifyLandingPages => String::from("ModifyLandingPages"),
             Self::ViewLandingPages => String::from("ViewLandingPages"),
             Self::ModifySuppressions => String::from("ModifySuppressions"),
