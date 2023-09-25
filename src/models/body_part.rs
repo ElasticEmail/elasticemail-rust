@@ -19,7 +19,7 @@ pub struct BodyPart {
     /// Actual content of the body part
     #[serde(rename = "Content", skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
-    /// Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more…
+    /// Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more...
     #[serde(rename = "Charset", skip_serializing_if = "Option::is_none")]
     pub charset: Option<String>,
 }

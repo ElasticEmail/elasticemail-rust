@@ -84,8 +84,8 @@ pub enum AccessLevel {
     ViewSupport,
     #[serde(rename = "SendHttp")]
     SendHttp,
-    #[serde(rename = "Modify2FA")]
-    Modify2Fa,
+    #[serde(rename = "Modify2FAEmail")]
+    Modify2FaEmail,
     #[serde(rename = "ModifySupport")]
     ModifySupport,
     #[serde(rename = "ViewCustomFields")]
@@ -98,8 +98,8 @@ pub enum AccessLevel {
     ExtendedLogs,
     #[serde(rename = "VerifyEmails")]
     VerifyEmails,
-    #[serde(rename = "ViewEmailVerifications")]
-    ViewEmailVerifications,
+    #[serde(rename = "Modify2FASms")]
+    Modify2FaSms,
     #[serde(rename = "DisableContactsStore")]
     DisableContactsStore,
     #[serde(rename = "ModifyLandingPages")]
@@ -110,6 +110,10 @@ pub enum AccessLevel {
     ModifySuppressions,
     #[serde(rename = "ViewSuppressions")]
     ViewSuppressions,
+    #[serde(rename = "ViewDragDropEditor")]
+    ViewDragDropEditor,
+    #[serde(rename = "ViewTemplateEditor")]
+    ViewTemplateEditor,
 
 }
 
@@ -152,19 +156,21 @@ impl ToString for AccessLevel {
             Self::ModifyLanguage => String::from("ModifyLanguage"),
             Self::ViewSupport => String::from("ViewSupport"),
             Self::SendHttp => String::from("SendHttp"),
-            Self::Modify2Fa => String::from("Modify2FA"),
+            Self::Modify2FaEmail => String::from("Modify2FAEmail"),
             Self::ModifySupport => String::from("ModifySupport"),
             Self::ViewCustomFields => String::from("ViewCustomFields"),
             Self::ModifyCustomFields => String::from("ModifyCustomFields"),
             Self::ModifyWebNotifications => String::from("ModifyWebNotifications"),
             Self::ExtendedLogs => String::from("ExtendedLogs"),
             Self::VerifyEmails => String::from("VerifyEmails"),
-            Self::ViewEmailVerifications => String::from("ViewEmailVerifications"),
+            Self::Modify2FaSms => String::from("Modify2FASms"),
             Self::DisableContactsStore => String::from("DisableContactsStore"),
             Self::ModifyLandingPages => String::from("ModifyLandingPages"),
             Self::ViewLandingPages => String::from("ViewLandingPages"),
             Self::ModifySuppressions => String::from("ModifySuppressions"),
             Self::ViewSuppressions => String::from("ViewSuppressions"),
+            Self::ViewDragDropEditor => String::from("ViewDragDropEditor"),
+            Self::ViewTemplateEditor => String::from("ViewTemplateEditor"),
         }
     }
 }

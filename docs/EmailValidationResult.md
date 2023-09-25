@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **reason** | Option<**String**> | All detected issues | [optional]
 **date_added** | Option<**String**> | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional]
 **result** | Option<[**crate::models::EmailValidationStatus**](EmailValidationStatus.md)> |  | [optional]
+**predicted_score** | Option<**f32**> |  | [optional]
+**predicted_status** | Option<[**crate::models::EmailPredictedValidationStatus**](EmailPredictedValidationStatus.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

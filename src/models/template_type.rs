@@ -18,6 +18,8 @@ pub enum TemplateType {
     DragDropEditor,
     #[serde(rename = "LandingPageEditor")]
     LandingPageEditor,
+    #[serde(rename = "TemplateEditor")]
+    TemplateEditor,
 
 }
 
@@ -27,6 +29,7 @@ impl ToString for TemplateType {
             Self::RawHtml => String::from("RawHTML"),
             Self::DragDropEditor => String::from("DragDropEditor"),
             Self::LandingPageEditor => String::from("LandingPageEditor"),
+            Self::TemplateEditor => String::from("TemplateEditor"),
         }
     }
 }

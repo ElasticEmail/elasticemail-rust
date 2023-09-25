@@ -52,7 +52,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::EmailValidationResult verifications_by_email_get(email)
 Get Email Verification Result
 
-Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns a result of verified email. Required Access Level: VerifyEmails
 
 ### Parameters
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::VerificationFileResultDetails verifications_files_by_id_result_get(id, limit, offset)
 Get Detailed File Verification Result
 
-Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
 
 ### Parameters
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Required | Notes
 > Vec<crate::models::VerificationFileResult> verifications_files_result_get()
 Get Files Verification Results
 
-Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
 
 ### Parameters
 
@@ -291,7 +291,7 @@ This endpoint does not need any parameter.
 > Vec<crate::models::EmailValidationResult> verifications_get(limit, offset)
 Get Emails Verification Results
 
-Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+Returns a results of all verified single emails. Required Access Level: VerifyEmails
 
 ### Parameters
 

@@ -9,33 +9,40 @@
  */
 
 
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum EmailPredictedValidationStatus {
+    #[serde(rename = "None")]
+    None,
+    #[serde(rename = "Valid")]
+    Valid,
+    #[serde(rename = "LowRisk")]
+    LowRisk,
+    #[serde(rename = "HighRisk")]
+    HighRisk,
+    #[serde(rename = "Invalid")]
+    Invalid,
 
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct MessageAttachment {
-    /// File's content as byte array (or a Base64 string)
-    #[serde(rename = "BinaryContent")]
-    pub binary_content: String,
-    /// Display name of the file
-    #[serde(rename = "Name")]
-    pub name: String,
-    /// MIME content type
-    #[serde(rename = "ContentType", skip_serializing_if = "Option::is_none")]
-    pub content_type: Option<String>,
-    /// Size of your attachment (in bytes).
-    #[serde(rename = "Size", skip_serializing_if = "Option::is_none")]
-    pub size: Option<i32>,
 }
 
-impl MessageAttachment {
-    pub fn new(binary_content: String, name: String) -> MessageAttachment {
-        MessageAttachment {
-            binary_content,
-            name,
-            content_type: None,
-            size: None,
+impl ToString for EmailPredictedValidationStatus {
+    fn to_string(&self) -> String {
+        match self {
+            Self::None => String::from("None"),
+            Self::Valid => String::from("Valid"),
+            Self::LowRisk => String::from("LowRisk"),
+            Self::HighRisk => String::from("HighRisk"),
+            Self::Invalid => String::from("Invalid"),
         }
     }
 }
+
+impl Default for EmailPredictedValidationStatus {
+    fn default() -> EmailPredictedValidationStatus {
+        Self::None
+    }
+}
+
+
 
 

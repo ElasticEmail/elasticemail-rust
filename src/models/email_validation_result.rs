@@ -39,6 +39,10 @@ pub struct EmailValidationResult {
     pub date_added: Option<String>,
     #[serde(rename = "Result", skip_serializing_if = "Option::is_none")]
     pub result: Option<crate::models::EmailValidationStatus>,
+    #[serde(rename = "PredictedScore", skip_serializing_if = "Option::is_none")]
+    pub predicted_score: Option<f32>,
+    #[serde(rename = "PredictedStatus", skip_serializing_if = "Option::is_none")]
+    pub predicted_status: Option<crate::models::EmailPredictedValidationStatus>,
 }
 
 impl EmailValidationResult {
@@ -53,6 +57,8 @@ impl EmailValidationResult {
             reason: None,
             date_added: None,
             result: None,
+            predicted_score: None,
+            predicted_status: None,
         }
     }
 }

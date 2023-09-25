@@ -50,6 +50,8 @@ pub mod email_data;
 pub use self::email_data::EmailData;
 pub mod email_message_data;
 pub use self::email_message_data::EmailMessageData;
+pub mod email_predicted_validation_status;
+pub use self::email_predicted_validation_status::EmailPredictedValidationStatus;
 pub mod email_recipient;
 pub use self::email_recipient::EmailRecipient;
 pub mod email_send;

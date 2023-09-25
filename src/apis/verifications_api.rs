@@ -122,7 +122,7 @@ pub async fn verifications_by_email_delete(configuration: &configuration::Config
     }
 }
 
-/// Returns a result of verified email. Required Access Level: VerifyEmails, ViewEmailVerifications
+/// Returns a result of verified email. Required Access Level: VerifyEmails
 pub async fn verifications_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::EmailValidationResult, Error<VerificationsByEmailGetError>> {
     let local_var_configuration = configuration;
 
@@ -266,7 +266,7 @@ pub async fn verifications_files_by_id_result_download_get(configuration: &confi
     }
 }
 
-/// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails, ViewEmailVerifications
+/// Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
 pub async fn verifications_files_by_id_result_get(configuration: &configuration::Configuration, id: &str, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::VerificationFileResultDetails, Error<VerificationsFilesByIdResultGetError>> {
     let local_var_configuration = configuration;
 
@@ -383,7 +383,7 @@ pub async fn verifications_files_post(configuration: &configuration::Configurati
     }
 }
 
-/// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails, ViewEmailVerifications
+/// Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
 pub async fn verifications_files_result_get(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::VerificationFileResult>, Error<VerificationsFilesResultGetError>> {
     let local_var_configuration = configuration;
 
@@ -419,7 +419,7 @@ pub async fn verifications_files_result_get(configuration: &configuration::Confi
     }
 }
 
-/// Returns a results of all verified single emails. Required Access Level: VerifyEmails, ViewEmailVerifications
+/// Returns a results of all verified single emails. Required Access Level: VerifyEmails
 pub async fn verifications_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::EmailValidationResult>, Error<VerificationsGetError>> {
     let local_var_configuration = configuration;
 
