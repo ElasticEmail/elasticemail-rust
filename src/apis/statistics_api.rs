@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -52,7 +52,7 @@ pub enum StatisticsGetError {
 
 
 /// Retrieve stats of an existing campaign. Required Access Level: ViewChannels
-pub async fn statistics_campaigns_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::ChannelLogStatusSummary, Error<StatisticsCampaignsByNameGetError>> {
+pub async fn statistics_campaigns_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<models::ChannelLogStatusSummary, Error<StatisticsCampaignsByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -88,7 +88,7 @@ pub async fn statistics_campaigns_by_name_get(configuration: &configuration::Con
 }
 
 /// Returns a list of your Campaigns' stats. Required Access Level: ViewChannels
-pub async fn statistics_campaigns_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::ChannelLogStatusSummary>, Error<StatisticsCampaignsGetError>> {
+pub async fn statistics_campaigns_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::ChannelLogStatusSummary>, Error<StatisticsCampaignsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -130,7 +130,7 @@ pub async fn statistics_campaigns_get(configuration: &configuration::Configurati
 }
 
 /// Retrieve an existing channel stats. Required Access Level: ViewChannels
-pub async fn statistics_channels_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::ChannelLogStatusSummary, Error<StatisticsChannelsByNameGetError>> {
+pub async fn statistics_channels_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<models::ChannelLogStatusSummary, Error<StatisticsChannelsByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -166,7 +166,7 @@ pub async fn statistics_channels_by_name_get(configuration: &configuration::Conf
 }
 
 /// Returns a list of your Channels' stats. Required Access Level: ViewChannels
-pub async fn statistics_channels_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::ChannelLogStatusSummary>, Error<StatisticsChannelsGetError>> {
+pub async fn statistics_channels_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::ChannelLogStatusSummary>, Error<StatisticsChannelsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,7 +208,7 @@ pub async fn statistics_channels_get(configuration: &configuration::Configuratio
 }
 
 /// Returns basic statistics. Required Access Level: ViewReports
-pub async fn statistics_get(configuration: &configuration::Configuration, from: String, to: Option<String>) -> Result<crate::models::LogStatusSummary, Error<StatisticsGetError>> {
+pub async fn statistics_get(configuration: &configuration::Configuration, from: String, to: Option<String>) -> Result<models::LogStatusSummary, Error<StatisticsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

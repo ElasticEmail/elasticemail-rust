@@ -4,6 +4,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**lists_by_listname_contacts_get**](ListsApi.md#lists_by_listname_contacts_get) | **GET** /lists/{listname}/contacts | Load Contacts in List
 [**lists_by_name_contacts_post**](ListsApi.md#lists_by_name_contacts_post) | **POST** /lists/{name}/contacts | Add Contacts to List
 [**lists_by_name_contacts_remove_post**](ListsApi.md#lists_by_name_contacts_remove_post) | **POST** /lists/{name}/contacts/remove | Remove Contacts from List
 [**lists_by_name_delete**](ListsApi.md#lists_by_name_delete) | **DELETE** /lists/{name} | Delete List
@@ -14,9 +15,41 @@ Method | HTTP request | Description
 
 
 
+## lists_by_listname_contacts_get
+
+> Vec<models::Contact> lists_by_listname_contacts_get(listname, limit, offset)
+Load Contacts in List
+
+Returns a list of contacts. Required Access Level: ViewContacts
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**listname** | **String** | Name of your list. | [required] |
+**limit** | Option<**i32**> | Maximum number of returned items. |  |
+**offset** | Option<**i32**> | How many items should be returned ahead. |  |
+
+### Return type
+
+[**Vec<models::Contact>**](Contact.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## lists_by_name_contacts_post
 
-> crate::models::ContactsList lists_by_name_contacts_post(name, emails_payload)
+> models::ContactsList lists_by_name_contacts_post(name, emails_payload)
 Add Contacts to List
 
 Add existing Contacts to specified list. Required Access Level: ModifyContacts
@@ -31,7 +64,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ContactsList**](ContactsList.md)
+[**models::ContactsList**](ContactsList.md)
 
 ### Authorization
 
@@ -108,7 +141,7 @@ Name | Type | Description  | Required | Notes
 
 ## lists_by_name_get
 
-> crate::models::ContactsList lists_by_name_get(name)
+> models::ContactsList lists_by_name_get(name)
 Load List
 
 Returns detailed information about specified list. Required Access Level: ViewContacts
@@ -122,7 +155,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ContactsList**](ContactsList.md)
+[**models::ContactsList**](ContactsList.md)
 
 ### Authorization
 
@@ -138,7 +171,7 @@ Name | Type | Description  | Required | Notes
 
 ## lists_by_name_put
 
-> crate::models::ContactsList lists_by_name_put(name, list_update_payload)
+> models::ContactsList lists_by_name_put(name, list_update_payload)
 Update List
 
 Update existing list. Required Access Level: ModifyContacts
@@ -153,7 +186,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ContactsList**](ContactsList.md)
+[**models::ContactsList**](ContactsList.md)
 
 ### Authorization
 
@@ -169,7 +202,7 @@ Name | Type | Description  | Required | Notes
 
 ## lists_get
 
-> Vec<crate::models::ContactsList> lists_get(limit, offset)
+> Vec<models::ContactsList> lists_get(limit, offset)
 Load Lists
 
 Returns all your existing lists. Required Access Level: ViewContacts
@@ -184,7 +217,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::ContactsList>**](ContactsList.md)
+[**Vec<models::ContactsList>**](ContactsList.md)
 
 ### Authorization
 
@@ -200,7 +233,7 @@ Name | Type | Description  | Required | Notes
 
 ## lists_post
 
-> crate::models::ContactsList lists_post(list_payload)
+> models::ContactsList lists_post(list_payload)
 Add List
 
 Add a new list. Required Access Level: ModifyContacts
@@ -214,7 +247,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ContactsList**](ContactsList.md)
+[**models::ContactsList**](ContactsList.md)
 
 ### Authorization
 

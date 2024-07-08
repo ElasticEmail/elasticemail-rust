@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -88,7 +88,7 @@ pub async fn segments_by_name_delete(configuration: &configuration::Configuratio
 }
 
 /// Returns details for the specified segment. Required Access Level: ViewContacts
-pub async fn segments_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::Segment, Error<SegmentsByNameGetError>> {
+pub async fn segments_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<models::Segment, Error<SegmentsByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -124,7 +124,7 @@ pub async fn segments_by_name_get(configuration: &configuration::Configuration, 
 }
 
 /// Rename or change RULE for your segment. Required Access Level: ModifyContacts
-pub async fn segments_by_name_put(configuration: &configuration::Configuration, name: &str, segment_payload: crate::models::SegmentPayload) -> Result<crate::models::Segment, Error<SegmentsByNamePutError>> {
+pub async fn segments_by_name_put(configuration: &configuration::Configuration, name: &str, segment_payload: models::SegmentPayload) -> Result<models::Segment, Error<SegmentsByNamePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -161,7 +161,7 @@ pub async fn segments_by_name_put(configuration: &configuration::Configuration, 
 }
 
 /// Returns a list of all your available Segments. Required Access Level: ViewContacts
-pub async fn segments_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Segment>, Error<SegmentsGetError>> {
+pub async fn segments_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Segment>, Error<SegmentsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -203,7 +203,7 @@ pub async fn segments_get(configuration: &configuration::Configuration, limit: O
 }
 
 /// Add a new segment, based on specified RULE. Required Access Level: ModifyContacts
-pub async fn segments_post(configuration: &configuration::Configuration, segment_payload: crate::models::SegmentPayload) -> Result<crate::models::Segment, Error<SegmentsPostError>> {
+pub async fn segments_post(configuration: &configuration::Configuration, segment_payload: models::SegmentPayload) -> Result<models::Segment, Error<SegmentsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

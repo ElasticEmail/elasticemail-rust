@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ## files_by_name_info_get
 
-> crate::models::FileInfo files_by_name_info_get(name)
+> models::FileInfo files_by_name_info_get(name)
 Load File Details
 
 Returns the specified File's details. Required Access Level: ViewFiles
@@ -88,7 +88,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FileInfo**](FileInfo.md)
+[**models::FileInfo**](FileInfo.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ## files_get
 
-> Vec<crate::models::FileInfo> files_get(limit, offset)
+> Vec<models::FileInfo> files_get(limit, offset)
 List Files
 
 Returns a list of all your available files. Required Access Level: ViewFiles
@@ -119,7 +119,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::FileInfo>**](FileInfo.md)
+[**Vec<models::FileInfo>**](FileInfo.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Required | Notes
 
 ## files_post
 
-> crate::models::FileInfo files_post(file_payload, expires_after_days)
+> models::FileInfo files_post(file_payload, expires_after_days)
 Upload File
 
 Uploads selected file to the server. Required Access Level: ModifyFiles
@@ -150,7 +150,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FileInfo**](FileInfo.md)
+[**models::FileInfo**](FileInfo.md)
 
 ### Authorization
 

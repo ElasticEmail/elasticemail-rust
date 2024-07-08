@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## templates_by_name_get
 
-> crate::models::Template templates_by_name_get(name)
+> models::Template templates_by_name_get(name)
 Load Template
 
 Load detailed information of the specified template. Required Access Level: ViewTemplates
@@ -58,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Template**](Template.md)
+[**models::Template**](Template.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ## templates_by_name_put
 
-> crate::models::Template templates_by_name_put(name, template_payload)
+> models::Template templates_by_name_put(name, template_payload)
 Update Template
 
 Update existing template, overwriting existing data. Required Access Level: ModifyTemplates
@@ -89,7 +89,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Template**](Template.md)
+[**models::Template**](Template.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ## templates_get
 
-> Vec<crate::models::Template> templates_get(scope_type, template_types, limit, offset)
+> Vec<models::Template> templates_get(scope_type, template_types, limit, offset)
 Load Templates
 
 Returns a list of templates for the specified type. Required Access Level: ViewTemplates
@@ -115,14 +115,14 @@ Returns a list of templates for the specified type. Required Access Level: ViewT
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**scope_type** | [**Vec<crate::models::TemplateScope>**](crate::models::TemplateScope.md) | Return templates with specified scope only | [required] |
-**template_types** | Option<[**Vec<crate::models::TemplateType>**](crate::models::TemplateType.md)> | Return templates with specified type only |  |
+**scope_type** | [**Vec<models::TemplateScope>**](models::TemplateScope.md) | Return templates with specified scope only | [required] |
+**template_types** | Option<[**Vec<models::TemplateType>**](models::TemplateType.md)> | Return templates with specified type only |  |
 **limit** | Option<**i32**> | Maximum number of returned items. |  |
 **offset** | Option<**i32**> | How many items should be returned ahead. |  |
 
 ### Return type
 
-[**Vec<crate::models::Template>**](Template.md)
+[**Vec<models::Template>**](Template.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Required | Notes
 
 ## templates_post
 
-> crate::models::Template templates_post(template_payload)
+> models::Template templates_post(template_payload)
 Add Template
 
 Add a new Template. Required Access Level: ModifyTemplates
@@ -152,7 +152,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Template**](Template.md)
+[**models::Template**](Template.md)
 
 ### Authorization
 

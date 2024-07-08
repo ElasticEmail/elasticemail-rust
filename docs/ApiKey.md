@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_level** | Option<[**Vec<crate::models::AccessLevel>**](AccessLevel.md)> | Access level or permission to be assigned to this ApiKey. | [optional]
+**access_level** | Option<[**Vec<models::AccessLevel>**](AccessLevel.md)> | Access level or permission to be assigned to this ApiKey. | [optional]
 **name** | Option<**String**> | Name of the ApiKey. | [optional]
 **date_created** | Option<**String**> | Date this ApiKey was created. | [optional]
 **last_use** | Option<**String**> | Date this ApiKey was last used. | [optional]

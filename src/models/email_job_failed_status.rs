@@ -12,21 +12,25 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct MergeEmailPayload {
-    #[serde(rename = "MergeFile")]
-    pub merge_file: Box<models::MessageAttachment>,
-    #[serde(rename = "Content")]
-    pub content: Box<models::EmailContent>,
-    #[serde(rename = "Options", skip_serializing_if = "Option::is_none")]
-    pub options: Option<Box<models::Options>>,
+pub struct EmailJobFailedStatus {
+    #[serde(rename = "Address", skip_serializing_if = "Option::is_none")]
+    pub address: Option<String>,
+    #[serde(rename = "Error", skip_serializing_if = "Option::is_none")]
+    pub error: Option<String>,
+    /// RFC Error code
+    #[serde(rename = "ErrorCode", skip_serializing_if = "Option::is_none")]
+    pub error_code: Option<i32>,
+    #[serde(rename = "Category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
 }
 
-impl MergeEmailPayload {
-    pub fn new(merge_file: models::MessageAttachment, content: models::EmailContent) -> MergeEmailPayload {
-        MergeEmailPayload {
-            merge_file: Box::new(merge_file),
-            content: Box::new(content),
-            options: None,
+impl EmailJobFailedStatus {
+    pub fn new() -> EmailJobFailedStatus {
+        EmailJobFailedStatus {
+            address: None,
+            error: None,
+            error_code: None,
+            category: None,
         }
     }
 }

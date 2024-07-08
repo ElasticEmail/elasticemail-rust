@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -126,7 +126,7 @@ pub async fn security_apikeys_by_name_delete(configuration: &configuration::Conf
 }
 
 /// Load your existing ApiKey info. Required Access Level: Security
-pub async fn security_apikeys_by_name_get(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<crate::models::ApiKey, Error<SecurityApikeysByNameGetError>> {
+pub async fn security_apikeys_by_name_get(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<models::ApiKey, Error<SecurityApikeysByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -165,7 +165,7 @@ pub async fn security_apikeys_by_name_get(configuration: &configuration::Configu
 }
 
 /// Update your existing ApiKey. Required Access Level: Security
-pub async fn security_apikeys_by_name_put(configuration: &configuration::Configuration, name: &str, api_key_payload: crate::models::ApiKeyPayload) -> Result<crate::models::ApiKey, Error<SecurityApikeysByNamePutError>> {
+pub async fn security_apikeys_by_name_put(configuration: &configuration::Configuration, name: &str, api_key_payload: models::ApiKeyPayload) -> Result<models::ApiKey, Error<SecurityApikeysByNamePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,7 +202,7 @@ pub async fn security_apikeys_by_name_put(configuration: &configuration::Configu
 }
 
 /// List all your existing ApiKeys. Required Access Level: Security
-pub async fn security_apikeys_get(configuration: &configuration::Configuration, subaccount: Option<&str>) -> Result<Vec<crate::models::ApiKey>, Error<SecurityApikeysGetError>> {
+pub async fn security_apikeys_get(configuration: &configuration::Configuration, subaccount: Option<&str>) -> Result<Vec<models::ApiKey>, Error<SecurityApikeysGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -241,7 +241,7 @@ pub async fn security_apikeys_get(configuration: &configuration::Configuration, 
 }
 
 /// Add a new ApiKey. Required Access Level: Security
-pub async fn security_apikeys_post(configuration: &configuration::Configuration, api_key_payload: crate::models::ApiKeyPayload) -> Result<crate::models::NewApiKey, Error<SecurityApikeysPostError>> {
+pub async fn security_apikeys_post(configuration: &configuration::Configuration, api_key_payload: models::ApiKeyPayload) -> Result<models::NewApiKey, Error<SecurityApikeysPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -317,7 +317,7 @@ pub async fn security_smtp_by_name_delete(configuration: &configuration::Configu
 }
 
 /// Load your existing SMTP Credential info. Required Access Level: Security
-pub async fn security_smtp_by_name_get(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<crate::models::SmtpCredentials, Error<SecuritySmtpByNameGetError>> {
+pub async fn security_smtp_by_name_get(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<models::SmtpCredentials, Error<SecuritySmtpByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -356,7 +356,7 @@ pub async fn security_smtp_by_name_get(configuration: &configuration::Configurat
 }
 
 /// Update your existing SMTP Credentials. Required Access Level: Security
-pub async fn security_smtp_by_name_put(configuration: &configuration::Configuration, name: &str, smtp_credentials_payload: crate::models::SmtpCredentialsPayload) -> Result<crate::models::SmtpCredentials, Error<SecuritySmtpByNamePutError>> {
+pub async fn security_smtp_by_name_put(configuration: &configuration::Configuration, name: &str, smtp_credentials_payload: models::SmtpCredentialsPayload) -> Result<models::SmtpCredentials, Error<SecuritySmtpByNamePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -393,7 +393,7 @@ pub async fn security_smtp_by_name_put(configuration: &configuration::Configurat
 }
 
 /// List all your existing SMTP Credentials. Required Access Level: Security
-pub async fn security_smtp_get(configuration: &configuration::Configuration, subaccount: Option<&str>) -> Result<Vec<crate::models::SmtpCredentials>, Error<SecuritySmtpGetError>> {
+pub async fn security_smtp_get(configuration: &configuration::Configuration, subaccount: Option<&str>) -> Result<Vec<models::SmtpCredentials>, Error<SecuritySmtpGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -432,7 +432,7 @@ pub async fn security_smtp_get(configuration: &configuration::Configuration, sub
 }
 
 /// Add new SMTP Credential. Required Access Level: Security
-pub async fn security_smtp_post(configuration: &configuration::Configuration, smtp_credentials_payload: crate::models::SmtpCredentialsPayload) -> Result<crate::models::NewSmtpCredentials, Error<SecuritySmtpPostError>> {
+pub async fn security_smtp_post(configuration: &configuration::Configuration, smtp_credentials_payload: models::SmtpCredentialsPayload) -> Result<models::NewSmtpCredentials, Error<SecuritySmtpPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

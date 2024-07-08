@@ -1,9 +1,14 @@
 # BodyContentType
 
-## Properties
+## Enum Variants
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Value |
+|---- | -----|
+| Html | HTML |
+| PlainText | PlainText |
+| Amp | AMP |
+| Css | CSS |
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

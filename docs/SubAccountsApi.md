@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ## subaccounts_by_email_get
 
-> crate::models::SubAccountInfo subaccounts_by_email_get(email)
+> models::SubAccountInfo subaccounts_by_email_get(email)
 Load SubAccount
 
 Returns details for the specified SubAccount. Required Access Level: ViewSubAccounts
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SubAccountInfo**](SubAccountInfo.md)
+[**models::SubAccountInfo**](SubAccountInfo.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ## subaccounts_by_email_settings_email_put
 
-> crate::models::SubaccountEmailSettings subaccounts_by_email_settings_email_put(email, subaccount_email_settings)
+> models::SubaccountEmailSettings subaccounts_by_email_settings_email_put(email, subaccount_email_settings)
 Update SubAccount Email Settings
 
 Update SubAccount email settings. Required Access Level: ModifySubAccounts
@@ -121,7 +121,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SubaccountEmailSettings**](SubaccountEmailSettings.md)
+[**models::SubaccountEmailSettings**](SubaccountEmailSettings.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Required | Notes
 
 ## subaccounts_get
 
-> Vec<crate::models::SubAccountInfo> subaccounts_get(limit, offset)
+> Vec<models::SubAccountInfo> subaccounts_get(limit, offset)
 Load SubAccounts
 
 Returns a list of all your SubAccounts. Required Access Level: ViewSubAccounts
@@ -152,7 +152,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::SubAccountInfo>**](SubAccountInfo.md)
+[**Vec<models::SubAccountInfo>**](SubAccountInfo.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Required | Notes
 
 ## subaccounts_post
 
-> crate::models::SubAccountInfo subaccounts_post(subaccount_payload)
+> models::SubAccountInfo subaccounts_post(subaccount_payload)
 Add SubAccount
 
 Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
@@ -182,7 +182,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SubAccountInfo**](SubAccountInfo.md)
+[**models::SubAccountInfo**](SubAccountInfo.md)
 
 ### Authorization
 

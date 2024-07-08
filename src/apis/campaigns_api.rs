@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -88,7 +88,7 @@ pub async fn campaigns_by_name_delete(configuration: &configuration::Configurati
 }
 
 /// Returns the specified campaign details. Required Access Level: ViewCampaigns
-pub async fn campaigns_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::Campaign, Error<CampaignsByNameGetError>> {
+pub async fn campaigns_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<models::Campaign, Error<CampaignsByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -124,7 +124,7 @@ pub async fn campaigns_by_name_get(configuration: &configuration::Configuration,
 }
 
 /// Updates a previously added campaign.  Only Active and Paused campaigns can be updated. Required Access Level: ModifyCampaigns
-pub async fn campaigns_by_name_put(configuration: &configuration::Configuration, name: &str, campaign: crate::models::Campaign) -> Result<crate::models::Campaign, Error<CampaignsByNamePutError>> {
+pub async fn campaigns_by_name_put(configuration: &configuration::Configuration, name: &str, campaign: models::Campaign) -> Result<models::Campaign, Error<CampaignsByNamePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -161,7 +161,7 @@ pub async fn campaigns_by_name_put(configuration: &configuration::Configuration,
 }
 
 /// Returns a list all of your campaigns. Limited to 1000 results. Required Access Level: ViewCampaigns
-pub async fn campaigns_get(configuration: &configuration::Configuration, search: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<Vec<crate::models::Campaign>, Error<CampaignsGetError>> {
+pub async fn campaigns_get(configuration: &configuration::Configuration, search: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<Vec<models::Campaign>, Error<CampaignsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -206,7 +206,7 @@ pub async fn campaigns_get(configuration: &configuration::Configuration, search:
 }
 
 /// Add a campaign for processing. Required Access Level: ModifyCampaigns
-pub async fn campaigns_post(configuration: &configuration::Configuration, campaign: crate::models::Campaign) -> Result<crate::models::Campaign, Error<CampaignsPostError>> {
+pub async fn campaigns_post(configuration: &configuration::Configuration, campaign: models::Campaign) -> Result<models::Campaign, Error<CampaignsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

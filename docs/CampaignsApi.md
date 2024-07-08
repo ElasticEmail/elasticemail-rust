@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## campaigns_by_name_get
 
-> crate::models::Campaign campaigns_by_name_get(name)
+> models::Campaign campaigns_by_name_get(name)
 Load Campaign
 
 Returns the specified campaign details. Required Access Level: ViewCampaigns
@@ -58,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Campaign**](Campaign.md)
+[**models::Campaign**](Campaign.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ## campaigns_by_name_put
 
-> crate::models::Campaign campaigns_by_name_put(name, campaign)
+> models::Campaign campaigns_by_name_put(name, campaign)
 Update Campaign
 
 Updates a previously added campaign.  Only Active and Paused campaigns can be updated. Required Access Level: ModifyCampaigns
@@ -89,7 +89,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Campaign**](Campaign.md)
+[**models::Campaign**](Campaign.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ## campaigns_get
 
-> Vec<crate::models::Campaign> campaigns_get(search, offset, limit)
+> Vec<models::Campaign> campaigns_get(search, offset, limit)
 Load Campaigns
 
 Returns a list all of your campaigns. Limited to 1000 results. Required Access Level: ViewCampaigns
@@ -121,7 +121,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Campaign>**](Campaign.md)
+[**Vec<models::Campaign>**](Campaign.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Required | Notes
 
 ## campaigns_post
 
-> crate::models::Campaign campaigns_post(campaign)
+> models::Campaign campaigns_post(campaign)
 Add Campaign
 
 Add a campaign for processing. Required Access Level: ModifyCampaigns
@@ -151,7 +151,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Campaign**](Campaign.md)
+[**models::Campaign**](Campaign.md)
 
 ### Authorization
 

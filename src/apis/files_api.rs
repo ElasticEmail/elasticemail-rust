@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -124,7 +124,7 @@ pub async fn files_by_name_get(configuration: &configuration::Configuration, nam
 }
 
 /// Returns the specified File's details. Required Access Level: ViewFiles
-pub async fn files_by_name_info_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::FileInfo, Error<FilesByNameInfoGetError>> {
+pub async fn files_by_name_info_get(configuration: &configuration::Configuration, name: &str) -> Result<models::FileInfo, Error<FilesByNameInfoGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -160,7 +160,7 @@ pub async fn files_by_name_info_get(configuration: &configuration::Configuration
 }
 
 /// Returns a list of all your available files. Required Access Level: ViewFiles
-pub async fn files_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::FileInfo>, Error<FilesGetError>> {
+pub async fn files_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::FileInfo>, Error<FilesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,7 +202,7 @@ pub async fn files_get(configuration: &configuration::Configuration, limit: Opti
 }
 
 /// Uploads selected file to the server. Required Access Level: ModifyFiles
-pub async fn files_post(configuration: &configuration::Configuration, file_payload: crate::models::FilePayload, expires_after_days: Option<i32>) -> Result<crate::models::FileInfo, Error<FilesPostError>> {
+pub async fn files_post(configuration: &configuration::Configuration, file_payload: models::FilePayload, expires_after_days: Option<i32>) -> Result<models::FileInfo, Error<FilesPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

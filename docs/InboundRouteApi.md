@@ -45,7 +45,7 @@ Name | Type | Description  | Required | Notes
 
 ## inboundroute_by_id_get
 
-> crate::models::InboundRoute inboundroute_by_id_get(id)
+> models::InboundRoute inboundroute_by_id_get(id)
 Get Route
 
 Load an Inbound Route. Required Access Level: ViewSettings
@@ -59,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::InboundRoute**](InboundRoute.md)
+[**models::InboundRoute**](InboundRoute.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Required | Notes
 
 ## inboundroute_by_id_put
 
-> crate::models::InboundRoute inboundroute_by_id_put(id, inbound_payload)
+> models::InboundRoute inboundroute_by_id_put(id, inbound_payload)
 Update Route
 
 Update the Inbound Route. Required Access Level: ModifySettings
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::InboundRoute**](InboundRoute.md)
+[**models::InboundRoute**](InboundRoute.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ## inboundroute_get
 
-> Vec<crate::models::InboundRoute> inboundroute_get()
+> Vec<models::InboundRoute> inboundroute_get()
 Get Routes
 
 Get all your Inbound Routes. Required Access Level: ViewSettings
@@ -117,7 +117,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::InboundRoute>**](InboundRoute.md)
+[**Vec<models::InboundRoute>**](InboundRoute.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ This endpoint does not need any parameter.
 
 ## inboundroute_order_put
 
-> Vec<crate::models::InboundRoute> inboundroute_order_put(sort_order_item)
+> Vec<models::InboundRoute> inboundroute_order_put(sort_order_item)
 Update Sorting
 
 Required Access Level: ViewSettings
@@ -143,11 +143,11 @@ Required Access Level: ViewSettings
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**sort_order_item** | [**Vec<crate::models::SortOrderItem>**](SortOrderItem.md) | Change the ordering of inbound routes for when matching the inbound | [required] |
+**sort_order_item** | [**Vec<models::SortOrderItem>**](SortOrderItem.md) | Change the ordering of inbound routes for when matching the inbound | [required] |
 
 ### Return type
 
-[**Vec<crate::models::InboundRoute>**](InboundRoute.md)
+[**Vec<models::InboundRoute>**](InboundRoute.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Required | Notes
 
 ## inboundroute_post
 
-> crate::models::InboundRoute inboundroute_post(inbound_payload)
+> models::InboundRoute inboundroute_post(inbound_payload)
 Create Route
 
 Create new Inbound Route. Required Access Level: ModifySettings
@@ -177,7 +177,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::InboundRoute**](InboundRoute.md)
+[**models::InboundRoute**](InboundRoute.md)
 
 ### Authorization
 

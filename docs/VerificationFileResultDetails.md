@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**verification_result** | Option<[**Vec<crate::models::EmailValidationResult>**](EmailValidationResult.md)> | Verification result's details | [optional]
+**verification_result** | Option<[**Vec<models::EmailValidationResult>**](EmailValidationResult.md)> | Verification result's details | [optional]
 **verification_id** | Option<**String**> | Identifier of this verification result | [optional]
 **filename** | Option<**String**> | Origin file name | [optional]
-**verification_status** | Option<[**crate::models::VerificationStatus**](VerificationStatus.md)> |  | [optional]
-**file_upload_result** | Option<[**crate::models::FileUploadResult**](FileUploadResult.md)> |  | [optional]
+**verification_status** | Option<[**models::VerificationStatus**](VerificationStatus.md)> |  | [optional]
+**file_upload_result** | Option<[**models::FileUploadResult**](FileUploadResult.md)> |  | [optional]
 **date_added** | Option<**String**> | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional]
 **source** | Option<**String**> | Origin file extension | [optional]
 

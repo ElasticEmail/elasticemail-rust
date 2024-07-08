@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## statistics_campaigns_by_name_get
 
-> crate::models::ChannelLogStatusSummary statistics_campaigns_by_name_get(name)
+> models::ChannelLogStatusSummary statistics_campaigns_by_name_get(name)
 Load Campaign Stats
 
 Retrieve stats of an existing campaign. Required Access Level: ViewChannels
@@ -28,7 +28,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ChannelLogStatusSummary**](ChannelLogStatusSummary.md)
+[**models::ChannelLogStatusSummary**](ChannelLogStatusSummary.md)
 
 ### Authorization
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## statistics_campaigns_get
 
-> Vec<crate::models::ChannelLogStatusSummary> statistics_campaigns_get(limit, offset)
+> Vec<models::ChannelLogStatusSummary> statistics_campaigns_get(limit, offset)
 Load Campaigns Stats
 
 Returns a list of your Campaigns' stats. Required Access Level: ViewChannels
@@ -59,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::ChannelLogStatusSummary>**](ChannelLogStatusSummary.md)
+[**Vec<models::ChannelLogStatusSummary>**](ChannelLogStatusSummary.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Required | Notes
 
 ## statistics_channels_by_name_get
 
-> crate::models::ChannelLogStatusSummary statistics_channels_by_name_get(name)
+> models::ChannelLogStatusSummary statistics_channels_by_name_get(name)
 Load Channel Stats
 
 Retrieve an existing channel stats. Required Access Level: ViewChannels
@@ -89,7 +89,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ChannelLogStatusSummary**](ChannelLogStatusSummary.md)
+[**models::ChannelLogStatusSummary**](ChannelLogStatusSummary.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ## statistics_channels_get
 
-> Vec<crate::models::ChannelLogStatusSummary> statistics_channels_get(limit, offset)
+> Vec<models::ChannelLogStatusSummary> statistics_channels_get(limit, offset)
 Load Channels Stats
 
 Returns a list of your Channels' stats. Required Access Level: ViewChannels
@@ -120,7 +120,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::ChannelLogStatusSummary>**](ChannelLogStatusSummary.md)
+[**Vec<models::ChannelLogStatusSummary>**](ChannelLogStatusSummary.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ## statistics_get
 
-> crate::models::LogStatusSummary statistics_get(from, to)
+> models::LogStatusSummary statistics_get(from, to)
 Load Statistics
 
 Returns basic statistics. Required Access Level: ViewReports
@@ -151,7 +151,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::LogStatusSummary**](LogStatusSummary.md)
+[**models::LogStatusSummary**](LogStatusSummary.md)
 
 ### Authorization
 

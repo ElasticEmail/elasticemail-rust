@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -66,7 +66,7 @@ pub enum EventsGetError {
 
 
 /// Returns a log of delivery events for the specific transaction ID. Required Access Level: ViewReports
-pub async fn events_by_transactionid_get(configuration: &configuration::Configuration, transactionid: &str, from: Option<String>, to: Option<String>, order_by: Option<EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::RecipientEvent>, Error<EventsByTransactionidGetError>> {
+pub async fn events_by_transactionid_get(configuration: &configuration::Configuration, transactionid: &str, from: Option<String>, to: Option<String>, order_by: Option<models::EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::RecipientEvent>, Error<EventsByTransactionidGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -117,7 +117,7 @@ pub async fn events_by_transactionid_get(configuration: &configuration::Configur
 }
 
 /// Export delivery events log information to the specified file format. Required Access Level: Export
-pub async fn events_channels_by_name_export_post(configuration: &configuration::Configuration, name: &str, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, file_format: Option<ExportFileFormats>, compression_format: Option<CompressionFormat>, file_name: Option<&str>) -> Result<crate::models::ExportLink, Error<EventsChannelsByNameExportPostError>> {
+pub async fn events_channels_by_name_export_post(configuration: &configuration::Configuration, name: &str, event_types: Option<Vec<models::EventType>>, from: Option<String>, to: Option<String>, file_format: Option<models::ExportFileFormats>, compression_format: Option<models::CompressionFormat>, file_name: Option<&str>) -> Result<models::ExportLink, Error<EventsChannelsByNameExportPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -174,7 +174,7 @@ pub async fn events_channels_by_name_export_post(configuration: &configuration::
 }
 
 /// Returns a log of delivery events filtered by specified parameters. Required Access Level: ViewReports
-pub async fn events_channels_by_name_get(configuration: &configuration::Configuration, name: &str, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, order_by: Option<EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::RecipientEvent>, Error<EventsChannelsByNameGetError>> {
+pub async fn events_channels_by_name_get(configuration: &configuration::Configuration, name: &str, event_types: Option<Vec<models::EventType>>, from: Option<String>, to: Option<String>, order_by: Option<models::EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::RecipientEvent>, Error<EventsChannelsByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -231,7 +231,7 @@ pub async fn events_channels_by_name_get(configuration: &configuration::Configur
 }
 
 /// Check the current status of the channel export. Required Access Level: Export
-pub async fn events_channels_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ExportStatus, Error<EventsChannelsExportByIdStatusGetError>> {
+pub async fn events_channels_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<models::ExportStatus, Error<EventsChannelsExportByIdStatusGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -267,7 +267,7 @@ pub async fn events_channels_export_by_id_status_get(configuration: &configurati
 }
 
 /// Check the current status of the export. Required Access Level: Export
-pub async fn events_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ExportStatus, Error<EventsExportByIdStatusGetError>> {
+pub async fn events_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<models::ExportStatus, Error<EventsExportByIdStatusGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -303,7 +303,7 @@ pub async fn events_export_by_id_status_get(configuration: &configuration::Confi
 }
 
 /// Export delivery events log information to the specified file format. Required Access Level: Export
-pub async fn events_export_post(configuration: &configuration::Configuration, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, file_format: Option<ExportFileFormats>, compression_format: Option<CompressionFormat>, file_name: Option<&str>) -> Result<crate::models::ExportLink, Error<EventsExportPostError>> {
+pub async fn events_export_post(configuration: &configuration::Configuration, event_types: Option<Vec<models::EventType>>, from: Option<String>, to: Option<String>, file_format: Option<models::ExportFileFormats>, compression_format: Option<models::CompressionFormat>, file_name: Option<&str>) -> Result<models::ExportLink, Error<EventsExportPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -360,7 +360,7 @@ pub async fn events_export_post(configuration: &configuration::Configuration, ev
 }
 
 /// Returns a log of delivery events filtered by specified parameters. Required Access Level: ViewReports
-pub async fn events_get(configuration: &configuration::Configuration, event_types: Option<Vec<crate::models::EventType>>, from: Option<String>, to: Option<String>, order_by: Option<EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::RecipientEvent>, Error<EventsGetError>> {
+pub async fn events_get(configuration: &configuration::Configuration, event_types: Option<Vec<models::EventType>>, from: Option<String>, to: Option<String>, order_by: Option<models::EventsOrderBy>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::RecipientEvent>, Error<EventsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

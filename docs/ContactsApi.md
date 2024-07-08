@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_by_email_get
 
-> crate::models::Contact contacts_by_email_get(email)
+> models::Contact contacts_by_email_get(email)
 Load Contact
 
 Load detailed contact information for specified email. Required Access Level: ViewContacts
@@ -62,7 +62,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Contact**](Contact.md)
+[**models::Contact**](Contact.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_by_email_put
 
-> crate::models::Contact contacts_by_email_put(email, contact_update_payload)
+> models::Contact contacts_by_email_put(email, contact_update_payload)
 Update Contact
 
 Update selected contact. Omitted contact's fields will not be changed. Required Access Level: ModifyContacts
@@ -93,7 +93,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Contact**](Contact.md)
+[**models::Contact**](Contact.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_export_by_id_status_get
 
-> crate::models::ExportStatus contacts_export_by_id_status_get(id)
+> models::ExportStatus contacts_export_by_id_status_get(id)
 Check Export Status
 
 Check the current status of the export. Required Access Level: Export
@@ -153,7 +153,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ExportStatus**](ExportStatus.md)
+[**models::ExportStatus**](ExportStatus.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_export_post
 
-> crate::models::ExportLink contacts_export_post(file_format, rule, emails, compression_format, file_name)
+> models::ExportLink contacts_export_post(file_format, rule, emails, compression_format, file_name)
 Export Contacts
 
 Request an Export of specified Contacts. Required Access Level: Export
@@ -187,7 +187,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ExportLink**](ExportLink.md)
+[**models::ExportLink**](ExportLink.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_get
 
-> Vec<crate::models::Contact> contacts_get(limit, offset)
+> Vec<models::Contact> contacts_get(limit, offset)
 Load Contacts
 
 Returns a list of contacts. Required Access Level: ViewContacts
@@ -218,7 +218,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Contact>**](Contact.md)
+[**Vec<models::Contact>**](Contact.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Required | Notes
 
 ## contacts_post
 
-> Vec<crate::models::Contact> contacts_post(contact_payload, listnames)
+> Vec<models::Contact> contacts_post(contact_payload, listnames)
 Add Contact
 
 Add new Contacts to your Lists. Up to 1000 can be added (for more please refer to the import request). Required Access Level: ModifyContacts
@@ -277,12 +277,12 @@ Add new Contacts to your Lists. Up to 1000 can be added (for more please refer t
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**contact_payload** | [**Vec<crate::models::ContactPayload>**](ContactPayload.md) |  | [required] |
+**contact_payload** | [**Vec<models::ContactPayload>**](ContactPayload.md) |  | [required] |
 **listnames** | Option<[**Vec<String>**](String.md)> | Names of lists to which the uploaded contacts should be added to |  |
 
 ### Return type
 
-[**Vec<crate::models::Contact>**](Contact.md)
+[**Vec<models::Contact>**](Contact.md)
 
 ### Authorization
 

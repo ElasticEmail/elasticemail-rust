@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -88,7 +88,7 @@ pub async fn templates_by_name_delete(configuration: &configuration::Configurati
 }
 
 /// Load detailed information of the specified template. Required Access Level: ViewTemplates
-pub async fn templates_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<crate::models::Template, Error<TemplatesByNameGetError>> {
+pub async fn templates_by_name_get(configuration: &configuration::Configuration, name: &str) -> Result<models::Template, Error<TemplatesByNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -124,7 +124,7 @@ pub async fn templates_by_name_get(configuration: &configuration::Configuration,
 }
 
 /// Update existing template, overwriting existing data. Required Access Level: ModifyTemplates
-pub async fn templates_by_name_put(configuration: &configuration::Configuration, name: &str, template_payload: crate::models::TemplatePayload) -> Result<crate::models::Template, Error<TemplatesByNamePutError>> {
+pub async fn templates_by_name_put(configuration: &configuration::Configuration, name: &str, template_payload: models::TemplatePayload) -> Result<models::Template, Error<TemplatesByNamePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -161,7 +161,7 @@ pub async fn templates_by_name_put(configuration: &configuration::Configuration,
 }
 
 /// Returns a list of templates for the specified type. Required Access Level: ViewTemplates
-pub async fn templates_get(configuration: &configuration::Configuration, scope_type: Vec<crate::models::TemplateScope>, template_types: Option<Vec<crate::models::TemplateType>>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Template>, Error<TemplatesGetError>> {
+pub async fn templates_get(configuration: &configuration::Configuration, scope_type: Vec<models::TemplateScope>, template_types: Option<Vec<models::TemplateType>>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Template>, Error<TemplatesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -170,7 +170,7 @@ pub async fn templates_get(configuration: &configuration::Configuration, scope_t
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&scope_type.into_iter().map(|p| ("scopeType".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        "multi" => local_var_req_builder.query(&scope_type.into_iter().map(|p| ("scopeType".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => local_var_req_builder.query(&[("scopeType", &scope_type.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
     if let Some(ref local_var_str) = template_types {
@@ -213,7 +213,7 @@ pub async fn templates_get(configuration: &configuration::Configuration, scope_t
 }
 
 /// Add a new Template. Required Access Level: ModifyTemplates
-pub async fn templates_post(configuration: &configuration::Configuration, template_payload: crate::models::TemplatePayload) -> Result<crate::models::Template, Error<TemplatesPostError>> {
+pub async fn templates_post(configuration: &configuration::Configuration, template_payload: models::TemplatePayload) -> Result<models::Template, Error<TemplatesPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

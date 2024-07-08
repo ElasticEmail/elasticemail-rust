@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## suppressions_bounces_get
 
-> Vec<crate::models::Suppression> suppressions_bounces_get(search, limit, offset)
+> Vec<models::Suppression> suppressions_bounces_get(search, limit, offset)
 Get Bounce List
 
 Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
@@ -37,7 +37,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_bounces_post
 
-> Vec<crate::models::Suppression> suppressions_bounces_post(request_body)
+> Vec<models::Suppression> suppressions_bounces_post(request_body)
 Add Bounces
 
 Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
@@ -97,7 +97,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_by_email_get
 
-> crate::models::Suppression suppressions_by_email_get(email)
+> models::Suppression suppressions_by_email_get(email)
 Get Suppression
 
 Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
@@ -157,7 +157,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Suppression**](Suppression.md)
+[**models::Suppression**](Suppression.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_complaints_get
 
-> Vec<crate::models::Suppression> suppressions_complaints_get(search, limit, offset)
+> Vec<models::Suppression> suppressions_complaints_get(search, limit, offset)
 Get Complaints List
 
 Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
@@ -189,7 +189,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_complaints_post
 
-> Vec<crate::models::Suppression> suppressions_complaints_post(request_body)
+> Vec<models::Suppression> suppressions_complaints_post(request_body)
 Add Complaints
 
 Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
@@ -249,7 +249,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_get
 
-> Vec<crate::models::Suppression> suppressions_get(limit, offset)
+> Vec<models::Suppression> suppressions_get(limit, offset)
 Get Suppressions
 
 Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
@@ -280,7 +280,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_unsubscribes_get
 
-> Vec<crate::models::Suppression> suppressions_unsubscribes_get(search, limit, offset)
+> Vec<models::Suppression> suppressions_unsubscribes_get(search, limit, offset)
 Get Unsubscribes List
 
 Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
@@ -312,7 +312,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Required | Notes
 
 ## suppressions_unsubscribes_post
 
-> Vec<crate::models::Suppression> suppressions_unsubscribes_post(request_body)
+> Vec<models::Suppression> suppressions_unsubscribes_post(request_body)
 Add Unsubscribes
 
 Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
@@ -372,7 +372,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Suppression>**](Suppression.md)
+[**Vec<models::Suppression>**](Suppression.md)
 
 ### Authorization
 

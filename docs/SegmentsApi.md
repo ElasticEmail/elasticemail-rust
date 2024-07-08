@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## segments_by_name_get
 
-> crate::models::Segment segments_by_name_get(name)
+> models::Segment segments_by_name_get(name)
 Load Segment
 
 Returns details for the specified segment. Required Access Level: ViewContacts
@@ -58,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Segment**](Segment.md)
+[**models::Segment**](Segment.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ## segments_by_name_put
 
-> crate::models::Segment segments_by_name_put(name, segment_payload)
+> models::Segment segments_by_name_put(name, segment_payload)
 Update Segment
 
 Rename or change RULE for your segment. Required Access Level: ModifyContacts
@@ -89,7 +89,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Segment**](Segment.md)
+[**models::Segment**](Segment.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ## segments_get
 
-> Vec<crate::models::Segment> segments_get(limit, offset)
+> Vec<models::Segment> segments_get(limit, offset)
 Load Segments
 
 Returns a list of all your available Segments. Required Access Level: ViewContacts
@@ -120,7 +120,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Segment>**](Segment.md)
+[**Vec<models::Segment>**](Segment.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ## segments_post
 
-> crate::models::Segment segments_post(segment_payload)
+> models::Segment segments_post(segment_payload)
 Add Segment
 
 Add a new segment, based on specified RULE. Required Access Level: ModifyContacts
@@ -150,7 +150,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Segment**](Segment.md)
+[**models::Segment**](Segment.md)
 
 ### Authorization
 

@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ## verifications_by_email_get
 
-> crate::models::EmailValidationResult verifications_by_email_get(email)
+> models::EmailValidationResult verifications_by_email_get(email)
 Get Email Verification Result
 
 Returns a result of verified email. Required Access Level: VerifyEmails
@@ -63,7 +63,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EmailValidationResult**](EmailValidationResult.md)
+[**models::EmailValidationResult**](EmailValidationResult.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ## verifications_by_email_post
 
-> crate::models::EmailValidationResult verifications_by_email_post(email)
+> models::EmailValidationResult verifications_by_email_post(email)
 Verify Email
 
 Verify single email address and returns result of verification. Required Access Level: VerifyEmails
@@ -93,7 +93,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EmailValidationResult**](EmailValidationResult.md)
+[**models::EmailValidationResult**](EmailValidationResult.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Required | Notes
 
 ## verifications_files_by_id_result_get
 
-> crate::models::VerificationFileResultDetails verifications_files_by_id_result_get(id, limit, offset)
+> models::VerificationFileResultDetails verifications_files_by_id_result_get(id, limit, offset)
 Get Detailed File Verification Result
 
 Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
@@ -185,7 +185,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::VerificationFileResultDetails**](VerificationFileResultDetails.md)
+[**models::VerificationFileResultDetails**](VerificationFileResultDetails.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Required | Notes
 
 ## verifications_files_post
 
-> crate::models::VerificationFileResult verifications_files_post(file)
+> models::VerificationFileResult verifications_files_post(file)
 Upload File with Emails
 
 Uploads a CSV file with list of emails that can then be triggered for verification. An 'email' column is required. Required Access Level: VerifyEmails
@@ -245,7 +245,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::VerificationFileResult**](VerificationFileResult.md)
+[**models::VerificationFileResult**](VerificationFileResult.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Required | Notes
 
 ## verifications_files_result_get
 
-> Vec<crate::models::VerificationFileResult> verifications_files_result_get()
+> Vec<models::VerificationFileResult> verifications_files_result_get()
 Get Files Verification Results
 
 Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
@@ -272,7 +272,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::VerificationFileResult>**](VerificationFileResult.md)
+[**Vec<models::VerificationFileResult>**](VerificationFileResult.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ This endpoint does not need any parameter.
 
 ## verifications_get
 
-> Vec<crate::models::EmailValidationResult> verifications_get(limit, offset)
+> Vec<models::EmailValidationResult> verifications_get(limit, offset)
 Get Emails Verification Results
 
 Returns a results of all verified single emails. Required Access Level: VerifyEmails
@@ -303,7 +303,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::EmailValidationResult>**](EmailValidationResult.md)
+[**Vec<models::EmailValidationResult>**](EmailValidationResult.md)
 
 ### Authorization
 

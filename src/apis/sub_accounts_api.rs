@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -59,7 +59,7 @@ pub enum SubaccountsPostError {
 
 
 /// Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
-pub async fn subaccounts_by_email_credits_patch(configuration: &configuration::Configuration, email: &str, subaccount_email_credits_payload: crate::models::SubaccountEmailCreditsPayload) -> Result<(), Error<SubaccountsByEmailCreditsPatchError>> {
+pub async fn subaccounts_by_email_credits_patch(configuration: &configuration::Configuration, email: &str, subaccount_email_credits_payload: models::SubaccountEmailCreditsPayload) -> Result<(), Error<SubaccountsByEmailCreditsPatchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -132,7 +132,7 @@ pub async fn subaccounts_by_email_delete(configuration: &configuration::Configur
 }
 
 /// Returns details for the specified SubAccount. Required Access Level: ViewSubAccounts
-pub async fn subaccounts_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::SubAccountInfo, Error<SubaccountsByEmailGetError>> {
+pub async fn subaccounts_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<models::SubAccountInfo, Error<SubaccountsByEmailGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -168,7 +168,7 @@ pub async fn subaccounts_by_email_get(configuration: &configuration::Configurati
 }
 
 /// Update SubAccount email settings. Required Access Level: ModifySubAccounts
-pub async fn subaccounts_by_email_settings_email_put(configuration: &configuration::Configuration, email: &str, subaccount_email_settings: crate::models::SubaccountEmailSettings) -> Result<crate::models::SubaccountEmailSettings, Error<SubaccountsByEmailSettingsEmailPutError>> {
+pub async fn subaccounts_by_email_settings_email_put(configuration: &configuration::Configuration, email: &str, subaccount_email_settings: models::SubaccountEmailSettings) -> Result<models::SubaccountEmailSettings, Error<SubaccountsByEmailSettingsEmailPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -205,7 +205,7 @@ pub async fn subaccounts_by_email_settings_email_put(configuration: &configurati
 }
 
 /// Returns a list of all your SubAccounts. Required Access Level: ViewSubAccounts
-pub async fn subaccounts_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::SubAccountInfo>, Error<SubaccountsGetError>> {
+pub async fn subaccounts_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::SubAccountInfo>, Error<SubaccountsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -247,7 +247,7 @@ pub async fn subaccounts_get(configuration: &configuration::Configuration, limit
 }
 
 /// Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
-pub async fn subaccounts_post(configuration: &configuration::Configuration, subaccount_payload: crate::models::SubaccountPayload) -> Result<crate::models::SubAccountInfo, Error<SubaccountsPostError>> {
+pub async fn subaccounts_post(configuration: &configuration::Configuration, subaccount_payload: models::SubaccountPayload) -> Result<models::SubAccountInfo, Error<SubaccountsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

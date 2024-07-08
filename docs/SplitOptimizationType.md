@@ -1,9 +1,12 @@
 # SplitOptimizationType
 
-## Properties
+## Enum Variants
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Value |
+|---- | -----|
+| Opens | Opens |
+| Clicks | Clicks |
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

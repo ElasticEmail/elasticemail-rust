@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -116,7 +116,7 @@ pub async fn contacts_by_email_delete(configuration: &configuration::Configurati
 }
 
 /// Load detailed contact information for specified email. Required Access Level: ViewContacts
-pub async fn contacts_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::Contact, Error<ContactsByEmailGetError>> {
+pub async fn contacts_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<models::Contact, Error<ContactsByEmailGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -152,7 +152,7 @@ pub async fn contacts_by_email_get(configuration: &configuration::Configuration,
 }
 
 /// Update selected contact. Omitted contact's fields will not be changed. Required Access Level: ModifyContacts
-pub async fn contacts_by_email_put(configuration: &configuration::Configuration, email: &str, contact_update_payload: crate::models::ContactUpdatePayload) -> Result<crate::models::Contact, Error<ContactsByEmailPutError>> {
+pub async fn contacts_by_email_put(configuration: &configuration::Configuration, email: &str, contact_update_payload: models::ContactUpdatePayload) -> Result<models::Contact, Error<ContactsByEmailPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -189,7 +189,7 @@ pub async fn contacts_by_email_put(configuration: &configuration::Configuration,
 }
 
 /// Deletes provided contacts in bulk. Required Access Level: ModifyContacts
-pub async fn contacts_delete_post(configuration: &configuration::Configuration, emails_payload: crate::models::EmailsPayload) -> Result<(), Error<ContactsDeletePostError>> {
+pub async fn contacts_delete_post(configuration: &configuration::Configuration, emails_payload: models::EmailsPayload) -> Result<(), Error<ContactsDeletePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -226,7 +226,7 @@ pub async fn contacts_delete_post(configuration: &configuration::Configuration, 
 }
 
 /// Check the current status of the export. Required Access Level: Export
-pub async fn contacts_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ExportStatus, Error<ContactsExportByIdStatusGetError>> {
+pub async fn contacts_export_by_id_status_get(configuration: &configuration::Configuration, id: &str) -> Result<models::ExportStatus, Error<ContactsExportByIdStatusGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -262,7 +262,7 @@ pub async fn contacts_export_by_id_status_get(configuration: &configuration::Con
 }
 
 /// Request an Export of specified Contacts. Required Access Level: Export
-pub async fn contacts_export_post(configuration: &configuration::Configuration, file_format: Option<ExportFileFormats>, rule: Option<&str>, emails: Option<Vec<String>>, compression_format: Option<CompressionFormat>, file_name: Option<&str>) -> Result<crate::models::ExportLink, Error<ContactsExportPostError>> {
+pub async fn contacts_export_post(configuration: &configuration::Configuration, file_format: Option<models::ExportFileFormats>, rule: Option<&str>, emails: Option<Vec<String>>, compression_format: Option<models::CompressionFormat>, file_name: Option<&str>) -> Result<models::ExportLink, Error<ContactsExportPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -316,7 +316,7 @@ pub async fn contacts_export_post(configuration: &configuration::Configuration, 
 }
 
 /// Returns a list of contacts. Required Access Level: ViewContacts
-pub async fn contacts_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Contact>, Error<ContactsGetError>> {
+pub async fn contacts_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Contact>, Error<ContactsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,7 +406,7 @@ pub async fn contacts_import_post(configuration: &configuration::Configuration, 
 }
 
 /// Add new Contacts to your Lists. Up to 1000 can be added (for more please refer to the import request). Required Access Level: ModifyContacts
-pub async fn contacts_post(configuration: &configuration::Configuration, contact_payload: Vec<crate::models::ContactPayload>, listnames: Option<Vec<String>>) -> Result<Vec<crate::models::Contact>, Error<ContactsPostError>> {
+pub async fn contacts_post(configuration: &configuration::Configuration, contact_payload: Vec<models::ContactPayload>, listnames: Option<Vec<String>>) -> Result<Vec<models::Contact>, Error<ContactsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

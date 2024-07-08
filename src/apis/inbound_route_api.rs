@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -95,7 +95,7 @@ pub async fn inboundroute_by_id_delete(configuration: &configuration::Configurat
 }
 
 /// Load an Inbound Route. Required Access Level: ViewSettings
-pub async fn inboundroute_by_id_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::InboundRoute, Error<InboundrouteByIdGetError>> {
+pub async fn inboundroute_by_id_get(configuration: &configuration::Configuration, id: &str) -> Result<models::InboundRoute, Error<InboundrouteByIdGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -131,7 +131,7 @@ pub async fn inboundroute_by_id_get(configuration: &configuration::Configuration
 }
 
 /// Update the Inbound Route. Required Access Level: ModifySettings
-pub async fn inboundroute_by_id_put(configuration: &configuration::Configuration, id: &str, inbound_payload: crate::models::InboundPayload) -> Result<crate::models::InboundRoute, Error<InboundrouteByIdPutError>> {
+pub async fn inboundroute_by_id_put(configuration: &configuration::Configuration, id: &str, inbound_payload: models::InboundPayload) -> Result<models::InboundRoute, Error<InboundrouteByIdPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -168,7 +168,7 @@ pub async fn inboundroute_by_id_put(configuration: &configuration::Configuration
 }
 
 /// Get all your Inbound Routes. Required Access Level: ViewSettings
-pub async fn inboundroute_get(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::InboundRoute>, Error<InboundrouteGetError>> {
+pub async fn inboundroute_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::InboundRoute>, Error<InboundrouteGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,7 +204,7 @@ pub async fn inboundroute_get(configuration: &configuration::Configuration, ) ->
 }
 
 /// Required Access Level: ViewSettings
-pub async fn inboundroute_order_put(configuration: &configuration::Configuration, sort_order_item: Vec<crate::models::SortOrderItem>) -> Result<Vec<crate::models::InboundRoute>, Error<InboundrouteOrderPutError>> {
+pub async fn inboundroute_order_put(configuration: &configuration::Configuration, sort_order_item: Vec<models::SortOrderItem>) -> Result<Vec<models::InboundRoute>, Error<InboundrouteOrderPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -241,7 +241,7 @@ pub async fn inboundroute_order_put(configuration: &configuration::Configuration
 }
 
 /// Create new Inbound Route. Required Access Level: ModifySettings
-pub async fn inboundroute_post(configuration: &configuration::Configuration, inbound_payload: crate::models::InboundPayload) -> Result<crate::models::InboundRoute, Error<InboundroutePostError>> {
+pub async fn inboundroute_post(configuration: &configuration::Configuration, inbound_payload: models::InboundPayload) -> Result<models::InboundRoute, Error<InboundroutePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -101,7 +101,7 @@ pub enum SuppressionsUnsubscribesPostError {
 
 
 /// Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
-pub async fn suppressions_bounces_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsBouncesGetError>> {
+pub async fn suppressions_bounces_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Suppression>, Error<SuppressionsBouncesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -185,7 +185,7 @@ pub async fn suppressions_bounces_import_post(configuration: &configuration::Con
 }
 
 /// Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
-pub async fn suppressions_bounces_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsBouncesPostError>> {
+pub async fn suppressions_bounces_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<models::Suppression>, Error<SuppressionsBouncesPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -258,7 +258,7 @@ pub async fn suppressions_by_email_delete(configuration: &configuration::Configu
 }
 
 /// Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
-pub async fn suppressions_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<crate::models::Suppression, Error<SuppressionsByEmailGetError>> {
+pub async fn suppressions_by_email_get(configuration: &configuration::Configuration, email: &str) -> Result<models::Suppression, Error<SuppressionsByEmailGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -294,7 +294,7 @@ pub async fn suppressions_by_email_get(configuration: &configuration::Configurat
 }
 
 /// Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
-pub async fn suppressions_complaints_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsComplaintsGetError>> {
+pub async fn suppressions_complaints_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Suppression>, Error<SuppressionsComplaintsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -378,7 +378,7 @@ pub async fn suppressions_complaints_import_post(configuration: &configuration::
 }
 
 /// Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
-pub async fn suppressions_complaints_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsComplaintsPostError>> {
+pub async fn suppressions_complaints_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<models::Suppression>, Error<SuppressionsComplaintsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -415,7 +415,7 @@ pub async fn suppressions_complaints_post(configuration: &configuration::Configu
 }
 
 /// Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
-pub async fn suppressions_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsGetError>> {
+pub async fn suppressions_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Suppression>, Error<SuppressionsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -457,7 +457,7 @@ pub async fn suppressions_get(configuration: &configuration::Configuration, limi
 }
 
 /// Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
-pub async fn suppressions_unsubscribes_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsUnsubscribesGetError>> {
+pub async fn suppressions_unsubscribes_get(configuration: &configuration::Configuration, search: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::Suppression>, Error<SuppressionsUnsubscribesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -541,7 +541,7 @@ pub async fn suppressions_unsubscribes_import_post(configuration: &configuration
 }
 
 /// Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
-pub async fn suppressions_unsubscribes_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<crate::models::Suppression>, Error<SuppressionsUnsubscribesPostError>> {
+pub async fn suppressions_unsubscribes_post(configuration: &configuration::Configuration, request_body: Vec<String>) -> Result<Vec<models::Suppression>, Error<SuppressionsUnsubscribesPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

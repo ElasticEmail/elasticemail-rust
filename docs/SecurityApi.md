@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_apikeys_by_name_get
 
-> crate::models::ApiKey security_apikeys_by_name_get(name, subaccount)
+> models::ApiKey security_apikeys_by_name_get(name, subaccount)
 Load ApiKey
 
 Load your existing ApiKey info. Required Access Level: Security
@@ -65,7 +65,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiKey**](ApiKey.md)
+[**models::ApiKey**](ApiKey.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_apikeys_by_name_put
 
-> crate::models::ApiKey security_apikeys_by_name_put(name, api_key_payload)
+> models::ApiKey security_apikeys_by_name_put(name, api_key_payload)
 Update ApiKey
 
 Update your existing ApiKey. Required Access Level: Security
@@ -96,7 +96,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiKey**](ApiKey.md)
+[**models::ApiKey**](ApiKey.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_apikeys_get
 
-> Vec<crate::models::ApiKey> security_apikeys_get(subaccount)
+> Vec<models::ApiKey> security_apikeys_get(subaccount)
 List ApiKeys
 
 List all your existing ApiKeys. Required Access Level: Security
@@ -126,7 +126,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::ApiKey>**](ApiKey.md)
+[**Vec<models::ApiKey>**](ApiKey.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_apikeys_post
 
-> crate::models::NewApiKey security_apikeys_post(api_key_payload)
+> models::NewApiKey security_apikeys_post(api_key_payload)
 Add ApiKey
 
 Add a new ApiKey. Required Access Level: Security
@@ -156,7 +156,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::NewApiKey**](NewApiKey.md)
+[**models::NewApiKey**](NewApiKey.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_smtp_by_name_get
 
-> crate::models::SmtpCredentials security_smtp_by_name_get(name, subaccount)
+> models::SmtpCredentials security_smtp_by_name_get(name, subaccount)
 Load SMTP Credential
 
 Load your existing SMTP Credential info. Required Access Level: Security
@@ -218,7 +218,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SmtpCredentials**](SmtpCredentials.md)
+[**models::SmtpCredentials**](SmtpCredentials.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_smtp_by_name_put
 
-> crate::models::SmtpCredentials security_smtp_by_name_put(name, smtp_credentials_payload)
+> models::SmtpCredentials security_smtp_by_name_put(name, smtp_credentials_payload)
 Update SMTP Credential
 
 Update your existing SMTP Credentials. Required Access Level: Security
@@ -249,7 +249,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SmtpCredentials**](SmtpCredentials.md)
+[**models::SmtpCredentials**](SmtpCredentials.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_smtp_get
 
-> Vec<crate::models::SmtpCredentials> security_smtp_get(subaccount)
+> Vec<models::SmtpCredentials> security_smtp_get(subaccount)
 List SMTP Credentials
 
 List all your existing SMTP Credentials. Required Access Level: Security
@@ -279,7 +279,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::SmtpCredentials>**](SmtpCredentials.md)
+[**Vec<models::SmtpCredentials>**](SmtpCredentials.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Required | Notes
 
 ## security_smtp_post
 
-> crate::models::NewSmtpCredentials security_smtp_post(smtp_credentials_payload)
+> models::NewSmtpCredentials security_smtp_post(smtp_credentials_payload)
 Add SMTP Credential
 
 Add new SMTP Credential. Required Access Level: Security
@@ -309,7 +309,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::NewSmtpCredentials**](NewSmtpCredentials.md)
+[**models::NewSmtpCredentials**](NewSmtpCredentials.md)
 
 ### Authorization
 
