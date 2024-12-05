@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EmailStatus : Status information of the specified email
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
@@ -49,6 +48,8 @@ pub struct EmailStatus {
     /// Envelope from address
     #[serde(rename = "EnvelopeFrom", skip_serializing_if = "Option::is_none")]
     pub envelope_from: Option<String>,
+    #[serde(rename = "ErrorCategory", skip_serializing_if = "Option::is_none")]
+    pub error_category: Option<models::MessageCategoryEnum>,
 }
 
 impl EmailStatus {
@@ -67,6 +68,7 @@ impl EmailStatus {
             error_message: None,
             transaction_id: None,
             envelope_from: None,
+            error_category: None,
         }
     }
 }

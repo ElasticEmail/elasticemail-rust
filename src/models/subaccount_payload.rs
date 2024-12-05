@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SubaccountPayload : New SubAccount payload
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

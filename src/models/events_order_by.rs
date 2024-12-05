@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -21,11 +20,11 @@ pub enum EventsOrderBy {
 
 }
 
-impl std::fmt::Display for EventsOrderBy {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for EventsOrderBy {
+    fn to_string(&self) -> String {
         match self {
-            Self::DateDescending => write!(f, "DateDescending"),
-            Self::DateAscending => write!(f, "DateAscending"),
+            Self::DateDescending => String::from("DateDescending"),
+            Self::DateAscending => String::from("DateAscending"),
         }
     }
 }

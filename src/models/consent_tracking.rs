@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -23,12 +22,12 @@ pub enum ConsentTracking {
 
 }
 
-impl std::fmt::Display for ConsentTracking {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ConsentTracking {
+    fn to_string(&self) -> String {
         match self {
-            Self::Unknown => write!(f, "Unknown"),
-            Self::Allow => write!(f, "Allow"),
-            Self::Deny => write!(f, "Deny"),
+            Self::Unknown => String::from("Unknown"),
+            Self::Allow => String::from("Allow"),
+            Self::Deny => String::from("Deny"),
         }
     }
 }

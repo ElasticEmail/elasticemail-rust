@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -23,12 +22,12 @@ pub enum InboundRouteActionType {
 
 }
 
-impl std::fmt::Display for InboundRouteActionType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for InboundRouteActionType {
+    fn to_string(&self) -> String {
         match self {
-            Self::ForwardToEmail => write!(f, "ForwardToEmail"),
-            Self::NotifyViaHttp => write!(f, "NotifyViaHttp"),
-            Self::Stop => write!(f, "Stop"),
+            Self::ForwardToEmail => String::from("ForwardToEmail"),
+            Self::NotifyViaHttp => String::from("NotifyViaHttp"),
+            Self::Stop => String::from("Stop"),
         }
     }
 }

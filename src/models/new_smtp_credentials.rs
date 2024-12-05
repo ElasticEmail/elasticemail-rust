@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// NewSmtpCredentials : Newly generated SMTP Credentials with Token
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

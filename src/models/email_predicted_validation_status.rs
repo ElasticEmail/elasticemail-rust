@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -27,14 +26,14 @@ pub enum EmailPredictedValidationStatus {
 
 }
 
-impl std::fmt::Display for EmailPredictedValidationStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for EmailPredictedValidationStatus {
+    fn to_string(&self) -> String {
         match self {
-            Self::None => write!(f, "None"),
-            Self::Valid => write!(f, "Valid"),
-            Self::LowRisk => write!(f, "LowRisk"),
-            Self::HighRisk => write!(f, "HighRisk"),
-            Self::Invalid => write!(f, "Invalid"),
+            Self::None => String::from("None"),
+            Self::Valid => String::from("Valid"),
+            Self::LowRisk => String::from("LowRisk"),
+            Self::HighRisk => String::from("HighRisk"),
+            Self::Invalid => String::from("Invalid"),
         }
     }
 }

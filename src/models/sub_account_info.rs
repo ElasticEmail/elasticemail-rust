@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SubAccountInfo : Detailed information about SubAccount.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

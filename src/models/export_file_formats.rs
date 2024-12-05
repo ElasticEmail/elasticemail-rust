@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// ExportFileFormats : Format of the exported file.
 /// Format of the exported file.
@@ -24,12 +23,12 @@ pub enum ExportFileFormats {
 
 }
 
-impl std::fmt::Display for ExportFileFormats {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ExportFileFormats {
+    fn to_string(&self) -> String {
         match self {
-            Self::Csv => write!(f, "Csv"),
-            Self::Xml => write!(f, "Xml"),
-            Self::Json => write!(f, "Json"),
+            Self::Csv => String::from("Csv"),
+            Self::Xml => String::from("Xml"),
+            Self::Json => String::from("Json"),
         }
     }
 }

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SubaccountEmailCreditsPayload : A change to SubAccount email credits pool, with an additional note.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

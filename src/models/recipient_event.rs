@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// RecipientEvent : Detailed information about message recipient
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

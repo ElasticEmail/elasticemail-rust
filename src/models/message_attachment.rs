@@ -9,17 +9,12 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
-use serde_with::serde_as;
-
-#[serde_as]
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MessageAttachment {
     /// File's content as byte array (or a Base64 string)
-    #[serde_as(as = "serde_with::base64::Base64")]
     #[serde(rename = "BinaryContent")]
-    pub binary_content: Vec<u8>,
+    pub binary_content: String,
     /// Display name of the file
     #[serde(rename = "Name")]
     pub name: String,
@@ -32,7 +27,7 @@ pub struct MessageAttachment {
 }
 
 impl MessageAttachment {
-    pub fn new(binary_content: Vec<u8>, name: String) -> MessageAttachment {
+    pub fn new(binary_content: String, name: String) -> MessageAttachment {
         MessageAttachment {
             binary_content,
             name,

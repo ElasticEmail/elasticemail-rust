@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// TransactionalRecipient : List of transactional recipients
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EncodingType : Encoding type for the email headers
 /// Encoding type for the email headers
@@ -32,16 +31,16 @@ pub enum EncodingType {
 
 }
 
-impl std::fmt::Display for EncodingType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for EncodingType {
+    fn to_string(&self) -> String {
         match self {
-            Self::UserProvided => write!(f, "UserProvided"),
-            Self::None => write!(f, "None"),
-            Self::Raw7bit => write!(f, "Raw7bit"),
-            Self::Raw8bit => write!(f, "Raw8bit"),
-            Self::QuotedPrintable => write!(f, "QuotedPrintable"),
-            Self::Base64 => write!(f, "Base64"),
-            Self::Uue => write!(f, "Uue"),
+            Self::UserProvided => String::from("UserProvided"),
+            Self::None => String::from("None"),
+            Self::Raw7bit => String::from("Raw7bit"),
+            Self::Raw8bit => String::from("Raw8bit"),
+            Self::QuotedPrintable => String::from("QuotedPrintable"),
+            Self::Base64 => String::from("Base64"),
+            Self::Uue => String::from("Uue"),
         }
     }
 }

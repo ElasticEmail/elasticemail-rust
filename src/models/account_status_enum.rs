@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -25,13 +24,13 @@ pub enum AccountStatusEnum {
 
 }
 
-impl std::fmt::Display for AccountStatusEnum {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for AccountStatusEnum {
+    fn to_string(&self) -> String {
         match self {
-            Self::Disabled => write!(f, "Disabled"),
-            Self::UnderReview => write!(f, "UnderReview"),
-            Self::NeverSignedIn => write!(f, "NeverSignedIn"),
-            Self::Active => write!(f, "Active"),
+            Self::Disabled => String::from("Disabled"),
+            Self::UnderReview => String::from("UnderReview"),
+            Self::NeverSignedIn => String::from("NeverSignedIn"),
+            Self::Active => String::from("Active"),
         }
     }
 }

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// ApiKeyPayload : Create a new ApiKey
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

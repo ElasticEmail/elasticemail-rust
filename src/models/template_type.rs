@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -24,17 +23,20 @@ pub enum TemplateType {
     TemplateEditor,
     #[serde(rename = "FormTemplate")]
     FormTemplate,
+    #[serde(rename = "LandingPageTemplate")]
+    LandingPageTemplate,
 
 }
 
-impl std::fmt::Display for TemplateType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for TemplateType {
+    fn to_string(&self) -> String {
         match self {
-            Self::RawHtml => write!(f, "RawHTML"),
-            Self::DragDropEditor => write!(f, "DragDropEditor"),
-            Self::LandingPageEditor => write!(f, "LandingPageEditor"),
-            Self::TemplateEditor => write!(f, "TemplateEditor"),
-            Self::FormTemplate => write!(f, "FormTemplate"),
+            Self::RawHtml => String::from("RawHTML"),
+            Self::DragDropEditor => String::from("DragDropEditor"),
+            Self::LandingPageEditor => String::from("LandingPageEditor"),
+            Self::TemplateEditor => String::from("TemplateEditor"),
+            Self::FormTemplate => String::from("FormTemplate"),
+            Self::LandingPageTemplate => String::from("LandingPageTemplate"),
         }
     }
 }

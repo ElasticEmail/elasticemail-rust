@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EmailRecipient : List of recipients
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

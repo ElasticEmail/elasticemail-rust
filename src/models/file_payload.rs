@@ -9,17 +9,12 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
-use serde_with::serde_as;
-
-#[serde_as]
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FilePayload {
     /// Content of the file sent as binary data
-    #[serde_as(as = "serde_with::base64::Base64")]
     #[serde(rename = "BinaryContent")]
-    pub binary_content: Vec<u8>,
+    pub binary_content: String,
     /// Filename
     #[serde(rename = "Name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -29,7 +24,7 @@ pub struct FilePayload {
 }
 
 impl FilePayload {
-    pub fn new(binary_content: Vec<u8>) -> FilePayload {
+    pub fn new(binary_content: String) -> FilePayload {
         FilePayload {
             binary_content,
             name: None,

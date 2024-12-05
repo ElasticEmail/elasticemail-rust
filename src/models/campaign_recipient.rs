@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// CampaignRecipient : A set of lists and segments names to read recipients from
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SplitOptions : Optional A/X split campaign options
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

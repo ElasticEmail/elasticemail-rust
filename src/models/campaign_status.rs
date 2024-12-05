@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -33,17 +32,17 @@ pub enum CampaignStatus {
 
 }
 
-impl std::fmt::Display for CampaignStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for CampaignStatus {
+    fn to_string(&self) -> String {
         match self {
-            Self::Deleted => write!(f, "Deleted"),
-            Self::Active => write!(f, "Active"),
-            Self::Processing => write!(f, "Processing"),
-            Self::Sending => write!(f, "Sending"),
-            Self::Completed => write!(f, "Completed"),
-            Self::Paused => write!(f, "Paused"),
-            Self::Cancelled => write!(f, "Cancelled"),
-            Self::Draft => write!(f, "Draft"),
+            Self::Deleted => String::from("Deleted"),
+            Self::Active => String::from("Active"),
+            Self::Processing => String::from("Processing"),
+            Self::Sending => String::from("Sending"),
+            Self::Completed => String::from("Completed"),
+            Self::Paused => String::from("Paused"),
+            Self::Cancelled => String::from("Cancelled"),
+            Self::Draft => String::from("Draft"),
         }
     }
 }

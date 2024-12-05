@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SmtpCredentials : SMTP Credentials info
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

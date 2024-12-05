@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// Options : E-mail configuration
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

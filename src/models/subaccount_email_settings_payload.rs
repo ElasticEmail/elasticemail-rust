@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SubaccountEmailSettingsPayload : Settings related to sending emails
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -27,14 +26,14 @@ pub enum VerificationStatus {
 
 }
 
-impl std::fmt::Display for VerificationStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for VerificationStatus {
+    fn to_string(&self) -> String {
         match self {
-            Self::Processing => write!(f, "Processing"),
-            Self::Ready => write!(f, "Ready"),
-            Self::Expired => write!(f, "Expired"),
-            Self::Verified => write!(f, "Verified"),
-            Self::Error => write!(f, "Error"),
+            Self::Processing => String::from("Processing"),
+            Self::Ready => String::from("Ready"),
+            Self::Expired => String::from("Expired"),
+            Self::Verified => String::from("Verified"),
+            Self::Error => String::from("Error"),
         }
     }
 }

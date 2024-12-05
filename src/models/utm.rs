@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// Utm : Utm marketing data to be attached to every link in this e-mail.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

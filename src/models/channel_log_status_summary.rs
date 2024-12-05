@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// ChannelLogStatusSummary : Summary of channel log status
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SubaccountSettingsInfoPayload : SubAccount settings
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

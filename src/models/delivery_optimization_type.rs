@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -23,12 +22,12 @@ pub enum DeliveryOptimizationType {
 
 }
 
-impl std::fmt::Display for DeliveryOptimizationType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for DeliveryOptimizationType {
+    fn to_string(&self) -> String {
         match self {
-            Self::None => write!(f, "None"),
-            Self::ToEngagedFirst => write!(f, "ToEngagedFirst"),
-            Self::ByOpenTime => write!(f, "ByOpenTime"),
+            Self::None => String::from("None"),
+            Self::ToEngagedFirst => String::from("ToEngagedFirst"),
+            Self::ByOpenTime => String::from("ByOpenTime"),
         }
     }
 }

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// Template : Template info
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

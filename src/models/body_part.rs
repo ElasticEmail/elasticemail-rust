@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// BodyPart : Email body part with user-provided MIME type (text/html, text/plain, etc)
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

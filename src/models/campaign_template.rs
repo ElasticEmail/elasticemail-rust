@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// CampaignTemplate : Content of a Campaign
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

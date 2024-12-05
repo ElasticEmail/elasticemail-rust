@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// TemplateScope : Visibility of a template
 /// Visibility of a template
@@ -22,11 +21,11 @@ pub enum TemplateScope {
 
 }
 
-impl std::fmt::Display for TemplateScope {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for TemplateScope {
+    fn to_string(&self) -> String {
         match self {
-            Self::Personal => write!(f, "Personal"),
-            Self::Global => write!(f, "Global"),
+            Self::Personal => String::from("Personal"),
+            Self::Global => String::from("Global"),
         }
     }
 }

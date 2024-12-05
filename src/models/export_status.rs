@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// ExportStatus : Current status of the export.
 /// Current status of the export.
@@ -26,13 +25,13 @@ pub enum ExportStatus {
 
 }
 
-impl std::fmt::Display for ExportStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ExportStatus {
+    fn to_string(&self) -> String {
         match self {
-            Self::Error => write!(f, "Error"),
-            Self::Loading => write!(f, "Loading"),
-            Self::Ready => write!(f, "Ready"),
-            Self::Expired => write!(f, "Expired"),
+            Self::Error => String::from("Error"),
+            Self::Loading => String::from("Loading"),
+            Self::Ready => String::from("Ready"),
+            Self::Expired => String::from("Expired"),
         }
     }
 }

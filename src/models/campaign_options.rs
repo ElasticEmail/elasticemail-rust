@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// CampaignOptions : Different send options for a Campaign
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

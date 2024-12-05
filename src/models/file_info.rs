@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// FileInfo : File information
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

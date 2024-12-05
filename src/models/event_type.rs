@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EventType : Type of event
 /// Type of event
@@ -34,17 +33,17 @@ pub enum EventType {
 
 }
 
-impl std::fmt::Display for EventType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for EventType {
+    fn to_string(&self) -> String {
         match self {
-            Self::Submission => write!(f, "Submission"),
-            Self::FailedAttempt => write!(f, "FailedAttempt"),
-            Self::Bounce => write!(f, "Bounce"),
-            Self::Sent => write!(f, "Sent"),
-            Self::Open => write!(f, "Open"),
-            Self::Click => write!(f, "Click"),
-            Self::Unsubscribe => write!(f, "Unsubscribe"),
-            Self::Complaint => write!(f, "Complaint"),
+            Self::Submission => String::from("Submission"),
+            Self::FailedAttempt => String::from("FailedAttempt"),
+            Self::Bounce => String::from("Bounce"),
+            Self::Sent => String::from("Sent"),
+            Self::Open => String::from("Open"),
+            Self::Click => String::from("Click"),
+            Self::Unsubscribe => String::from("Unsubscribe"),
+            Self::Complaint => String::from("Complaint"),
         }
     }
 }

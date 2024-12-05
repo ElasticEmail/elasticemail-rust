@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// BodyContentType : Type of body part
 /// Type of body part
@@ -26,13 +25,13 @@ pub enum BodyContentType {
 
 }
 
-impl std::fmt::Display for BodyContentType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for BodyContentType {
+    fn to_string(&self) -> String {
         match self {
-            Self::Html => write!(f, "HTML"),
-            Self::PlainText => write!(f, "PlainText"),
-            Self::Amp => write!(f, "AMP"),
-            Self::Css => write!(f, "CSS"),
+            Self::Html => String::from("HTML"),
+            Self::PlainText => String::from("PlainText"),
+            Self::Amp => String::from("AMP"),
+            Self::Css => String::from("CSS"),
         }
     }
 }

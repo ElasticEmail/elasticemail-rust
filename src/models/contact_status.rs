@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -35,18 +34,18 @@ pub enum ContactStatus {
 
 }
 
-impl std::fmt::Display for ContactStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ContactStatus {
+    fn to_string(&self) -> String {
         match self {
-            Self::Transactional => write!(f, "Transactional"),
-            Self::Engaged => write!(f, "Engaged"),
-            Self::Active => write!(f, "Active"),
-            Self::Bounced => write!(f, "Bounced"),
-            Self::Unsubscribed => write!(f, "Unsubscribed"),
-            Self::Abuse => write!(f, "Abuse"),
-            Self::Inactive => write!(f, "Inactive"),
-            Self::Stale => write!(f, "Stale"),
-            Self::NotConfirmed => write!(f, "NotConfirmed"),
+            Self::Transactional => String::from("Transactional"),
+            Self::Engaged => String::from("Engaged"),
+            Self::Active => String::from("Active"),
+            Self::Bounced => String::from("Bounced"),
+            Self::Unsubscribed => String::from("Unsubscribed"),
+            Self::Abuse => String::from("Abuse"),
+            Self::Inactive => String::from("Inactive"),
+            Self::Stale => String::from("Stale"),
+            Self::NotConfirmed => String::from("NotConfirmed"),
         }
     }
 }

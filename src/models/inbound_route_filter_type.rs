@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -21,11 +20,11 @@ pub enum InboundRouteFilterType {
 
 }
 
-impl std::fmt::Display for InboundRouteFilterType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for InboundRouteFilterType {
+    fn to_string(&self) -> String {
         match self {
-            Self::EmailAddress => write!(f, "EmailAddress"),
-            Self::Subject => write!(f, "Subject"),
+            Self::EmailAddress => String::from("EmailAddress"),
+            Self::Subject => String::from("Subject"),
         }
     }
 }

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SortOrderItem : Change the ordering of this inbound route for when matching the inbound
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

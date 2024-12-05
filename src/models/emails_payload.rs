@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EmailsPayload : Provide either rule or a list of emails, not both.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

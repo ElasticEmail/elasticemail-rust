@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// Segment : Dynamic collection of Contacts, managed by SQL-like rule.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

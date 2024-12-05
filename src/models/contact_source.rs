@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -31,16 +30,16 @@ pub enum ContactSource {
 
 }
 
-impl std::fmt::Display for ContactSource {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for ContactSource {
+    fn to_string(&self) -> String {
         match self {
-            Self::DeliveryApi => write!(f, "DeliveryApi"),
-            Self::ManualInput => write!(f, "ManualInput"),
-            Self::FileUpload => write!(f, "FileUpload"),
-            Self::WebForm => write!(f, "WebForm"),
-            Self::ContactApi => write!(f, "ContactApi"),
-            Self::VerificationApi => write!(f, "VerificationApi"),
-            Self::FileVerificationApi => write!(f, "FileVerificationApi"),
+            Self::DeliveryApi => String::from("DeliveryApi"),
+            Self::ManualInput => String::from("ManualInput"),
+            Self::FileUpload => String::from("FileUpload"),
+            Self::WebForm => String::from("WebForm"),
+            Self::ContactApi => String::from("ContactApi"),
+            Self::VerificationApi => String::from("VerificationApi"),
+            Self::FileVerificationApi => String::from("FileVerificationApi"),
         }
     }
 }

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// TemplatePayload : New template object
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

@@ -10,7 +10,7 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize};
+
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
@@ -153,7 +153,7 @@ pub async fn emails_by_transactionid_status_get(configuration: &configuration::C
     }
 }
 
-/// Send bulk merge email. Required Access Level: SendHttp
+/// Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
 pub async fn emails_mergefile_post(configuration: &configuration::Configuration, merge_email_payload: models::MergeEmailPayload) -> Result<models::EmailSend, Error<EmailsMergefilePostError>> {
     let local_var_configuration = configuration;
 

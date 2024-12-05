@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// ContactsList : List of Lists, with detailed data about its contents.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

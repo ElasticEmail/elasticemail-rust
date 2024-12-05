@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EmailView : Email details formatted in json
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

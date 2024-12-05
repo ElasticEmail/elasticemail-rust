@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// NewApiKey : Newly generated ApiKey with Token
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

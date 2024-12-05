@@ -55,6 +55,7 @@
 | ViewDragDropEditor | ViewDragDropEditor |
 | ViewTemplateEditor | ViewTemplateEditor |
 | ViewAiTools | ViewAITools |
+| ModifySubscriptionAntiSpam | ModifySubscriptionAntiSpam |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

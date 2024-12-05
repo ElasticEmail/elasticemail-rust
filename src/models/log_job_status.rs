@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -37,19 +36,19 @@ pub enum LogJobStatus {
 
 }
 
-impl std::fmt::Display for LogJobStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for LogJobStatus {
+    fn to_string(&self) -> String {
         match self {
-            Self::All => write!(f, "All"),
-            Self::ReadyToSend => write!(f, "ReadyToSend"),
-            Self::WaitingToRetry => write!(f, "WaitingToRetry"),
-            Self::Sending => write!(f, "Sending"),
-            Self::Error => write!(f, "Error"),
-            Self::Sent => write!(f, "Sent"),
-            Self::Opened => write!(f, "Opened"),
-            Self::Clicked => write!(f, "Clicked"),
-            Self::Unsubscribed => write!(f, "Unsubscribed"),
-            Self::AbuseReport => write!(f, "AbuseReport"),
+            Self::All => String::from("All"),
+            Self::ReadyToSend => String::from("ReadyToSend"),
+            Self::WaitingToRetry => String::from("WaitingToRetry"),
+            Self::Sending => String::from("Sending"),
+            Self::Error => String::from("Error"),
+            Self::Sent => String::from("Sent"),
+            Self::Opened => String::from("Opened"),
+            Self::Clicked => String::from("Clicked"),
+            Self::Unsubscribed => String::from("Unsubscribed"),
+            Self::AbuseReport => String::from("AbuseReport"),
         }
     }
 }

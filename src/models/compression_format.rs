@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// CompressionFormat : FileResponse compression format
 /// FileResponse compression format
@@ -22,11 +21,11 @@ pub enum CompressionFormat {
 
 }
 
-impl std::fmt::Display for CompressionFormat {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for CompressionFormat {
+    fn to_string(&self) -> String {
         match self {
-            Self::None => write!(f, "None"),
-            Self::Zip => write!(f, "Zip"),
+            Self::None => String::from("None"),
+            Self::Zip => String::from("Zip"),
         }
     }
 }

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// VerificationFileResultDetails : Detailed verification file result info
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

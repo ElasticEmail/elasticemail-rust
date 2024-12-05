@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// Suppression : Suppression - Email returning Hard Bounces
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

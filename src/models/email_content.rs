@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// EmailContent : Proper e-mail content
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

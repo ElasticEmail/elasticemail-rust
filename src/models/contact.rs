@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// Contact : Contact
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

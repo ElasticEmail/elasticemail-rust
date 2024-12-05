@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -21,11 +20,11 @@ pub enum SplitOptimizationType {
 
 }
 
-impl std::fmt::Display for SplitOptimizationType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl ToString for SplitOptimizationType {
+    fn to_string(&self) -> String {
         match self {
-            Self::Opens => write!(f, "Opens"),
-            Self::Clicks => write!(f, "Clicks"),
+            Self::Opens => String::from("Opens"),
+            Self::Clicks => String::from("Clicks"),
         }
     }
 }
