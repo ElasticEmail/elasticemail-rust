@@ -56,6 +56,12 @@
 | ViewTemplateEditor | ViewTemplateEditor |
 | ViewAiTools | ViewAITools |
 | ModifySubscriptionAntiSpam | ModifySubscriptionAntiSpam |
+| ViewLandingPagesCheckout | ViewLandingPagesCheckout |
+| ModifyLandingPagesCheckout | ModifyLandingPagesCheckout |
+| ViewHtmlEditor | ViewHTMLEditor |
+| ModifyAccessTokens | ModifyAccessTokens |
+| ViewPaidNewsletters | ViewPaidNewsletters |
+| ModifyPaidNewsletters | ModifyPaidNewsletters |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

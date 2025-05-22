@@ -25,6 +25,14 @@ pub enum TemplateType {
     FormTemplate,
     #[serde(rename = "LandingPageTemplate")]
     LandingPageTemplate,
+    #[serde(rename = "PaymentConfirmationTemplate")]
+    PaymentConfirmationTemplate,
+    #[serde(rename = "LandingPageProductTemplate")]
+    LandingPageProductTemplate,
+    #[serde(rename = "LandingPageCheckoutTemplate")]
+    LandingPageCheckoutTemplate,
+    #[serde(rename = "LandingPagePaymentConfirmationTemplate")]
+    LandingPagePaymentConfirmationTemplate,
 
 }
 
@@ -37,6 +45,10 @@ impl ToString for TemplateType {
             Self::TemplateEditor => String::from("TemplateEditor"),
             Self::FormTemplate => String::from("FormTemplate"),
             Self::LandingPageTemplate => String::from("LandingPageTemplate"),
+            Self::PaymentConfirmationTemplate => String::from("PaymentConfirmationTemplate"),
+            Self::LandingPageProductTemplate => String::from("LandingPageProductTemplate"),
+            Self::LandingPageCheckoutTemplate => String::from("LandingPageCheckoutTemplate"),
+            Self::LandingPagePaymentConfirmationTemplate => String::from("LandingPagePaymentConfirmationTemplate"),
         }
     }
 }

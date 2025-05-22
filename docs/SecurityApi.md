@@ -22,7 +22,7 @@ Method | HTTP request | Description
 > security_apikeys_by_name_delete(name, subaccount)
 Delete ApiKey
 
-Delete your existing ApiKey. Required Access Level: Security
+Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
 
 ### Parameters
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 > models::ApiKey security_apikeys_by_name_put(name, api_key_payload)
 Update ApiKey
 
-Update your existing ApiKey. Required Access Level: Security
+Update your existing ApiKey. Required Access Level: ModifyAccessTokens
 
 ### Parameters
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Required | Notes
 > models::NewApiKey security_apikeys_post(api_key_payload)
 Add ApiKey
 
-Add a new ApiKey. Required Access Level: Security
+Add a new ApiKey. Required Access Level: ModifyAccessTokens
 
 ### Parameters
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Required | Notes
 > security_smtp_by_name_delete(name, subaccount)
 Delete SMTP Credential
 
-Delete your existing SMTP Credentials. Required Access Level: Security
+Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
 
 ### Parameters
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Required | Notes
 > models::SmtpCredentials security_smtp_by_name_put(name, smtp_credentials_payload)
 Update SMTP Credential
 
-Update your existing SMTP Credentials. Required Access Level: Security
+Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
 
 ### Parameters
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Required | Notes
 > models::NewSmtpCredentials security_smtp_post(smtp_credentials_payload)
 Add SMTP Credential
 
-Add new SMTP Credential. Required Access Level: Security
+Add new SMTP Credential. Required Access Level: ModifyAccessTokens
 
 ### Parameters
 

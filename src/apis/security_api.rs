@@ -86,7 +86,7 @@ pub enum SecuritySmtpPostError {
 }
 
 
-/// Delete your existing ApiKey. Required Access Level: Security
+/// Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
 pub async fn security_apikeys_by_name_delete(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<(), Error<SecurityApikeysByNameDeleteError>> {
     let local_var_configuration = configuration;
 
@@ -164,7 +164,7 @@ pub async fn security_apikeys_by_name_get(configuration: &configuration::Configu
     }
 }
 
-/// Update your existing ApiKey. Required Access Level: Security
+/// Update your existing ApiKey. Required Access Level: ModifyAccessTokens
 pub async fn security_apikeys_by_name_put(configuration: &configuration::Configuration, name: &str, api_key_payload: models::ApiKeyPayload) -> Result<models::ApiKey, Error<SecurityApikeysByNamePutError>> {
     let local_var_configuration = configuration;
 
@@ -240,7 +240,7 @@ pub async fn security_apikeys_get(configuration: &configuration::Configuration, 
     }
 }
 
-/// Add a new ApiKey. Required Access Level: Security
+/// Add a new ApiKey. Required Access Level: ModifyAccessTokens
 pub async fn security_apikeys_post(configuration: &configuration::Configuration, api_key_payload: models::ApiKeyPayload) -> Result<models::NewApiKey, Error<SecurityApikeysPostError>> {
     let local_var_configuration = configuration;
 
@@ -277,7 +277,7 @@ pub async fn security_apikeys_post(configuration: &configuration::Configuration,
     }
 }
 
-/// Delete your existing SMTP Credentials. Required Access Level: Security
+/// Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
 pub async fn security_smtp_by_name_delete(configuration: &configuration::Configuration, name: &str, subaccount: Option<&str>) -> Result<(), Error<SecuritySmtpByNameDeleteError>> {
     let local_var_configuration = configuration;
 
@@ -355,7 +355,7 @@ pub async fn security_smtp_by_name_get(configuration: &configuration::Configurat
     }
 }
 
-/// Update your existing SMTP Credentials. Required Access Level: Security
+/// Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
 pub async fn security_smtp_by_name_put(configuration: &configuration::Configuration, name: &str, smtp_credentials_payload: models::SmtpCredentialsPayload) -> Result<models::SmtpCredentials, Error<SecuritySmtpByNamePutError>> {
     let local_var_configuration = configuration;
 
@@ -431,7 +431,7 @@ pub async fn security_smtp_get(configuration: &configuration::Configuration, sub
     }
 }
 
-/// Add new SMTP Credential. Required Access Level: Security
+/// Add new SMTP Credential. Required Access Level: ModifyAccessTokens
 pub async fn security_smtp_post(configuration: &configuration::Configuration, smtp_credentials_payload: models::SmtpCredentialsPayload) -> Result<models::NewSmtpCredentials, Error<SecuritySmtpPostError>> {
     let local_var_configuration = configuration;
 

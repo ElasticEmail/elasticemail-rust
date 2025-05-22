@@ -117,6 +117,18 @@ pub enum AccessLevel {
     ViewAiTools,
     #[serde(rename = "ModifySubscriptionAntiSpam")]
     ModifySubscriptionAntiSpam,
+    #[serde(rename = "ViewLandingPagesCheckout")]
+    ViewLandingPagesCheckout,
+    #[serde(rename = "ModifyLandingPagesCheckout")]
+    ModifyLandingPagesCheckout,
+    #[serde(rename = "ViewHTMLEditor")]
+    ViewHtmlEditor,
+    #[serde(rename = "ModifyAccessTokens")]
+    ModifyAccessTokens,
+    #[serde(rename = "ViewPaidNewsletters")]
+    ViewPaidNewsletters,
+    #[serde(rename = "ModifyPaidNewsletters")]
+    ModifyPaidNewsletters,
 
 }
 
@@ -175,6 +187,12 @@ impl ToString for AccessLevel {
             Self::ViewTemplateEditor => String::from("ViewTemplateEditor"),
             Self::ViewAiTools => String::from("ViewAITools"),
             Self::ModifySubscriptionAntiSpam => String::from("ModifySubscriptionAntiSpam"),
+            Self::ViewLandingPagesCheckout => String::from("ViewLandingPagesCheckout"),
+            Self::ModifyLandingPagesCheckout => String::from("ModifyLandingPagesCheckout"),
+            Self::ViewHtmlEditor => String::from("ViewHTMLEditor"),
+            Self::ModifyAccessTokens => String::from("ModifyAccessTokens"),
+            Self::ViewPaidNewsletters => String::from("ViewPaidNewsletters"),
+            Self::ModifyPaidNewsletters => String::from("ModifyPaidNewsletters"),
         }
     }
 }
