@@ -53,7 +53,7 @@ Name | Type | Description  | Required | Notes
 > models::ApiKey security_apikeys_by_name_get(name, subaccount)
 Load ApiKey
 
-Load your existing ApiKey info. Required Access Level: Security
+Load your existing ApiKey info. Required Access Level: ViewAccessTokens
 
 ### Parameters
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Required | Notes
 > Vec<models::ApiKey> security_apikeys_get(subaccount)
 List ApiKeys
 
-List all your existing ApiKeys. Required Access Level: Security
+List all your existing ApiKeys. Required Access Level: ViewAccessTokens
 
 ### Parameters
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Required | Notes
 > models::SmtpCredentials security_smtp_by_name_get(name, subaccount)
 Load SMTP Credential
 
-Load your existing SMTP Credential info. Required Access Level: Security
+Load your existing SMTP Credential info. Required Access Level: ViewAccessTokens
 
 ### Parameters
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Required | Notes
 > Vec<models::SmtpCredentials> security_smtp_get(subaccount)
 List SMTP Credentials
 
-List all your existing SMTP Credentials. Required Access Level: Security
+List all your existing SMTP Credentials. Required Access Level: ViewAccessTokens
 
 ### Parameters
 

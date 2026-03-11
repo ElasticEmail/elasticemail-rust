@@ -52,7 +52,7 @@ Name | Type | Description  | Required | Notes
 > models::EmailValidationResult verifications_by_email_get(email)
 Get Email Verification Result
 
-Returns a result of verified email. Required Access Level: VerifyEmails
+Returns a result of verified email. Required Access Level: ViewVerifyEmails
 
 ### Parameters
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Required | Notes
 > std::path::PathBuf verifications_files_by_id_result_download_get(id)
 Download File Verification Result
 
-Download verification results as a ZIP file. Required Access Level: VerifyEmails
+Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
 
 ### Parameters
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Required | Notes
 > models::VerificationFileResultDetails verifications_files_by_id_result_get(id, limit, offset)
 Get Detailed File Verification Result
 
-Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
 
 ### Parameters
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Required | Notes
 > Vec<models::VerificationFileResult> verifications_files_result_get()
 Get Files Verification Results
 
-Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
 
 ### Parameters
 
@@ -291,7 +291,7 @@ This endpoint does not need any parameter.
 > Vec<models::EmailValidationResult> verifications_get(limit, offset)
 Get Emails Verification Results
 
-Returns a results of all verified single emails. Required Access Level: VerifyEmails
+Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
 
 ### Parameters
 

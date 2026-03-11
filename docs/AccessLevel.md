@@ -48,6 +48,9 @@
 | ExtendedLogs | ExtendedLogs |
 | VerifyEmails | VerifyEmails |
 | Modify2FaSms | Modify2FASms |
+| ViewVerifyEmails | ViewVerifyEmails |
+| ViewAccessTokens | ViewAccessTokens |
+| ViewWebNotifications | ViewWebNotifications |
 | ModifyLandingPages | ModifyLandingPages |
 | ViewLandingPages | ViewLandingPages |
 | ModifySuppressions | ModifySuppressions |

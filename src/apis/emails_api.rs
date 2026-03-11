@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -10,7 +10,7 @@
 
 
 use reqwest;
-
+use serde::{Deserialize, Serialize};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
@@ -53,214 +53,219 @@ pub enum EmailsTransactionalPostError {
 
 /// Returns email details for viewing or rendering. Required Access Level: None
 pub async fn emails_by_msgid_view_get(configuration: &configuration::Configuration, msgid: &str) -> Result<models::EmailData, Error<EmailsByMsgidViewGetError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_msgid = msgid;
 
-    let local_var_client = &local_var_configuration.client;
+    let uri_str = format!("{}/emails/{msgid}/view", configuration.base_path, msgid=crate::apis::urlencode(p_msgid));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    let local_var_uri_str = format!("{}/emails/{msgid}/view", local_var_configuration.base_path, msgid=crate::apis::urlencode(msgid));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
         };
-        local_var_req_builder = local_var_req_builder.header("X-ElasticEmail-ApiKey", local_var_value);
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
     };
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EmailsByMsgidViewGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<EmailsByMsgidViewGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Get status details of an email transaction. Required Access Level: ViewReports
 pub async fn emails_by_transactionid_status_get(configuration: &configuration::Configuration, transactionid: &str, show_failed: Option<bool>, show_sent: Option<bool>, show_delivered: Option<bool>, show_pending: Option<bool>, show_opened: Option<bool>, show_clicked: Option<bool>, show_abuse: Option<bool>, show_unsubscribed: Option<bool>, show_errors: Option<bool>, show_message_ids: Option<bool>) -> Result<models::EmailJobStatus, Error<EmailsByTransactionidStatusGetError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_transactionid = transactionid;
+    let p_show_failed = show_failed;
+    let p_show_sent = show_sent;
+    let p_show_delivered = show_delivered;
+    let p_show_pending = show_pending;
+    let p_show_opened = show_opened;
+    let p_show_clicked = show_clicked;
+    let p_show_abuse = show_abuse;
+    let p_show_unsubscribed = show_unsubscribed;
+    let p_show_errors = show_errors;
+    let p_show_message_ids = show_message_ids;
 
-    let local_var_client = &local_var_configuration.client;
+    let uri_str = format!("{}/emails/{transactionid}/status", configuration.base_path, transactionid=crate::apis::urlencode(p_transactionid));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    let local_var_uri_str = format!("{}/emails/{transactionid}/status", local_var_configuration.base_path, transactionid=crate::apis::urlencode(transactionid));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = show_failed {
-        local_var_req_builder = local_var_req_builder.query(&[("showFailed", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_failed {
+        req_builder = req_builder.query(&[("showFailed", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_sent {
-        local_var_req_builder = local_var_req_builder.query(&[("showSent", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_sent {
+        req_builder = req_builder.query(&[("showSent", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_delivered {
-        local_var_req_builder = local_var_req_builder.query(&[("showDelivered", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_delivered {
+        req_builder = req_builder.query(&[("showDelivered", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_pending {
-        local_var_req_builder = local_var_req_builder.query(&[("showPending", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_pending {
+        req_builder = req_builder.query(&[("showPending", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_opened {
-        local_var_req_builder = local_var_req_builder.query(&[("showOpened", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_opened {
+        req_builder = req_builder.query(&[("showOpened", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_clicked {
-        local_var_req_builder = local_var_req_builder.query(&[("showClicked", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_clicked {
+        req_builder = req_builder.query(&[("showClicked", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_abuse {
-        local_var_req_builder = local_var_req_builder.query(&[("showAbuse", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_abuse {
+        req_builder = req_builder.query(&[("showAbuse", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_unsubscribed {
-        local_var_req_builder = local_var_req_builder.query(&[("showUnsubscribed", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_unsubscribed {
+        req_builder = req_builder.query(&[("showUnsubscribed", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_errors {
-        local_var_req_builder = local_var_req_builder.query(&[("showErrors", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_errors {
+        req_builder = req_builder.query(&[("showErrors", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = show_message_ids {
-        local_var_req_builder = local_var_req_builder.query(&[("showMessageIDs", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_show_message_ids {
+        req_builder = req_builder.query(&[("showMessageIDs", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
         };
-        local_var_req_builder = local_var_req_builder.header("X-ElasticEmail-ApiKey", local_var_value);
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
     };
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EmailsByTransactionidStatusGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<EmailsByTransactionidStatusGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
 pub async fn emails_mergefile_post(configuration: &configuration::Configuration, merge_email_payload: models::MergeEmailPayload) -> Result<models::EmailSend, Error<EmailsMergefilePostError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_merge_email_payload = merge_email_payload;
 
-    let local_var_client = &local_var_configuration.client;
+    let uri_str = format!("{}/emails/mergefile", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    let local_var_uri_str = format!("{}/emails/mergefile", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
         };
-        local_var_req_builder = local_var_req_builder.header("X-ElasticEmail-ApiKey", local_var_value);
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
     };
-    local_var_req_builder = local_var_req_builder.json(&merge_email_payload);
+    req_builder = req_builder.json(&p_merge_email_payload);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EmailsMergefilePostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<EmailsMergefilePostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Send bulk merge email. Required Access Level: SendHttp
 pub async fn emails_post(configuration: &configuration::Configuration, email_message_data: models::EmailMessageData) -> Result<models::EmailSend, Error<EmailsPostError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_email_message_data = email_message_data;
 
-    let local_var_client = &local_var_configuration.client;
+    let uri_str = format!("{}/emails", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    let local_var_uri_str = format!("{}/emails", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
         };
-        local_var_req_builder = local_var_req_builder.header("X-ElasticEmail-ApiKey", local_var_value);
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
     };
-    local_var_req_builder = local_var_req_builder.json(&email_message_data);
+    req_builder = req_builder.json(&p_email_message_data);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EmailsPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<EmailsPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
 pub async fn emails_transactional_post(configuration: &configuration::Configuration, email_transactional_message_data: models::EmailTransactionalMessageData) -> Result<models::EmailSend, Error<EmailsTransactionalPostError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_email_transactional_message_data = email_transactional_message_data;
 
-    let local_var_client = &local_var_configuration.client;
+    let uri_str = format!("{}/emails/transactional", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    let local_var_uri_str = format!("{}/emails/transactional", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
         };
-        local_var_req_builder = local_var_req_builder.header("X-ElasticEmail-ApiKey", local_var_value);
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
     };
-    local_var_req_builder = local_var_req_builder.json(&email_transactional_message_data);
+    req_builder = req_builder.json(&p_email_transactional_message_data);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EmailsTransactionalPostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<EmailsTransactionalPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 

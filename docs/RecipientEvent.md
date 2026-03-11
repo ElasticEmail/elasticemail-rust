@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **channel_name** | Option<**String**> | Name of selected channel. | [optional]
 **message_category** | Option<[**models::MessageCategory**](MessageCategory.md)> |  | [optional]
 **next_try_on** | Option<**String**> | Date of next try | [optional]
-**message** | Option<**String**> | Content of message, HTML encoded | [optional]
+**message** | Option<**String**> | Error message if sending has failed (FailedAttempt or Bounce) | [optional]
 **ip_address** | Option<**String**> | IP which this email was sent through | [optional]
 **pool_name** | Option<**String**> | Name of an IP pool this email was sent through | [optional]
 

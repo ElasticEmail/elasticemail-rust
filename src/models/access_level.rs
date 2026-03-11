@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -101,6 +102,12 @@ pub enum AccessLevel {
     VerifyEmails,
     #[serde(rename = "Modify2FASms")]
     Modify2FaSms,
+    #[serde(rename = "ViewVerifyEmails")]
+    ViewVerifyEmails,
+    #[serde(rename = "ViewAccessTokens")]
+    ViewAccessTokens,
+    #[serde(rename = "ViewWebNotifications")]
+    ViewWebNotifications,
     #[serde(rename = "ModifyLandingPages")]
     ModifyLandingPages,
     #[serde(rename = "ViewLandingPages")]
@@ -132,67 +139,70 @@ pub enum AccessLevel {
 
 }
 
-impl ToString for AccessLevel {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for AccessLevel {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::None => String::from("None"),
-            Self::ViewAccount => String::from("ViewAccount"),
-            Self::ViewContacts => String::from("ViewContacts"),
-            Self::ViewForms => String::from("ViewForms"),
-            Self::ViewTemplates => String::from("ViewTemplates"),
-            Self::ViewCampaigns => String::from("ViewCampaigns"),
-            Self::ViewChannels => String::from("ViewChannels"),
-            Self::ViewAutomations => String::from("ViewAutomations"),
-            Self::ViewSurveys => String::from("ViewSurveys"),
-            Self::ViewSettings => String::from("ViewSettings"),
-            Self::ViewBilling => String::from("ViewBilling"),
-            Self::ViewSubAccounts => String::from("ViewSubAccounts"),
-            Self::ViewUsers => String::from("ViewUsers"),
-            Self::ViewFiles => String::from("ViewFiles"),
-            Self::ViewReports => String::from("ViewReports"),
-            Self::ModifyAccount => String::from("ModifyAccount"),
-            Self::ModifyContacts => String::from("ModifyContacts"),
-            Self::ModifyForms => String::from("ModifyForms"),
-            Self::ModifyTemplates => String::from("ModifyTemplates"),
-            Self::ModifyCampaigns => String::from("ModifyCampaigns"),
-            Self::ModifyChannels => String::from("ModifyChannels"),
-            Self::ModifyAutomations => String::from("ModifyAutomations"),
-            Self::ModifySurveys => String::from("ModifySurveys"),
-            Self::ModifyFiles => String::from("ModifyFiles"),
-            Self::Export => String::from("Export"),
-            Self::SendSmtp => String::from("SendSmtp"),
-            Self::SendSms => String::from("SendSMS"),
-            Self::ModifySettings => String::from("ModifySettings"),
-            Self::ModifyBilling => String::from("ModifyBilling"),
-            Self::ModifyProfile => String::from("ModifyProfile"),
-            Self::ModifySubAccounts => String::from("ModifySubAccounts"),
-            Self::ModifyUsers => String::from("ModifyUsers"),
-            Self::Security => String::from("Security"),
-            Self::ModifyLanguage => String::from("ModifyLanguage"),
-            Self::ViewSupport => String::from("ViewSupport"),
-            Self::SendHttp => String::from("SendHttp"),
-            Self::Modify2FaEmail => String::from("Modify2FAEmail"),
-            Self::ModifySupport => String::from("ModifySupport"),
-            Self::ViewCustomFields => String::from("ViewCustomFields"),
-            Self::ModifyCustomFields => String::from("ModifyCustomFields"),
-            Self::ModifyWebNotifications => String::from("ModifyWebNotifications"),
-            Self::ExtendedLogs => String::from("ExtendedLogs"),
-            Self::VerifyEmails => String::from("VerifyEmails"),
-            Self::Modify2FaSms => String::from("Modify2FASms"),
-            Self::ModifyLandingPages => String::from("ModifyLandingPages"),
-            Self::ViewLandingPages => String::from("ViewLandingPages"),
-            Self::ModifySuppressions => String::from("ModifySuppressions"),
-            Self::ViewSuppressions => String::from("ViewSuppressions"),
-            Self::ViewDragDropEditor => String::from("ViewDragDropEditor"),
-            Self::ViewTemplateEditor => String::from("ViewTemplateEditor"),
-            Self::ViewAiTools => String::from("ViewAITools"),
-            Self::ModifySubscriptionAntiSpam => String::from("ModifySubscriptionAntiSpam"),
-            Self::ViewLandingPagesCheckout => String::from("ViewLandingPagesCheckout"),
-            Self::ModifyLandingPagesCheckout => String::from("ModifyLandingPagesCheckout"),
-            Self::ViewHtmlEditor => String::from("ViewHTMLEditor"),
-            Self::ModifyAccessTokens => String::from("ModifyAccessTokens"),
-            Self::ViewPaidNewsletters => String::from("ViewPaidNewsletters"),
-            Self::ModifyPaidNewsletters => String::from("ModifyPaidNewsletters"),
+            Self::None => write!(f, "None"),
+            Self::ViewAccount => write!(f, "ViewAccount"),
+            Self::ViewContacts => write!(f, "ViewContacts"),
+            Self::ViewForms => write!(f, "ViewForms"),
+            Self::ViewTemplates => write!(f, "ViewTemplates"),
+            Self::ViewCampaigns => write!(f, "ViewCampaigns"),
+            Self::ViewChannels => write!(f, "ViewChannels"),
+            Self::ViewAutomations => write!(f, "ViewAutomations"),
+            Self::ViewSurveys => write!(f, "ViewSurveys"),
+            Self::ViewSettings => write!(f, "ViewSettings"),
+            Self::ViewBilling => write!(f, "ViewBilling"),
+            Self::ViewSubAccounts => write!(f, "ViewSubAccounts"),
+            Self::ViewUsers => write!(f, "ViewUsers"),
+            Self::ViewFiles => write!(f, "ViewFiles"),
+            Self::ViewReports => write!(f, "ViewReports"),
+            Self::ModifyAccount => write!(f, "ModifyAccount"),
+            Self::ModifyContacts => write!(f, "ModifyContacts"),
+            Self::ModifyForms => write!(f, "ModifyForms"),
+            Self::ModifyTemplates => write!(f, "ModifyTemplates"),
+            Self::ModifyCampaigns => write!(f, "ModifyCampaigns"),
+            Self::ModifyChannels => write!(f, "ModifyChannels"),
+            Self::ModifyAutomations => write!(f, "ModifyAutomations"),
+            Self::ModifySurveys => write!(f, "ModifySurveys"),
+            Self::ModifyFiles => write!(f, "ModifyFiles"),
+            Self::Export => write!(f, "Export"),
+            Self::SendSmtp => write!(f, "SendSmtp"),
+            Self::SendSms => write!(f, "SendSMS"),
+            Self::ModifySettings => write!(f, "ModifySettings"),
+            Self::ModifyBilling => write!(f, "ModifyBilling"),
+            Self::ModifyProfile => write!(f, "ModifyProfile"),
+            Self::ModifySubAccounts => write!(f, "ModifySubAccounts"),
+            Self::ModifyUsers => write!(f, "ModifyUsers"),
+            Self::Security => write!(f, "Security"),
+            Self::ModifyLanguage => write!(f, "ModifyLanguage"),
+            Self::ViewSupport => write!(f, "ViewSupport"),
+            Self::SendHttp => write!(f, "SendHttp"),
+            Self::Modify2FaEmail => write!(f, "Modify2FAEmail"),
+            Self::ModifySupport => write!(f, "ModifySupport"),
+            Self::ViewCustomFields => write!(f, "ViewCustomFields"),
+            Self::ModifyCustomFields => write!(f, "ModifyCustomFields"),
+            Self::ModifyWebNotifications => write!(f, "ModifyWebNotifications"),
+            Self::ExtendedLogs => write!(f, "ExtendedLogs"),
+            Self::VerifyEmails => write!(f, "VerifyEmails"),
+            Self::Modify2FaSms => write!(f, "Modify2FASms"),
+            Self::ViewVerifyEmails => write!(f, "ViewVerifyEmails"),
+            Self::ViewAccessTokens => write!(f, "ViewAccessTokens"),
+            Self::ViewWebNotifications => write!(f, "ViewWebNotifications"),
+            Self::ModifyLandingPages => write!(f, "ModifyLandingPages"),
+            Self::ViewLandingPages => write!(f, "ViewLandingPages"),
+            Self::ModifySuppressions => write!(f, "ModifySuppressions"),
+            Self::ViewSuppressions => write!(f, "ViewSuppressions"),
+            Self::ViewDragDropEditor => write!(f, "ViewDragDropEditor"),
+            Self::ViewTemplateEditor => write!(f, "ViewTemplateEditor"),
+            Self::ViewAiTools => write!(f, "ViewAITools"),
+            Self::ModifySubscriptionAntiSpam => write!(f, "ModifySubscriptionAntiSpam"),
+            Self::ViewLandingPagesCheckout => write!(f, "ViewLandingPagesCheckout"),
+            Self::ModifyLandingPagesCheckout => write!(f, "ModifyLandingPagesCheckout"),
+            Self::ViewHtmlEditor => write!(f, "ViewHTMLEditor"),
+            Self::ModifyAccessTokens => write!(f, "ModifyAccessTokens"),
+            Self::ViewPaidNewsletters => write!(f, "ViewPaidNewsletters"),
+            Self::ModifyPaidNewsletters => write!(f, "ModifyPaidNewsletters"),
         }
     }
 }

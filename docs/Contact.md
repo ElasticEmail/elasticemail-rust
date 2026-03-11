@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **custom_fields** | Option<**std::collections::HashMap<String, String>**> | A key-value collection of custom contact fields which can be used in the system. | [optional]
 **consent** | Option<[**models::ConsentData**](ConsentData.md)> |  | [optional]
 **source** | Option<[**models::ContactSource**](ContactSource.md)> |  | [optional]
+**source_info** | Option<**String**> |  | [optional]
 **date_added** | Option<**String**> | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional]
 **date_updated** | Option<**String**> | Last change date | [optional]
 **status_change_date** | Option<**String**> | Date of last status change. | [optional]

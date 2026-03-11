@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// TrackingValidationStatus : Status of ValidDomain to determine how often tracking validation should be performed.
 /// Status of ValidDomain to determine how often tracking validation should be performed.
@@ -25,13 +26,13 @@ pub enum TrackingValidationStatus {
 
 }
 
-impl ToString for TrackingValidationStatus {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for TrackingValidationStatus {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Validated => String::from("Validated"),
-            Self::NotValidated => String::from("NotValidated"),
-            Self::Invalid => String::from("Invalid"),
-            Self::Broken => String::from("Broken"),
+            Self::Validated => write!(f, "Validated"),
+            Self::NotValidated => write!(f, "NotValidated"),
+            Self::Invalid => write!(f, "Invalid"),
+            Self::Broken => write!(f, "Broken"),
         }
     }
 }

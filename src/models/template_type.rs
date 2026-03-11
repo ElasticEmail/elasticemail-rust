@@ -1,7 +1,7 @@
 /*
  * Elastic Email REST API
  *
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -33,22 +34,31 @@ pub enum TemplateType {
     LandingPageCheckoutTemplate,
     #[serde(rename = "LandingPagePaymentConfirmationTemplate")]
     LandingPagePaymentConfirmationTemplate,
+    #[serde(rename = "LandingPageNewsletterProductTemplate")]
+    LandingPageNewsletterProductTemplate,
+    #[serde(rename = "LandingPageNewsletterPaymentConfirmationTemplate")]
+    LandingPageNewsletterPaymentConfirmationTemplate,
+    #[serde(rename = "NewsletterSubscriptionCancellationTemplate")]
+    NewsletterSubscriptionCancellationTemplate,
 
 }
 
-impl ToString for TemplateType {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for TemplateType {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::RawHtml => String::from("RawHTML"),
-            Self::DragDropEditor => String::from("DragDropEditor"),
-            Self::LandingPageEditor => String::from("LandingPageEditor"),
-            Self::TemplateEditor => String::from("TemplateEditor"),
-            Self::FormTemplate => String::from("FormTemplate"),
-            Self::LandingPageTemplate => String::from("LandingPageTemplate"),
-            Self::PaymentConfirmationTemplate => String::from("PaymentConfirmationTemplate"),
-            Self::LandingPageProductTemplate => String::from("LandingPageProductTemplate"),
-            Self::LandingPageCheckoutTemplate => String::from("LandingPageCheckoutTemplate"),
-            Self::LandingPagePaymentConfirmationTemplate => String::from("LandingPagePaymentConfirmationTemplate"),
+            Self::RawHtml => write!(f, "RawHTML"),
+            Self::DragDropEditor => write!(f, "DragDropEditor"),
+            Self::LandingPageEditor => write!(f, "LandingPageEditor"),
+            Self::TemplateEditor => write!(f, "TemplateEditor"),
+            Self::FormTemplate => write!(f, "FormTemplate"),
+            Self::LandingPageTemplate => write!(f, "LandingPageTemplate"),
+            Self::PaymentConfirmationTemplate => write!(f, "PaymentConfirmationTemplate"),
+            Self::LandingPageProductTemplate => write!(f, "LandingPageProductTemplate"),
+            Self::LandingPageCheckoutTemplate => write!(f, "LandingPageCheckoutTemplate"),
+            Self::LandingPagePaymentConfirmationTemplate => write!(f, "LandingPagePaymentConfirmationTemplate"),
+            Self::LandingPageNewsletterProductTemplate => write!(f, "LandingPageNewsletterProductTemplate"),
+            Self::LandingPageNewsletterPaymentConfirmationTemplate => write!(f, "LandingPageNewsletterPaymentConfirmationTemplate"),
+            Self::NewsletterSubscriptionCancellationTemplate => write!(f, "NewsletterSubscriptionCancellationTemplate"),
         }
     }
 }
