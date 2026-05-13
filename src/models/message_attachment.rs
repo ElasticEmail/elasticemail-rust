@@ -26,7 +26,7 @@ pub struct MessageAttachment {
     /// MIME content type
     #[serde(rename = "ContentType", skip_serializing_if = "Option::is_none")]
     pub content_type: Option<String>,
-    /// Size of your attachment (in bytes).
+    /// Size of the attachement in B
     #[serde(rename = "Size", skip_serializing_if = "Option::is_none")]
     pub size: Option<i32>,
 }

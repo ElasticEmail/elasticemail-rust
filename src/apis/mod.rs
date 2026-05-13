@@ -105,5 +105,6 @@ pub mod sub_accounts_api;
 pub mod suppressions_api;
 pub mod templates_api;
 pub mod verifications_api;
+pub mod webhook_api;
 
 pub mod configuration;

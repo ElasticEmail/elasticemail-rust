@@ -33,6 +33,9 @@ pub struct CampaignOptions {
     pub trigger_count: Option<i32>,
     #[serde(rename = "SplitOptions", skip_serializing_if = "Option::is_none")]
     pub split_options: Option<Box<models::SplitOptions>>,
+    /// Send email at local time of contact.
+    #[serde(rename = "SendAtLocalTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub send_at_local_time: Option<Option<bool>>,
 }
 
 impl CampaignOptions {
@@ -46,6 +49,7 @@ impl CampaignOptions {
             trigger_frequency: None,
             trigger_count: None,
             split_options: None,
+            send_at_local_time: None,
         }
     }
 }

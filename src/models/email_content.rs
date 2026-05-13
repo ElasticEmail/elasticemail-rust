@@ -35,7 +35,7 @@ pub struct EmailContent {
     /// Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)
     #[serde(rename = "From")]
     pub from: String,
-    /// To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
+    /// To what addresses should the recipients reply to (e.g. John Doe <email@domain.com>)
     #[serde(rename = "ReplyTo", skip_serializing_if = "Option::is_none")]
     pub reply_to: Option<String>,
     /// Default subject of email.

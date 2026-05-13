@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **postback** | Option<**String**> | Postback header. | [optional]
 **envelope_from** | Option<**String**> | E-mail with an optional name to be used as the envelope from address (e.g.: John Doe <email@domain.com>) | [optional]
 **from** | **String** | Your e-mail with an optional name (e.g.: John Doe <email@domain.com>) | 
-**reply_to** | Option<**String**> | To what address should the recipients reply to (e.g. John Doe <email@domain.com>) | [optional]
+**reply_to** | Option<**String**> | To what addresses should the recipients reply to (e.g. John Doe <email@domain.com>) | [optional]
 **subject** | Option<**String**> | Default subject of email. | [optional]
 **template_name** | Option<**String**> | Name of template. | [optional]
 **attach_files** | Option<**Vec<String>**> | Names of previously uploaded files that should be sent as downloadable attachments | [optional]
