@@ -19,8 +19,8 @@ pub enum EventType {
     Submission,
     #[serde(rename = "FailedAttempt")]
     FailedAttempt,
-    #[serde(rename = "Bounce")]
-    Bounce,
+    #[serde(rename = "Error")]
+    Error,
     #[serde(rename = "Sent")]
     Sent,
     #[serde(rename = "Open")]
@@ -31,6 +31,12 @@ pub enum EventType {
     Unsubscribe,
     #[serde(rename = "Complaint")]
     Complaint,
+    #[serde(rename = "Bounce")]
+    Bounce,
+    #[serde(rename = "TransactionalUnsubscribe")]
+    TransactionalUnsubscribe,
+    #[serde(rename = "Suppress")]
+    Suppress,
 
 }
 
@@ -39,12 +45,15 @@ impl std::fmt::Display for EventType {
         match self {
             Self::Submission => write!(f, "Submission"),
             Self::FailedAttempt => write!(f, "FailedAttempt"),
-            Self::Bounce => write!(f, "Bounce"),
+            Self::Error => write!(f, "Error"),
             Self::Sent => write!(f, "Sent"),
             Self::Open => write!(f, "Open"),
             Self::Click => write!(f, "Click"),
             Self::Unsubscribe => write!(f, "Unsubscribe"),
             Self::Complaint => write!(f, "Complaint"),
+            Self::Bounce => write!(f, "Bounce"),
+            Self::TransactionalUnsubscribe => write!(f, "TransactionalUnsubscribe"),
+            Self::Suppress => write!(f, "Suppress"),
         }
     }
 }

@@ -46,6 +46,8 @@ pub struct DomainData {
     pub tracking_status: Option<models::TrackingValidationStatus>,
     #[serde(rename = "CertificateStatus", skip_serializing_if = "Option::is_none")]
     pub certificate_status: Option<models::CertificateValidationStatus>,
+    #[serde(rename = "CertificateExpiryDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub certificate_expiry_date: Option<Option<String>>,
     #[serde(rename = "CertificateValidationError", skip_serializing_if = "Option::is_none")]
     pub certificate_validation_error: Option<String>,
     #[serde(rename = "TrackingTypeUserRequest", skip_serializing_if = "Option::is_none")]
@@ -56,10 +58,14 @@ pub struct DomainData {
     pub custom_bounces_domain: Option<String>,
     #[serde(rename = "IsCustomBouncesDomainDefault", skip_serializing_if = "Option::is_none")]
     pub is_custom_bounces_domain_default: Option<bool>,
+    #[serde(rename = "WasEverVerified", skip_serializing_if = "Option::is_none")]
+    pub was_ever_verified: Option<bool>,
     #[serde(rename = "IsMarkedForDeletion", skip_serializing_if = "Option::is_none")]
     pub is_marked_for_deletion: Option<bool>,
     #[serde(rename = "Ownership", skip_serializing_if = "Option::is_none")]
     pub ownership: Option<models::DomainOwner>,
+    #[serde(rename = "DKIMRecord", skip_serializing_if = "Option::is_none")]
+    pub dkim_record: Option<Box<models::DkimRecord>>,
 }
 
 impl DomainData {
@@ -78,13 +84,16 @@ impl DomainData {
             r#type: None,
             tracking_status: None,
             certificate_status: None,
+            certificate_expiry_date: None,
             certificate_validation_error: None,
             tracking_type_user_request: None,
             verp: None,
             custom_bounces_domain: None,
             is_custom_bounces_domain_default: None,
+            was_ever_verified: None,
             is_marked_for_deletion: None,
             ownership: None,
+            dkim_record: None,
         }
     }
 }

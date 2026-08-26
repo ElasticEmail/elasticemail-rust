@@ -46,6 +46,8 @@ pub mod contacts_list;
 pub use self::contacts_list::ContactsList;
 pub mod delivery_optimization_type;
 pub use self::delivery_optimization_type::DeliveryOptimizationType;
+pub mod dkim_record;
+pub use self::dkim_record::DkimRecord;
 pub mod domain_data;
 pub use self::domain_data::DomainData;
 pub mod domain_detail;

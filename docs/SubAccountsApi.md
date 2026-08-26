@@ -4,6 +4,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**subaccounts_by_email_apikey_get**](SubAccountsApi.md#subaccounts_by_email_apikey_get) | **GET** /subaccounts/{email}/apikey | Get SubAccount ApiKey
 [**subaccounts_by_email_credits_patch**](SubAccountsApi.md#subaccounts_by_email_credits_patch) | **PATCH** /subaccounts/{email}/credits | Add, Subtract Email Credits
 [**subaccounts_by_email_delete**](SubAccountsApi.md#subaccounts_by_email_delete) | **DELETE** /subaccounts/{email} | Delete SubAccount
 [**subaccounts_by_email_get**](SubAccountsApi.md#subaccounts_by_email_get) | **GET** /subaccounts/{email} | Load SubAccount
@@ -11,6 +12,36 @@ Method | HTTP request | Description
 [**subaccounts_get**](SubAccountsApi.md#subaccounts_get) | **GET** /subaccounts | Load SubAccounts
 [**subaccounts_post**](SubAccountsApi.md#subaccounts_post) | **POST** /subaccounts | Add SubAccount
 
+
+
+## subaccounts_by_email_apikey_get
+
+> String subaccounts_by_email_apikey_get(email)
+Get SubAccount ApiKey
+
+Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**email** | **String** | Email address of Sub-Account | [required] |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## subaccounts_by_email_credits_patch
@@ -171,7 +202,7 @@ Name | Type | Description  | Required | Notes
 > models::SubAccountInfo subaccounts_post(subaccount_payload)
 Add SubAccount
 
-Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
+Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
 
 ### Parameters
 

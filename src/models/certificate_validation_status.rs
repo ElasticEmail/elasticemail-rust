@@ -22,6 +22,8 @@ pub enum CertificateValidationStatus {
     Valid,
     #[serde(rename = "NotValid")]
     NotValid,
+    #[serde(rename = "InProgress")]
+    InProgress,
 
 }
 
@@ -32,6 +34,7 @@ impl std::fmt::Display for CertificateValidationStatus {
             Self::CertNotSet => write!(f, "CertNotSet"),
             Self::Valid => write!(f, "Valid"),
             Self::NotValid => write!(f, "NotValid"),
+            Self::InProgress => write!(f, "InProgress"),
         }
     }
 }

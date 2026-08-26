@@ -15,6 +15,13 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method [`subaccounts_by_email_apikey_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SubaccountsByEmailApikeyGetError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`subaccounts_by_email_credits_patch`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -57,6 +64,41 @@ pub enum SubaccountsPostError {
     UnknownValue(serde_json::Value),
 }
 
+
+/// Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+pub async fn subaccounts_by_email_apikey_get(configuration: &configuration::Configuration, email: &str) -> Result<String, Error<SubaccountsByEmailApikeyGetError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_email = email;
+
+    let uri_str = format!("{}/subaccounts/{email}/apikey", configuration.base_path, email=crate::apis::urlencode(p_email));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SubaccountsByEmailApikeyGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 /// Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
 pub async fn subaccounts_by_email_credits_patch(configuration: &configuration::Configuration, email: &str, subaccount_email_credits_payload: models::SubaccountEmailCreditsPayload) -> Result<(), Error<SubaccountsByEmailCreditsPatchError>> {
@@ -242,7 +284,7 @@ pub async fn subaccounts_get(configuration: &configuration::Configuration, limit
     }
 }
 
-/// Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
+/// Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
 pub async fn subaccounts_post(configuration: &configuration::Configuration, subaccount_payload: models::SubaccountPayload) -> Result<models::SubAccountInfo, Error<SubaccountsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_subaccount_payload = subaccount_payload;

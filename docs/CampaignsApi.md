@@ -4,6 +4,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**campaigns_automation_by_name_trigger_post**](CampaignsApi.md#campaigns_automation_by_name_trigger_post) | **POST** /campaigns/automation/{name}/trigger | Trigger Automation for Contact
 [**campaigns_by_name_delete**](CampaignsApi.md#campaigns_by_name_delete) | **DELETE** /campaigns/{name} | Delete Campaign
 [**campaigns_by_name_get**](CampaignsApi.md#campaigns_by_name_get) | **GET** /campaigns/{name} | Load Campaign
 [**campaigns_by_name_pause_put**](CampaignsApi.md#campaigns_by_name_pause_put) | **PUT** /campaigns/{name}/pause | Pause Campaign
@@ -11,6 +12,37 @@ Method | HTTP request | Description
 [**campaigns_get**](CampaignsApi.md#campaigns_get) | **GET** /campaigns | Load Campaigns
 [**campaigns_post**](CampaignsApi.md#campaigns_post) | **POST** /campaigns | Add Campaign
 
+
+
+## campaigns_automation_by_name_trigger_post
+
+> campaigns_automation_by_name_trigger_post(name, contact_email)
+Trigger Automation for Contact
+
+Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**name** | **String** |  | [required] |
+**contact_email** | **String** |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## campaigns_by_name_delete

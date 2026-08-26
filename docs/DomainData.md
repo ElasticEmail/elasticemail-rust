@@ -16,13 +16,16 @@ Name | Type | Description | Notes
 **r#type** | Option<[**models::TrackingType**](TrackingType.md)> |  | [optional]
 **tracking_status** | Option<[**models::TrackingValidationStatus**](TrackingValidationStatus.md)> |  | [optional]
 **certificate_status** | Option<[**models::CertificateValidationStatus**](CertificateValidationStatus.md)> |  | [optional]
+**certificate_expiry_date** | Option<**String**> |  | [optional]
 **certificate_validation_error** | Option<**String**> |  | [optional]
 **tracking_type_user_request** | Option<[**models::TrackingType**](TrackingType.md)> |  | [optional]
 **verp** | Option<**bool**> |  | [optional]
 **custom_bounces_domain** | Option<**String**> |  | [optional]
 **is_custom_bounces_domain_default** | Option<**bool**> |  | [optional]
+**was_ever_verified** | Option<**bool**> |  | [optional]
 **is_marked_for_deletion** | Option<**bool**> |  | [optional]
 **ownership** | Option<[**models::DomainOwner**](DomainOwner.md)> |  | [optional]
+**dkim_record** | Option<[**models::DkimRecord**](DKIMRecord.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

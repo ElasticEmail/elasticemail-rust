@@ -61,7 +61,7 @@ Load your existing ApiKey info. Required Access Level: ViewAccessTokens
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **name** | **String** | Name of the ApiKey | [required] |
-**subaccount** | Option<**String**> | Email of the subaccount of which ApiKey should be loaded |  |
+**subaccount** | Option<**String**> | Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. |  |
 
 ### Return type
 
@@ -122,7 +122,7 @@ List all your existing ApiKeys. Required Access Level: ViewAccessTokens
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**subaccount** | Option<**String**> | Email of the subaccount of which ApiKeys should be loaded |  |
+**subaccount** | Option<**String**> | Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. |  |
 
 ### Return type
 

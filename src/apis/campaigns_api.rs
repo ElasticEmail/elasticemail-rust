@@ -15,6 +15,13 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method [`campaigns_automation_by_name_trigger_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CampaignsAutomationByNameTriggerPostError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`campaigns_by_name_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -57,6 +64,42 @@ pub enum CampaignsPostError {
     UnknownValue(serde_json::Value),
 }
 
+
+/// Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+pub async fn campaigns_automation_by_name_trigger_post(configuration: &configuration::Configuration, name: &str, contact_email: &str) -> Result<(), Error<CampaignsAutomationByNameTriggerPostError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_name = name;
+    let p_contact_email = contact_email;
+
+    let uri_str = format!("{}/campaigns/automation/{name}/trigger", configuration.base_path, name=crate::apis::urlencode(p_name));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("contactEmail", &p_contact_email.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CampaignsAutomationByNameTriggerPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 /// Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
 pub async fn campaigns_by_name_delete(configuration: &configuration::Configuration, name: &str) -> Result<(), Error<CampaignsByNameDeleteError>> {
