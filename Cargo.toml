@@ -1,10 +1,17 @@
 [package]
 name = "ElasticEmail"
 version = "4.2.0"
-authors = ["support@elasticemail.com"]
-description = "This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target='_blank' href='https://app.elasticemail.com/marketing/settings/new/manage-api'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target='_blank' href='https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme'>here</a>"
+authors = ["Elastic Email <support@elasticemail.com>"]
+description = "Official Rust SDK for the Elastic Email REST API v4"
 license = "MIT"
 edition = "2021"
+repository = "https://github.com/ElasticEmail/elasticemail-rust"
+homepage = "https://elasticemail.com/email-api"
+documentation = "https://docs.rs/ElasticEmail"
+readme = "README.md"
+keywords = ["elasticemail", "email", "smtp", "transactional", "api"]
+categories = ["api-bindings", "email", "web-programming::http-client"]
+exclude = [".github/", ".travis.yml"]
 
 [dependencies]
 serde = { version = "^1.0", features = ["derive"] }
