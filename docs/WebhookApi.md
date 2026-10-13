@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**webhook_by_publicid_delete**](WebhookApi.md#webhook_by_publicid_delete) | **DELETE** /webhook/{publicid} | Delete Webhook
 [**webhook_by_publicid_get**](WebhookApi.md#webhook_by_publicid_get) | **GET** /webhook/{publicid} | Load Webhook
 [**webhook_by_publicid_put**](WebhookApi.md#webhook_by_publicid_put) | **PUT** /webhook/{publicid} | Update Webhook
+[**webhook_by_publicid_secret_rotate_post**](WebhookApi.md#webhook_by_publicid_secret_rotate_post) | **POST** /webhook/{publicid}/secret/rotate | Rotate Webhook Secret
 [**webhook_get**](WebhookApi.md#webhook_get) | **GET** /webhook | Load Webhooks
 [**webhook_post**](WebhookApi.md#webhook_post) | **POST** /webhook | Add Webhook
 
@@ -98,6 +99,36 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## webhook_by_publicid_secret_rotate_post
+
+> models::Webhook webhook_by_publicid_secret_rotate_post(publicid)
+Rotate Webhook Secret
+
+Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**publicid** | **String** |  | [required] |
+
+### Return type
+
+[**models::Webhook**](Webhook.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

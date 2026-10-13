@@ -45,6 +45,14 @@ pub struct Webhook {
     pub notification_for_error: Option<bool>,
     #[serde(rename = "IsEnabled", skip_serializing_if = "Option::is_none")]
     pub is_enabled: Option<bool>,
+    /// Requests carry an HMAC-SHA256 signature. Chosen when the webhook is created and can't be changed.
+    #[serde(rename = "SigningEnabled", skip_serializing_if = "Option::is_none")]
+    pub signing_enabled: Option<bool>,
+    #[serde(rename = "DeliveryMethod", skip_serializing_if = "Option::is_none")]
+    pub delivery_method: Option<models::WebhookDeliveryMethod>,
+    /// Signing secret - returned only once, when a webhook is created with signing or its secret is rotated. Store it safely.
+    #[serde(rename = "SigningSecret", skip_serializing_if = "Option::is_none")]
+    pub signing_secret: Option<String>,
 }
 
 impl Webhook {
@@ -64,6 +72,9 @@ impl Webhook {
             notification_for_abuse_report: None,
             notification_for_error: None,
             is_enabled: None,
+            signing_enabled: None,
+            delivery_method: None,
+            signing_secret: None,
         }
     }
 }

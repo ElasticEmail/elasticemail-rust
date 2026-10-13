@@ -34,6 +34,11 @@ pub struct WebhookCreatePayload {
     pub notification_for_abuse_report: Option<bool>,
     #[serde(rename = "NotificationForError", skip_serializing_if = "Option::is_none")]
     pub notification_for_error: Option<bool>,
+    /// Sign every request with HMAC-SHA256. Can be set only when the webhook is created. Default: false.
+    #[serde(rename = "EnableSigning", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enable_signing: Option<Option<bool>>,
+    #[serde(rename = "DeliveryMethod", skip_serializing_if = "Option::is_none")]
+    pub delivery_method: Option<models::WebhookDeliveryMethod>,
 }
 
 impl WebhookCreatePayload {
@@ -49,6 +54,8 @@ impl WebhookCreatePayload {
             notification_for_unsubscribed: None,
             notification_for_abuse_report: None,
             notification_for_error: None,
+            enable_signing: None,
+            delivery_method: None,
         }
     }
 }

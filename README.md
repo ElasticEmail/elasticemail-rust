@@ -65,7 +65,7 @@ Or add it to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ElasticEmail = "4.2"
+ElasticEmail = "4.3"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
@@ -190,7 +190,7 @@ More complete, runnable samples are in the **[Elastic Email examples repository]
 
 ## API reference
 
-All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **114 endpoints** across 16 API modules: `campaigns_api`, `contacts_api`, `domains_api`, `emails_api`, `events_api`, `files_api`, `inbound_route_api`, `lists_api`, `security_api`, `segments_api`, `statistics_api`, `sub_accounts_api`, `suppressions_api`, `templates_api`, `verifications_api` and `webhook_api`. Each endpoint is a free `async fn` in `ElasticEmail::apis::<module>` that takes `&Configuration` as its first argument.
+All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **115 endpoints** across 16 API modules: `campaigns_api`, `contacts_api`, `domains_api`, `emails_api`, `events_api`, `files_api`, `inbound_route_api`, `lists_api`, `security_api`, `segments_api`, `statistics_api`, `sub_accounts_api`, `suppressions_api`, `templates_api`, `verifications_api` and `webhook_api`. Each endpoint is a free `async fn` in `ElasticEmail::apis::<module>` that takes `&Configuration` as its first argument.
 
 <details>
 <summary><strong>Show all endpoints</strong></summary>
@@ -312,6 +312,7 @@ Class | Method | HTTP request | Description
 *WebhookApi* | [**webhook_by_publicid_delete**](docs/WebhookApi.md#webhook_by_publicid_delete) | **DELETE** /webhook/{publicid} | Delete Webhook
 *WebhookApi* | [**webhook_by_publicid_get**](docs/WebhookApi.md#webhook_by_publicid_get) | **GET** /webhook/{publicid} | Load Webhook
 *WebhookApi* | [**webhook_by_publicid_put**](docs/WebhookApi.md#webhook_by_publicid_put) | **PUT** /webhook/{publicid} | Update Webhook
+*WebhookApi* | [**webhook_by_publicid_secret_rotate_post**](docs/WebhookApi.md#webhook_by_publicid_secret_rotate_post) | **POST** /webhook/{publicid}/secret/rotate | Rotate Webhook Secret
 *WebhookApi* | [**webhook_get**](docs/WebhookApi.md#webhook_get) | **GET** /webhook | Load Webhooks
 *WebhookApi* | [**webhook_post**](docs/WebhookApi.md#webhook_post) | **POST** /webhook | Add Webhook
 
@@ -321,7 +322,7 @@ Class | Method | HTTP request | Description
 ## Models
 
 <details>
-<summary><strong>Show all 98 models</strong></summary>
+<summary><strong>Show all 99 models</strong></summary>
 
  - [AccessLevel](docs/AccessLevel.md)
  - [AccountStatusEnum](docs/AccountStatusEnum.md)
@@ -420,6 +421,7 @@ Class | Method | HTTP request | Description
  - [VerificationStatus](docs/VerificationStatus.md)
  - [Webhook](docs/Webhook.md)
  - [WebhookCreatePayload](docs/WebhookCreatePayload.md)
+ - [WebhookDeliveryMethod](docs/WebhookDeliveryMethod.md)
  - [WebhookUpdatePayload](docs/WebhookUpdatePayload.md)
 
 
@@ -445,7 +447,7 @@ The SDK follows the Elastic Email API v4. Crate versions are listed on [crates.i
 <summary>Build details</summary>
 
 - API version: 4.0.0
-- SDK version: 4.2.0
+- SDK version: 4.3.0
 - Generator version: 7.11.0
 - Build package: `org.openapitools.codegen.languages.RustClientCodegen`
 

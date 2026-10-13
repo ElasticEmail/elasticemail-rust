@@ -36,6 +36,13 @@ pub enum WebhookByPublicidPutError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`webhook_by_publicid_secret_rotate_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum WebhookByPublicidSecretRotatePostError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`webhook_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -153,6 +160,41 @@ pub async fn webhook_by_publicid_put(configuration: &configuration::Configuratio
     } else {
         let content = resp.text().await?;
         let entity: Option<WebhookByPublicidPutError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+pub async fn webhook_by_publicid_secret_rotate_post(configuration: &configuration::Configuration, publicid: &str) -> Result<models::Webhook, Error<WebhookByPublicidSecretRotatePostError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_publicid = publicid;
+
+    let uri_str = format!("{}/webhook/{publicid}/secret/rotate", configuration.base_path, publicid=crate::apis::urlencode(p_publicid));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("X-ElasticEmail-ApiKey", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<WebhookByPublicidSecretRotatePostError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

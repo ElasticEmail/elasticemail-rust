@@ -192,5 +192,7 @@ pub mod webhook;
 pub use self::webhook::Webhook;
 pub mod webhook_create_payload;
 pub use self::webhook_create_payload::WebhookCreatePayload;
+pub mod webhook_delivery_method;
+pub use self::webhook_delivery_method::WebhookDeliveryMethod;
 pub mod webhook_update_payload;
 pub use self::webhook_update_payload::WebhookUpdatePayload;
