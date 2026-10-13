@@ -161,16 +161,32 @@ pub async fn emails_by_transactionid_status_get(configuration: &configuration::C
     }
 }
 
+// HAND-WRITTEN (not generated) - keep on regeneration. The generator adds the optional
+// Idempotency-Key header as a third positional argument of `emails_mergefile_post`; to keep 4.x
+// non-breaking, `emails_mergefile_post` keeps its 4.3.0 signature and the generated function
+// is renamed to `emails_mergefile_post_with_idempotency_key`.
 /// Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
 pub async fn emails_mergefile_post(configuration: &configuration::Configuration, merge_email_payload: models::MergeEmailPayload) -> Result<models::EmailSend, Error<EmailsMergefilePostError>> {
+    emails_mergefile_post_with_idempotency_key(configuration, merge_email_payload, None).await
+}
+
+// HAND-WRITTEN rename (generated as `emails_mergefile_post`), see above.
+/// Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
+///
+/// `idempotency_key` is sent as the `Idempotency-Key` header and makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. `None` sends no header.
+pub async fn emails_mergefile_post_with_idempotency_key(configuration: &configuration::Configuration, merge_email_payload: models::MergeEmailPayload, idempotency_key: Option<&str>) -> Result<models::EmailSend, Error<EmailsMergefilePostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_merge_email_payload = merge_email_payload;
+    let p_idempotency_key = idempotency_key;
 
     let uri_str = format!("{}/emails/mergefile", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = p_idempotency_key {
+        req_builder = req_builder.header("Idempotency-Key", param_value.to_string());
     }
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
@@ -197,16 +213,32 @@ pub async fn emails_mergefile_post(configuration: &configuration::Configuration,
     }
 }
 
+// HAND-WRITTEN (not generated) - keep on regeneration. The generator adds the optional
+// Idempotency-Key header as a third positional argument of `emails_post`; to keep 4.x
+// non-breaking, `emails_post` keeps its 4.3.0 signature and the generated function
+// is renamed to `emails_post_with_idempotency_key`.
 /// Send bulk merge email. Required Access Level: SendHttp
 pub async fn emails_post(configuration: &configuration::Configuration, email_message_data: models::EmailMessageData) -> Result<models::EmailSend, Error<EmailsPostError>> {
+    emails_post_with_idempotency_key(configuration, email_message_data, None).await
+}
+
+// HAND-WRITTEN rename (generated as `emails_post`), see above.
+/// Send bulk merge email. Required Access Level: SendHttp
+///
+/// `idempotency_key` is sent as the `Idempotency-Key` header and makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. `None` sends no header.
+pub async fn emails_post_with_idempotency_key(configuration: &configuration::Configuration, email_message_data: models::EmailMessageData, idempotency_key: Option<&str>) -> Result<models::EmailSend, Error<EmailsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_email_message_data = email_message_data;
+    let p_idempotency_key = idempotency_key;
 
     let uri_str = format!("{}/emails", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = p_idempotency_key {
+        req_builder = req_builder.header("Idempotency-Key", param_value.to_string());
     }
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
@@ -233,16 +265,32 @@ pub async fn emails_post(configuration: &configuration::Configuration, email_mes
     }
 }
 
+// HAND-WRITTEN (not generated) - keep on regeneration. The generator adds the optional
+// Idempotency-Key header as a third positional argument of `emails_transactional_post`; to keep 4.x
+// non-breaking, `emails_transactional_post` keeps its 4.3.0 signature and the generated function
+// is renamed to `emails_transactional_post_with_idempotency_key`.
 /// Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
 pub async fn emails_transactional_post(configuration: &configuration::Configuration, email_transactional_message_data: models::EmailTransactionalMessageData) -> Result<models::EmailSend, Error<EmailsTransactionalPostError>> {
+    emails_transactional_post_with_idempotency_key(configuration, email_transactional_message_data, None).await
+}
+
+// HAND-WRITTEN rename (generated as `emails_transactional_post`), see above.
+/// Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
+///
+/// `idempotency_key` is sent as the `Idempotency-Key` header and makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. `None` sends no header.
+pub async fn emails_transactional_post_with_idempotency_key(configuration: &configuration::Configuration, email_transactional_message_data: models::EmailTransactionalMessageData, idempotency_key: Option<&str>) -> Result<models::EmailSend, Error<EmailsTransactionalPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_email_transactional_message_data = email_transactional_message_data;
+    let p_idempotency_key = idempotency_key;
 
     let uri_str = format!("{}/emails/transactional", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(param_value) = p_idempotency_key {
+        req_builder = req_builder.header("Idempotency-Key", param_value.to_string());
     }
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();

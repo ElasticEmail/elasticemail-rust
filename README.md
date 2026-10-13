@@ -37,6 +37,7 @@ The official Rust client library for the [Elastic Email](https://elasticemail.co
 - **Campaigns and automations.** Create, update, pause and trigger automations for a contact.
 - **Templates, files and attachments.** Manage templates and uploaded files.
 - **Domains.** Verify sending domains and check SPF, DKIM, tracking and certificate status.
+- **Safe retries.** Pass an `Idempotency-Key` on email sends so a retried request is never sent or charged twice.
 - **Webhooks and inbound routes.** Receive delivery events, optionally signed with HMAC-SHA256 and sent as JSON, and route incoming mail.
 - **Statistics, events and suppressions.** Track delivery, bounces, complaints and unsubscribes.
 - **Subaccounts and security.** Manage subaccounts and API keys.
@@ -65,7 +66,7 @@ Or add it to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ElasticEmail = "4.3"
+ElasticEmail = "4.4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
@@ -135,6 +136,26 @@ match emails_api::emails_transactional_post(&config, message).await {
 ```
 
 The `from` address must use a domain you've [verified in your Elastic Email account](https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain).
+
+### Retry a send safely (Idempotency-Key)
+
+Use the `*_with_idempotency_key` variant of a send to make it safe to retry after a timeout or a network error. If the first request already went through, the retry gets the stored response (same `TransactionID` and `MessageID`), and nothing is sent or charged twice.
+
+```rust
+// uuid = { version = "1", features = ["v4"] }
+let key = uuid::Uuid::new_v4().to_string(); // one new key per logical send
+
+let mut attempts = 0;
+let result = loop {
+    match emails_api::emails_transactional_post_with_idempotency_key(&config, message.clone(), Some(&key)).await {
+        // Network error or timeout: retry with the same key and the same message.
+        Err(Error::Reqwest(_)) if attempts < 3 => attempts += 1,
+        other => break other?,
+    }
+};
+```
+
+Reuse a key only to retry the same send, with the same message, within 24 hours; `emails_post_with_idempotency_key` and `emails_mergefile_post_with_idempotency_key` work the same way. The same key with a different message returns `422`, a retry while the first request is still running returns `409`, and `503` means the key couldn't be checked, so wait for `Retry-After` and retry with the same key. `emails_transactional_post` and the other existing functions keep their signatures and send no key.
 
 ### Send from a template with merge fields
 
@@ -254,8 +275,11 @@ Class | Method | HTTP request | Description
 *EmailsApi* | [**emails_by_msgid_view_get**](docs/EmailsApi.md#emails_by_msgid_view_get) | **GET** /emails/{msgid}/view | View Email
 *EmailsApi* | [**emails_by_transactionid_status_get**](docs/EmailsApi.md#emails_by_transactionid_status_get) | **GET** /emails/{transactionid}/status | Get Status
 *EmailsApi* | [**emails_mergefile_post**](docs/EmailsApi.md#emails_mergefile_post) | **POST** /emails/mergefile | Send Bulk Emails CSV
+*EmailsApi* | [**emails_mergefile_post_with_idempotency_key**](docs/EmailsApi.md#emails_mergefile_post_with_idempotency_key) | **POST** /emails/mergefile | Send Bulk Emails CSV (with Idempotency-Key)
 *EmailsApi* | [**emails_post**](docs/EmailsApi.md#emails_post) | **POST** /emails | Send Bulk Emails
+*EmailsApi* | [**emails_post_with_idempotency_key**](docs/EmailsApi.md#emails_post_with_idempotency_key) | **POST** /emails | Send Bulk Emails (with Idempotency-Key)
 *EmailsApi* | [**emails_transactional_post**](docs/EmailsApi.md#emails_transactional_post) | **POST** /emails/transactional | Send Transactional Email
+*EmailsApi* | [**emails_transactional_post_with_idempotency_key**](docs/EmailsApi.md#emails_transactional_post_with_idempotency_key) | **POST** /emails/transactional | Send Transactional Email (with Idempotency-Key)
 *EventsApi* | [**events_by_transactionid_get**](docs/EventsApi.md#events_by_transactionid_get) | **GET** /events/{transactionid} | Load Email Events
 *EventsApi* | [**events_channels_by_name_export_post**](docs/EventsApi.md#events_channels_by_name_export_post) | **POST** /events/channels/{name}/export | Export Channel Events
 *EventsApi* | [**events_channels_by_name_get**](docs/EventsApi.md#events_channels_by_name_get) | **GET** /events/channels/{name} | Load Channel Events
@@ -474,7 +498,7 @@ The SDK follows the Elastic Email API v4. Crate versions are listed on [crates.i
 <summary>Build details</summary>
 
 - API version: 4.0.0
-- SDK version: 4.3.0
+- SDK version: 4.4.0
 - Generator version: 7.11.0
 - Build package: `org.openapitools.codegen.languages.RustClientCodegen`
 
